@@ -16,12 +16,12 @@ endif
 let g:colors_name = "afterglow"
 
 " Default GUI Colours
-let s:foreground = "d6d6d6"
-let s:background = "1a1a1a"
+let s:foreground = "eeeeee"
+let s:background = "000000"
 let s:selection = "5a647e"
 let s:line = "393939"
 let s:comment = "797979"
-let s:red = "ac4142"
+let s:red = "DF7861"
 let s:orange = "e87d3e"
 let s:yellow = "e5b567"
 let s:green = "b4c973"
