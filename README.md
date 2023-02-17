@@ -33,7 +33,7 @@ Click on the image below to view it in the original size (more screenshots below
 
 ## Setup
 
-To enable it, simply add `colorscheme afterglow` (not ~~vim-afterglow~~) to your `~/.vimrc` after having installed the plugin (manually or by using a package manager).
+To enable it, simply add `colorscheme devglow` to your `~/.vimrc` after having installed the plugin (manually or by using a package manager).
 
 > Airline theme should be updated accordingly, but can be explicitly specified by using `let g:airline_theme='afterglow'`.
 
