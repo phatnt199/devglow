@@ -1,8 +1,6 @@
-# vim-afterglow
+# devglow
 
 Vim adaptation of the famous [Afterglow](https://github.com/YabataDesign/afterglow-theme) theme from Sublime Text 2/3.
-
-_If you like this project, feel free to pay me a cup of coffee!_ 😊 ☕️ ❤️  👉 &nbsp;&nbsp;&nbsp; [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MVSBJ7JKSVGZ4&source=url)
 
 ## Features
 
