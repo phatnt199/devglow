@@ -1,7 +1,7 @@
-" File: afterglow.vim
+" File: devglow.vim
 " Author: Danilo Augusto
 " Date: 2017-02-27
-" Vim color file - Afterglow (monokai version)
+" Vim color file - devglow (monokai version)
 "
 " Hex color conversion functions borrowed from the theme 'Desert256'
 
@@ -13,11 +13,11 @@ if version > 580
     endif
 endif
 
-let g:colors_name = "afterglow"
+let g:colors_name = "devglow"
 
 " Default GUI Colours
 let s:foreground = "eeeeee"
-let s:background = "000000"
+let s:background = "080808"
 let s:selection = "5a647e"
 let s:line = "393939"
 let s:comment = "797979"
@@ -249,22 +249,22 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         endif
     endfun
 
-    " by default: toggled on (backcompatibility with g:afterglow_italic_comments)
-    " option g:afterglow_use_italics
-    if exists("g:afterglow_use_italics") && !g:afterglow_use_italics
+    " by default: toggled on (backcompatibility with g:devglow_italic_comments)
+    " option g:devglow_use_italics
+    if exists("g:devglow_use_italics") && !g:devglow_use_italics
         let italic = ""
     else
         " make the global variable available to command mode
-        let g:afterglow_use_italics = 1
+        let g:devglow_use_italics = 1
         let italic = "italic"
     endif
 
-    " option g:afterglow_italic_comments
-    if exists("g:afterglow_italic_comments") && g:afterglow_italic_comments
+    " option g:devglow_italic_comments
+    if exists("g:devglow_italic_comments") && g:devglow_italic_comments
         call <SID>X("Comment", s:comment, "", italic)
     else
         " make the global variable available to command mode
-        let g:afterglow_italic_comments = 0
+        let g:devglow_italic_comments = 0
         call <SID>X("Comment", s:comment, "", "")
     endif
 
@@ -558,31 +558,31 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("gitFile", s:orange, "", "")
     call <SID>X("gitcommitSummary", "", "", "bold")
 
-    " Option g:afterglow_blackout
-    if !exists( "g:afterglow_blackout")
-        let g:afterglow_blackout = 0
+    " Option g:devglow_blackout
+    if !exists( "g:devglow_blackout")
+        let g:devglow_blackout = 0
     endif
 
-    " Option g:afterglow_no_terminal_background
-    if !exists("g:afterglow_inherit_background")
-        let g:afterglow_inherit_background = 0
+    " Option g:devglow_no_terminal_background
+    if !exists("g:devglow_inherit_background")
+        let g:devglow_inherit_background = 0
     endif
 
     " Background behavior inference here
-    if g:afterglow_inherit_background && has("gui_running")
+    if g:devglow_inherit_background && has("gui_running")
         echohl WarningMsg | echom "Inherit background is ignored in GUI." | echohl NONE
-        let g:afterglow_inherit_background = 0
+        let g:devglow_inherit_background = 0
     endif
 
-    if g:afterglow_inherit_background
+    if g:devglow_inherit_background
         let s:chosen_background = "NONE"
-    elseif g:afterglow_blackout
+    elseif g:devglow_blackout
         let s:chosen_background = s:black
     else
         let s:chosen_background = s:background
     endif
 
-    " Settings dependent on g:afterglow_blackout
+    " Settings dependent on g:devglow_blackout
     call <SID>X("Normal", s:foreground, s:chosen_background, "")
     call <SID>X("LineNr", s:comment, s:chosen_background, "")
     if version >= 700

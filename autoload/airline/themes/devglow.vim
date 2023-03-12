@@ -1,5 +1,5 @@
 " Author:   Danilo Augusto
-" Script:   Afterglow (vim-airline version)
+" Script:   devglow (vim-airline version)
 " License:  MIT
 " Date:     2017-02-27
 
@@ -44,11 +44,11 @@ let s:ctermWhite = "231"
 let s:ctermGray = "243"
 let s:ctermDarkGray = "240"
 
-" Depends on g:afterglow_blackout
-if !exists( "g:afterglow_blackout")
-    let g:afterglow_blackout = 0
+" Depends on g:devglow_blackout
+if !exists( "g:devglow_blackout")
+    let g:devglow_blackout = 0
 endif
-if g:afterglow_blackout
+if g:devglow_blackout
     let s:guiAlmostBlack = "#121212"
     let s:ctermAlmostBlack = "233"
 else
@@ -56,43 +56,43 @@ else
     let s:ctermAlmostBlack = "235"
 endif
 
-let g:airline#themes#afterglow#palette = {}
+let g:airline#themes#devglow#palette = {}
 let s:modified = { 'airline_c': [s:gui03, '', s:cterm03, '', ''] }
 
 " Normal mode
 let s:N1 = [s:gui07, s:gui0D, s:cterm07, s:cterm0D]
 let s:N2 = [s:guiWhite, s:gui04, s:ctermWhite, s:cterm04]
 let s:N3 = [s:gui04, s:guiAlmostBlack, s:cterm04, s:ctermAlmostBlack]
-let g:airline#themes#afterglow#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-let g:airline#themes#afterglow#palette.normal_modified = s:modified
+let g:airline#themes#devglow#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+let g:airline#themes#devglow#palette.normal_modified = s:modified
 
 " Insert mode
 let s:I1 = [s:guiWhite, s:gui0B, s:ctermWhite, s:cterm0B]
 let s:I2 = s:N2
 let s:I3 = [s:guiWhite, s:gui0D, s:ctermWhite, s:cterm0D]
-let g:airline#themes#afterglow#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
-let g:airline#themes#afterglow#palette.insert_modified = s:modified
+let g:airline#themes#devglow#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+let g:airline#themes#devglow#palette.insert_modified = s:modified
 
 " Visual mode
 let s:V1 = [s:guiWhite, s:gui05, s:ctermWhite, s:cterm05]
 let s:V2 = s:N2
 let s:V3 = s:I3
-let g:airline#themes#afterglow#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
-let g:airline#themes#afterglow#palette.visual_modified = s:modified
+let g:airline#themes#devglow#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
+let g:airline#themes#devglow#palette.visual_modified = s:modified
 
 " Replace mode
 let s:R1 = [s:gui08, s:gui00, s:cterm08, s:cterm00]
 let s:R2 = s:N2
 let s:R3 = [s:guiWhite, s:gui05, s:ctermWhite, s:cterm05]
-let g:airline#themes#afterglow#palette.replace = airline#themes#generate_color_map(s:R1, s:R2, s:R3)
-let g:airline#themes#afterglow#palette.replace_modified = s:modified
+let g:airline#themes#devglow#palette.replace = airline#themes#generate_color_map(s:R1, s:R2, s:R3)
+let g:airline#themes#devglow#palette.replace_modified = s:modified
 
 " Inactive mode
 let s:IN1 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
 let s:IN2 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
 let s:IN3 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
-let g:airline#themes#afterglow#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
-let g:airline#themes#afterglow#palette.inactive_modified = s:modified
+let g:airline#themes#devglow#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
+let g:airline#themes#devglow#palette.inactive_modified = s:modified
 
 " CtrlP
 if !get(g:, 'loaded_ctrlp', 0)
