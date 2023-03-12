@@ -1,6 +1,6 @@
 # devglow
 
-Vim adaptation of the famous [Afterglow](https://github.com/YabataDesign/afterglow-theme) theme from Sublime Text 2/3.
+Vim adaptation of the famous [devglow](https://github.com/YabataDesign/afterglow-theme) theme from Sublime Text 2/3.
 
 ## Features
 
@@ -39,24 +39,24 @@ To enable it, simply add `colorscheme devglow` to your `~/.vimrc` after having i
 
 ## Options
 
-To further customize Afterglow, you can use the following options **before** setting the color scheme on your
+To further customize devglow, you can use the following options **before** setting the color scheme on your
 `vimrc` (or `init.vim` if using NeoVim):
 
-- Blackout: `let g:afterglow_blackout=1 (default: 0)`
+- Blackout: `let g:devglow_blackout=1 (default: 0)`
 
      ☀️  Use this option if you need more contrast, such as when working in an office where open windows are just behind you, causing glare on your screen.
 
-     > This option has no effect if `g:afterglow_inherit_background` is also set.
+     > This option has no effect if `g:devglow_inherit_background` is also set.
 
-- Italicize comments: `let g:afterglow_italic_comments=1 (default: 0)`
+- Italicize comments: `let g:devglow_italic_comments=1 (default: 0)`
 
     📖 Helps visual grepping and quickly differentiating source code and comments when skimming through files.
 
     > If using a terminal emulator (iTerm, Alacritty, Terminator...), check if it correctly supports italics. Evidently your chosen font type should have an italics variety too. In case of problems please check these two common scenarios before opening an issue concerning *italics*.
 
-- If you want to disable italics completely (for example if your emulator renders it with background highlight): `let g:afterglow_use_italics=0 (default: 1)`
+- If you want to disable italics completely (for example if your emulator renders it with background highlight): `let g:devglow_use_italics=0 (default: 1)`
 
-- Inherit background: `let g:afterglow_inherit_background=1 (default: 0)`
+- Inherit background: `let g:devglow_inherit_background=1 (default: 0)`
 
     Use this option if you want the background color to play nicely with the program (e.g. gVim, iTerm etc.) in which vim is used. It may be useful when instantiating vim inside Tmux.
 
