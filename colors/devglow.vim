@@ -27,8 +27,7 @@ let s:yellow = "e5b567"
 let s:green = "b4c973"
 let s:blue = "6c99bb"
 let s:wine = "b05279"
-" let s:purple = "9e86c8"
-let s:purple = "333333"
+let s:purple = "9e86c8"
 let s:window = "4d5057"
 
 " Auxiliar colors
