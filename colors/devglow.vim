@@ -16,19 +16,20 @@ endif
 let g:colors_name = "devglow"
 
 " Default GUI Colours
-let s:foreground = "eeeeee"
-let s:background = "080808"
-let s:selection = "5a647e"
-let s:line = "393939"
-let s:comment = "797979"
-let s:red = "820000"
-let s:orange = "e87d3e"
-let s:yellow = "e5b567"
-let s:green = "b4c973"
-let s:blue = "6c99bb"
-let s:wine = "b05279"
-let s:purple = "9e86c8"
-let s:window = "4d5057"
+let s:foreground = "#eeeeee"
+let s:background = "#080808"
+let s:selection = "#5a647e"
+let s:line = "#393939"
+let s:comment = "#797979"
+let s:red = "#820000"
+let s:orange = "#e87d3e"
+let s:yellow = "#e5b567"
+let s:green = "#b4c973"
+let s:blue = "#6c99bb"
+let s:wine = "#b05279"
+let s:purple = "#9e86c8"
+let s:window = "#4d5057"
+let s:float = '#333333'
 
 " Auxiliar colors
 let s:black = "000000"
@@ -406,7 +407,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("javaScriptRegexpString", s:yellow, "", "")
     call <SID>X("javaScriptTemplateString", s:yellow, "", "")
     call <SID>X("javaScriptNumber", s:purple, "", "")
-    call <SID>X("javaScriptFloat", s:purple, "", "")
+    call <SID>X("javaScriptFloat", s:float, "", "")
     call <SID>X("javaScriptGlobal", s:purple, "", "")
     call <SID>X("javaScriptCharacter", s:blue, "", "")
     call <SID>X("javaScriptPrototype", s:blue, "", "")
