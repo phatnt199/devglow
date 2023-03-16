@@ -407,7 +407,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("javaScriptRegexpString", s:yellow, "", "")
     call <SID>X("javaScriptTemplateString", s:yellow, "", "")
     call <SID>X("javaScriptNumber", s:purple, "", "")
-    call <SID>X("javaScriptFloat", s:float, "", "")
+    call <SID>X("javaScriptFloat", s:purple, "", "")
     call <SID>X("javaScriptGlobal", s:purple, "", "")
     call <SID>X("javaScriptCharacter", s:blue, "", "")
     call <SID>X("javaScriptPrototype", s:blue, "", "")
