@@ -16,21 +16,24 @@ endif
 let g:colors_name = "devglow"
 
 " Default GUI Colours
-let s:foreground = "eeeeee"
+let s:foreground = "EEEEEE"
 let s:background = "080808"
-let s:selection = "5a647e"
+let s:selection = "656A78"
 let s:line = "393939"
 let s:comment = "797979"
 let s:red = "820000"
-let s:orange = "e87d3e"
-let s:yellow = "e5b567"
-let s:green = "b4c973"
-let s:blue = "6c99bb"
-let s:wine = "b05279"
-let s:purple = "9e86c8"
-let s:window = "4d5057"
-
-" Auxiliar colors
+let s:orange = "E87D3E"
+let s:yellow = "E5B567"
+let s:green = "B4C973"
+let s:blue = "6C99BB"
+let s:wine = "B05279"
+let s:purple = "9E86C8"
+let s:window = "4D5057"
+let s:folder = "7A4040"
+let s:error = "EA5455"
+let s:warn = "FFA500"
+let s:info = "7DB9B6"
+let s:hint = "002B5B"
 let s:black = "000000"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
@@ -614,6 +617,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " ALE (plugin)
     call <SID>X("ALEWarningSign", s:orange, s:chosen_background, "bold")
     call <SID>X("ALEErrorSign", s:red, s:chosen_background, "bold")
+    
+    " Diagnostic 
+    call <SID>X("DiagnosticError", s:error, "", "bold")
+    call <SID>X("DiagnosticWarn", s:warn, "", "bold")
+    call <SID>X("DiagnosticInfo", s:info, "", "bold")
+    call <SID>X("DiagnosticHint", s:hint, "", "bold")
+    call <SID>X("Pmenu", "", s:window, "")
+    call <SID>X("Dictionary", s:folder, "", "bold")
+    
+    " Nvim tree 
+    call <SID>X("NvimTreeFolderName", s:foreground, "", "")
+    hi! link NvimTreeRootFolder Directory
+    hi! link NvimTreeFolderIcon Directory
+    hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
+    hi! link NvimTreeOpenedFolderName NvimTreeFolderName
 
     " Delete Functions
     delf <SID>X
