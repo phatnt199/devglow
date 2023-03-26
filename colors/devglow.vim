@@ -281,7 +281,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
     call <SID>X("VertSplit", s:window, s:window, "NONE")
     call <SID>X("Visual", "", s:selection, "")
-    call <SID>X("Directory", s:blue, "", "")
+    call <SID>X("Directory", s:folder, "", "")
     call <SID>X("ModeMsg", s:green, "", "")
     call <SID>X("MoreMsg", s:green, "", "")
     call <SID>X("Question", s:green, "", "")
@@ -289,6 +289,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("MatchParen", "", s:selection, "")
     call <SID>X("Folded", s:comment, s:background, "")
     call <SID>X("FoldColumn", "", s:background, "")
+    call <SID>X("Pmenu", "", s:window, "")
     if version >= 700
         call <SID>X("CursorLine", "", s:line, "NONE")
         call <SID>X("CursorLineNR", s:orange, "", "NONE")
@@ -623,8 +624,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("DiagnosticWarn", s:warn, "", "bold")
     call <SID>X("DiagnosticInfo", s:info, "", "bold")
     call <SID>X("DiagnosticHint", s:hint, "", "bold")
-    call <SID>X("Pmenu", "", s:window, "")
-    call <SID>X("Dictionary", s:folder, "", "bold")
     
     " Nvim tree 
     call <SID>X("NvimTreeFolderName", s:foreground, "", "")
