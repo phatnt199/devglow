@@ -625,6 +625,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("DiagnosticHint", s:blue, "", "bold")
     
     " Nvim tree 
+    call <SID>X("NvimTreeWindowPicker", s:foreground, s:folder, "bold")
     call <SID>X("NvimTreeFolderName", s:foreground, "", "")
     hi! link NvimTreeRootFolder Directory
     hi! link NvimTreeFolderIcon Directory
