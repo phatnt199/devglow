@@ -33,7 +33,6 @@ let s:folder = "7A4040"
 let s:error = "EA5455"
 let s:warn = "FFA500"
 let s:info = "7DB9B6"
-let s:hint = "002B5B"
 let s:black = "000000"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
@@ -623,7 +622,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("DiagnosticError", s:error, "", "bold")
     call <SID>X("DiagnosticWarn", s:warn, "", "bold")
     call <SID>X("DiagnosticInfo", s:info, "", "bold")
-    call <SID>X("DiagnosticHint", s:hint, "", "bold")
+    call <SID>X("DiagnosticHint", s:blue, "", "bold")
     
     " Nvim tree 
     call <SID>X("NvimTreeFolderName", s:foreground, "", "")
