@@ -17,7 +17,7 @@ let g:colors_name = "devglow"
 
 " Default GUI Colours
 let s:foreground = "EEEEEE"
-let s:background = "080808"
+let s:background = "111111"
 let s:selection = "656A78"
 let s:line = "393939"
 let s:comment = "797979"
