@@ -17,7 +17,7 @@ let g:colors_name = "devglow"
 
 " Default GUI Colours
 let s:foreground = "EEEEEE"
-let s:background = "111111"
+let s:background = "222222"
 let s:selection = "656A78"
 let s:line = "393939"
 let s:comment = "797979"
@@ -628,6 +628,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " Nvim tree 
     call <SID>X("NvimTreeWindowPicker", s:foreground, s:folder, "bold")
     call <SID>X("NvimTreeFolderName", s:foreground, "", "")
+    call <SID>X("NvimTreeNormal", s:foreground, s:black, "")
     hi! link NvimTreeRootFolder Directory
     hi! link NvimTreeFolderIcon Directory
     hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
