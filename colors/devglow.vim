@@ -278,7 +278,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
     call <SID>X("StatusLine", s:window, s:yellow, "reverse")
     call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-    call <SID>X("VertSplit", s:window, s:window, "NONE")
+    call <SID>X("VertSplit", s:comment, s:comment, "NONE")
     call <SID>X("Visual", "", s:selection, "")
     call <SID>X("Directory", s:folder, "", "")
     call <SID>X("ModeMsg", s:green, "", "")
@@ -288,6 +288,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("MatchParen", "", s:selection, "")
     call <SID>X("Folded", s:comment, s:background, "")
     call <SID>X("FoldColumn", "", s:background, "")
+    call <SID>X("Pmenu", "", s:window, "")
     call <SID>X("Pmenu", "", s:window, "")
     if version >= 700
         call <SID>X("CursorLine", "", s:line, "NONE")
