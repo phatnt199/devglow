@@ -17,7 +17,7 @@ let g:colors_name = "devglow"
 
 " Default GUI Colours
 let s:foreground = "EEEEEE"
-let s:background = "222222"
+let s:background = "111111"
 let s:selection = "656A78"
 let s:line = "393939"
 let s:comment = "797979"
@@ -288,7 +288,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("MatchParen", "", s:selection, "")
     call <SID>X("Folded", s:comment, s:background, "")
     call <SID>X("FoldColumn", "", s:background, "")
-    call <SID>X("Pmenu", "", s:window, "")
     call <SID>X("Pmenu", "", s:window, "")
     if version >= 700
         call <SID>X("CursorLine", "", s:line, "NONE")
