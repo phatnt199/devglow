@@ -1,16 +1,10 @@
-" File: devglow.vim
-" Author: Danilo Augusto
-" Date: 2017-02-27
-" Vim color file - devglow (monokai version)
-"
-" Hex color conversion functions borrowed from the theme 'Desert256'
-
 set background=dark
+
 if version > 580
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+  hi clear
+  if exists("syntax_on")
+    syntax reset
+  endif
 endif
 
 let g:colors_name = "devglow"
@@ -288,7 +282,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("MatchParen", "", s:selection, "")
     call <SID>X("Folded", s:comment, s:background, "")
     call <SID>X("FoldColumn", "", s:background, "")
-    call <SID>X("Pmenu", "", s:window, "")
+    call <SID>X("Pmenu", "", s:line, "")
     if version >= 700
         call <SID>X("CursorLine", "", s:line, "NONE")
         call <SID>X("CursorLineNR", s:orange, "", "NONE")
