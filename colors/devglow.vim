@@ -28,6 +28,7 @@ let s:error = "EA5455"
 let s:warn = "FFA500"
 let s:info = "7DB9B6"
 let s:black = "000000"
+let s:minimal_black = "222222"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Returns an approximate grey index for the given grey level
@@ -611,7 +612,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         " Nvim tree 
         call <SID>X("NvimTreeWindowPicker", s:foreground, s:folder, "bold")
         call <SID>X("NvimTreeFolderName", s:foreground, "", "")
-        call <SID>X("NvimTreeNormal", s:foreground, s:black, "")
+        call <SID>X("NvimTreeNormal", s:foreground, s:minimal_black, "")
         hi! link NvimTreeRootFolder Directory
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
