@@ -12,6 +12,7 @@ let g:colors_name = "devglow"
 " Default GUI Colours
 let s:foreground = "EEEEEE"
 let s:background = "080808"
+let s:minimal_bg = "181818"
 let s:selection = "444444"
 let s:line = "393939"
 let s:comment = "797979"
@@ -271,7 +272,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
   call <SID>X("StatusLine", s:window, s:yellow, "reverse")
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:line, s:background, "")
+  call <SID>X("VertSplit", s:minimal_bg, s:background, "")
   call <SID>X("Visual", "", s:selection, "")
   call <SID>X("Directory", s:folder, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
