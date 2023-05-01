@@ -12,10 +12,10 @@ let g:colors_name = "devglow"
 " Default GUI Colours
 let s:foreground = "EEEEEE"
 let s:background = "080808"
-let s:selection = "656A78"
+let s:selection = "444444"
 let s:line = "393939"
 let s:comment = "797979"
-let s:red = "820000"
+let s:red = "AF5F5F"
 let s:orange = "E87D3E"
 let s:yellow = "E5B567"
 let s:green = "B4C973"
@@ -272,7 +272,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
   call <SID>X("StatusLine", s:window, s:yellow, "reverse")
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  " call <SID>X("VertSplit", s:comment, s:comment, "NONE")
+  call <SID>X("VertSplit", s:line, s:background, "")
   call <SID>X("Visual", "", s:selection, "")
   call <SID>X("Directory", s:folder, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
@@ -283,13 +283,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Folded", s:comment, s:background, "")
   call <SID>X("FoldColumn", "", s:background, "")
   call <SID>X("Pmenu", "", s:line, "")
+
   if version >= 700
     call <SID>X("CursorLine", "", s:line, "NONE")
     call <SID>X("CursorLineNR", s:orange, "", "NONE")
     call <SID>X("CursorColumn", "", s:line, "NONE")
-    call <SID>X("PMenu", s:foreground, s:line, "NONE")
+    call <SID>X("PMenu", "", s:line, "NONE")
     call <SID>X("PMenuSel", s:foreground, s:line, "reverse")
     end
+
     if version >= 703
       call <SID>X("ColorColumn", "", s:line, "NONE")
       end
@@ -569,7 +571,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       " Settings dependent on g:devglow_blackout
       call <SID>X("Normal", s:foreground, s:background, "")
       call <SID>X("LineNr", s:comment, s:background, "")
-      call <SID>X("VertSplit", s:comment, s:background, "")
 
       if version >= 700
         call <SID>X("SignColumn", "", s:background, "NONE")
