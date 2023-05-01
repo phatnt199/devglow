@@ -42,12 +42,6 @@ To enable it, simply add `colorscheme devglow` to your `~/.vimrc` after having i
 To further customize devglow, you can use the following options **before** setting the color scheme on your
 `vimrc` (or `init.vim` if using NeoVim):
 
-- Blackout: `let g:devglow_blackout=1 (default: 0)`
-
-     ☀️  Use this option if you need more contrast, such as when working in an office where open windows are just behind you, causing glare on your screen.
-
-     > This option has no effect if `g:devglow_inherit_background` is also set.
-
 - Italicize comments: `let g:devglow_italic_comments=1 (default: 0)`
 
     📖 Helps visual grepping and quickly differentiating source code and comments when skimming through files.
