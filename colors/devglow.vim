@@ -567,8 +567,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       endif
 
       " Settings dependent on g:devglow_blackout
-      call <SID>X("Normal", s:comment, s:background, "")
+      call <SID>X("Normal", s:foreground, s:background, "")
       call <SID>X("LineNr", s:comment, s:background, "")
+      call <SID>X("VertSplit", s:comment, s:background, "")
 
       if version >= 700
         call <SID>X("SignColumn", "", s:background, "NONE")
