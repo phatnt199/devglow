@@ -19,7 +19,7 @@ let s:line = "393939"
 let s:comment = "797979"
 let s:red = "AF5F5F"
 let s:orange = "E87D3E"
-let s:yellow = "EBC17A"
+let s:yellow = "E5B567"
 let s:green = "B4C973"
 let s:blue = "6789CA"
 let s:wine = "B05279"
@@ -312,7 +312,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("Special", s:orange, "", "")
       call <SID>X("PreProc", s:green, "", "")
       call <SID>X("Operator", s:purple, "", "")
-      call <SID>X("Type", s:yellow, "", "")
+      call <SID>X("Type", s:orange, "", "")
       call <SID>X("Define", s:green, "", "")
       call <SID>X("Include", s:green, "", "")
       call <SID>X("Tag", s:orange, "", "bold")
