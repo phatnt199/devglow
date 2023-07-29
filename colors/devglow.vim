@@ -28,9 +28,9 @@ let s:dim_text = 'CCCCCC'
 let s:selection = "444444"
 let s:minimal_bg = "181818"
 let s:folder = "7A4040"
-let s:error = "#EA5455"
-let s:warn = "#FFA500"
-let s:info = "#7DB9B6"
+let s:error = "EA5455"
+let s:warn = "FFA500"
+let s:info = "7DB9B6"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Returns an approximate grey index for the given grey level
