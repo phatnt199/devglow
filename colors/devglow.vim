@@ -307,14 +307,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("Structure", s:wine, "", "")
       call <SID>X("Function", s:orange, "", "")
       call <SID>X("Constant", s:purple, "", "")
-      call <SID>X("Keyword", s:green, "", "")
+      call <SID>X("Keyword", s:red, "", "")
       call <SID>X("String", s:yellow, "", "")
-      call <SID>X("Special", s:blue, "", "")
+      call <SID>X("Special", s:orange, "", "")
       call <SID>X("PreProc", s:green, "", "")
       call <SID>X("Operator", s:purple, "", "")
-      call <SID>X("Type", s:blue, "", "")
-      call <SID>X("Define", s:wine, "", "")
-      call <SID>X("Include", s:wine, "", "")
+      call <SID>X("Type", s:yellow, "", "")
+      call <SID>X("Define", s:green, "", "")
+      call <SID>X("Include", s:green, "", "")
       call <SID>X("Tag", s:orange, "", "bold")
       call <SID>X("Underlined", s:orange, "", "underline")
 
@@ -611,7 +611,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:red, "bold")
+        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:info, "bold")
         call <SID>X("NvimTreeFolderName", s:dim_forceground, "", "")
         call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
 
