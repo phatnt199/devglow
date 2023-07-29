@@ -12,6 +12,8 @@ let g:colors_name = "devglow"
 " Default GUI Colours
 let s:foreground = "EEEEEE"
 let s:background = "080808"
+let s:minimal_background = "181818"
+let s:dim_forceground = 'CCCCCC'
 
 let s:line = "393939"
 let s:comment = "797979"
@@ -23,11 +25,8 @@ let s:blue = "6789CA"
 let s:wine = "924653"
 let s:purple = "9E86C8"
 let s:window = "4D5057"
+let s:brown = "594743"
 
-let s:dim_text = 'CCCCCC'
-let s:selection = "444444"
-let s:minimal_bg = "181818"
-let s:folder = "7A4040"
 let s:error = "EA5455"
 let s:warn = "FFA500"
 let s:info = "7DB9B6"
@@ -268,21 +267,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   endif
 
   " Vim Highlighting
-  call <SID>X("NonText", s:selection, "", "")
-  call <SID>X("SpecialKey", s:selection, "", "")
+  call <SID>X("NonText", s:minimal_background, "", "")
+  call <SID>X("SpecialKey", s:minimal_background, "", "")
   call <SID>X("Search", s:background, s:yellow, "")
   call <SID>X("TabLine", s:window, s:foreground, "reverse")
   call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
   call <SID>X("StatusLine", s:window, s:yellow, "reverse")
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:minimal_bg, s:background, "")
-  call <SID>X("Visual", "", s:selection, "")
-  call <SID>X("Directory", s:folder, "", "")
+  call <SID>X("VertSplit", s:minimal_background, s:background, "")
+  call <SID>X("Visual", "", s:minimal_background, "")
+  call <SID>X("Directory", s:red, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
   call <SID>X("WarningMsg", s:orange, "", "bold")
-  call <SID>X("MatchParen", "", s:selection, "")
+  call <SID>X("MatchParen", "", s:minimal_background, "")
   call <SID>X("Folded", s:comment, s:background, "")
   call <SID>X("FoldColumn", "", s:background, "")
   call <SID>X("Pmenu", "", s:line, "")
@@ -301,7 +300,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
       " Standard Highlighting
       call <SID>X("Title", s:comment, "", "bold")
-      call <SID>X("Identifier", s:dim_text, "", "")
+      call <SID>X("Identifier", s:dim_forceground, "", "")
       call <SID>X("Statement", s:wine, "", "")
       call <SID>X("Conditional", s:wine, "", "")
       call <SID>X("Repeat", s:wine, "", "")
@@ -612,9 +611,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeWindowPicker", s:dim_text, s:folder, "bold")
-        call <SID>X("NvimTreeFolderName", s:dim_text, "", "")
-        call <SID>X("NvimTreeNormal", s:dim_text, s:background, "")
+        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:red, "bold")
+        call <SID>X("NvimTreeFolderName", s:dim_forceground, "", "")
+        call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
 
         hi! link NvimTreeRootFolder Directory
         hi! link NvimTreeFolderIcon Directory
