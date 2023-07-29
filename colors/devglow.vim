@@ -12,22 +12,25 @@ let g:colors_name = "devglow"
 " Default GUI Colours
 let s:foreground = "EEEEEE"
 let s:background = "080808"
-let s:minimal_bg = "181818"
-let s:selection = "444444"
+
 let s:line = "393939"
 let s:comment = "797979"
 let s:red = "AF5F5F"
 let s:orange = "E87D3E"
-let s:yellow = "E5B567"
+let s:yellow = "EBC17A"
 let s:green = "B4C973"
-let s:blue = "6C99BB"
-let s:wine = "B05279"
+let s:blue = "87AFAF"
+let s:wine = "924653"
 let s:purple = "9E86C8"
 let s:window = "4D5057"
+
+let s:dim_text = 'CCCCCC'
+let s:selection = "444444"
+let s:minimal_bg = "181818"
 let s:folder = "7A4040"
-let s:error = "EA5455"
-let s:warn = "FFA500"
-let s:info = "7DB9B6"
+let s:error = "#EA5455"
+let s:warn = "#FFA500"
+let s:info = "#7DB9B6"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Returns an approximate grey index for the given grey level
@@ -305,7 +308,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("Structure", s:wine, "", "")
       call <SID>X("Function", s:orange, "", "")
       call <SID>X("Constant", s:purple, "", "")
-      call <SID>X("Keyword", s:orange, "", "")
+      call <SID>X("Keyword", s:green, "", "")
       call <SID>X("String", s:yellow, "", "")
       call <SID>X("Special", s:blue, "", "")
       call <SID>X("PreProc", s:green, "", "")
@@ -411,7 +414,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("javaScriptPrototype", s:blue, "", "")
       call <SID>X("javaScriptConditional", s:blue, "", "")
       call <SID>X("javaScriptBranch", s:blue, "", "")
-      call <SID>X("javaScriptIdentifier", s:orange, "", "")
+      call <SID>X("javaScriptIdentifier", s:green, "", "")
       call <SID>X("javaScriptRepeat", s:blue, "", "")
       call <SID>X("javaScriptStatement", s:blue, "", "")
       call <SID>X("javaScriptMessage", s:blue, "", "")
@@ -609,9 +612,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeWindowPicker", s:foreground, s:folder, "bold")
-        call <SID>X("NvimTreeFolderName", s:foreground, "", "")
-        call <SID>X("NvimTreeNormal", s:foreground, s:background, "")
+        call <SID>X("NvimTreeWindowPicker", s:dim_text, s:folder, "bold")
+        call <SID>X("NvimTreeFolderName", s:dim_text, "", "")
+        call <SID>X("NvimTreeNormal", s:dim_text, s:background, "")
+
         hi! link NvimTreeRootFolder Directory
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
