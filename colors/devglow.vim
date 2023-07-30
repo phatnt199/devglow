@@ -276,7 +276,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
   call <SID>X("Visual", "", s:minimal_background, "")
-  call <SID>X("Directory", s:orange, "", "")
+  call <SID>X("Directory", s:window, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
@@ -611,7 +611,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:orange, "bold")
+        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:window, "bold")
         call <SID>X("NvimTreeFolderName", s:dim_forceground, "", "")
         call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
 
