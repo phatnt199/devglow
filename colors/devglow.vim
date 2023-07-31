@@ -276,7 +276,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
   call <SID>X("Visual", "", s:minimal_background, "")
-  call <SID>X("Directory", s:green, "", "")
+  call <SID>X("Directory", s:warn, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
@@ -615,7 +615,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("NvimTreeRootFolder", s:wine, "", "")
         call <SID>X("NvimTreeExecFile", s:red, "", "bold")
         call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
-        call <SID>X("NvimTreeFolderName", s:green, "", "bold")
+        call <SID>X("NvimTreeFolderName", s:orange, "", "bold")
 
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
