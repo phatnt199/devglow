@@ -13,7 +13,7 @@ let g:colors_name = "devglow"
 let s:foreground = "EEEEEE"
 let s:background = "080808"
 let s:minimal_background = "181818"
-let s:dim_forceground = '999999'
+let s:dim_forceground = 'BBBBBB'
 
 let s:line = "393939"
 let s:comment = "797979"
