@@ -20,7 +20,7 @@ let s:comment = "797979"
 let s:red = "AF5F5F"
 let s:orange = "E87D3E"
 let s:yellow = "E5B567"
-let s:green = "B4C973"
+let s:green = "87AFAF"
 let s:blue = "6789CA"
 let s:wine = "B05279"
 let s:purple = "9E86C8"
@@ -276,7 +276,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
   call <SID>X("Visual", "", s:minimal_background, "")
-  call <SID>X("Directory", s:window, "", "")
+  call <SID>X("Directory", s:info, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
@@ -612,10 +612,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
         " Nvim tree 
         call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:window, "bold")
-        call <SID>X("NvimTreeFolderName", s:dim_forceground, "", "")
+        call <SID>X("NvimTreeRootFolder", s:wine, "", "")
+        call <SID>X("NvimTreeExecFile", s:red, "", "bold")
         call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
 
-        hi! link NvimTreeRootFolder Directory
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
         hi! link NvimTreeOpenedFolderName NvimTreeFolderName
