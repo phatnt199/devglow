@@ -13,7 +13,7 @@ let g:colors_name = "devglow"
 let s:foreground = "EEEEEE"
 let s:background = "080808"
 let s:minimal_background = "181818"
-let s:dim_forceground = 'CCCCCC'
+let s:dim_forceground = '999999'
 
 let s:line = "393939"
 let s:comment = "797979"
@@ -276,7 +276,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
   call <SID>X("Visual", "", s:minimal_background, "")
-  call <SID>X("Directory", s:blue, "", "")
+  call <SID>X("Directory", s:green, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
