@@ -611,11 +611,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:window, "bold")
-        call <SID>X("NvimTreeRootFolder", s:wine, "", "")
-        call <SID>X("NvimTreeExecFile", s:red, "", "bold")
         call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
+        call <SID>X("NvimTreeRootFolder", s:wine, "", "")
         call <SID>X("NvimTreeFolderName", s:orange, "", "bold")
+        call <SID>X("NvimTreeExecFile", s:red, "", "bold")
+        call <SID>X("NvimTreeOpenedFile", s:foreground, "", "")
+        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:window, "bold")
 
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
