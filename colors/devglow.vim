@@ -10,7 +10,7 @@ endif
 let g:colors_name = "devglow"
 
 " Default GUI Colours
-let s:foreground = "F7F1E5"
+let s:foreground = "EEE2DE"
 let s:background = "080808"
 let s:minimal_background = "181818"
 let s:dim_forceground = 'BBBBBB'
