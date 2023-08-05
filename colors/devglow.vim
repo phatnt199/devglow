@@ -10,12 +10,11 @@ endif
 let g:colors_name = "devglow"
 
 " Default GUI Colours
-let s:foreground = "EEEEEE"
+let s:foreground = "F7F1E5"
 let s:background = "080808"
 let s:minimal_background = "181818"
 let s:dim_forceground = 'BBBBBB'
 
-let s:line = "393939"
 let s:comment = "797979"
 let s:red = "AF5F5F"
 let s:orange = "E87D3E"
@@ -24,8 +23,6 @@ let s:green = "87AFAF"
 let s:blue = "6789CA"
 let s:wine = "B05279"
 let s:purple = "9E86C8"
-let s:window = "4D5057"
-let s:brown = "594743"
 
 let s:error = "EA5455"
 let s:warn = "FFA500"
@@ -270,12 +267,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("NonText", s:minimal_background, "", "")
   call <SID>X("SpecialKey", s:minimal_background, "", "")
   call <SID>X("Search", s:background, s:yellow, "")
-  call <SID>X("TabLine", s:window, s:foreground, "reverse")
-  call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
-  call <SID>X("StatusLine", s:window, s:yellow, "reverse")
-  call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
+  call <SID>X("TabLine", s:minimal_background, s:foreground, "reverse")
+  call <SID>X("TabLineFill", s:minimal_background, s:foreground, "reverse")
+  call <SID>X("StatusLine", s:minimal_background, s:yellow, "reverse")
+  call <SID>X("StatusLineNC", s:minimal_background, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
-  call <SID>X("Visual", "", s:window, "")
+  call <SID>X("Visual", "", s:minimal_background, "")
   call <SID>X("Directory", s:red, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
@@ -284,18 +281,18 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("MatchParen", "", s:wine, "")
   call <SID>X("Folded", s:comment, s:background, "")
   call <SID>X("FoldColumn", "", s:background, "")
-  call <SID>X("Pmenu", "", s:window, "")
+  call <SID>X("Pmenu", "", s:minimal_background, "")
 
   if version >= 700
-    call <SID>X("CursorLine", "", s:line, "NONE")
+    call <SID>X("CursorLine", "", s:minimal_background, "NONE")
     call <SID>X("CursorLineNR", s:orange, "", "NONE")
-    call <SID>X("CursorColumn", "", s:line, "NONE")
-    call <SID>X("PMenu", "", s:line, "NONE")
-    call <SID>X("PMenuSel", s:foreground, s:line, "reverse")
+    call <SID>X("CursorColumn", "", s:minimal_background, "NONE")
+    call <SID>X("PMenu", "", s:minimal_background, "NONE")
+    call <SID>X("PMenuSel", s:foreground, s:minimal_background, "reverse")
     end
 
     if version >= 703
-      call <SID>X("ColorColumn", "", s:line, "NONE")
+      call <SID>X("ColorColumn", "", s:minimal_background, "NONE")
       end
 
       " Standard Highlighting
@@ -454,7 +451,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("diffAdd", "", "4c4e39", "")
       call <SID>X("diffDelete", s:background, s:red, "")
       call <SID>X("diffChange", "", "2B5B77", "")
-      call <SID>X("diffText", s:line, s:blue, "")
+      call <SID>X("diffText", s:dim_forceground, s:blue, "")
 
       " ShowMarks Highlighting
       call <SID>X("ShowMarksHLl", s:orange, s:background, "NONE")
@@ -616,7 +613,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("NvimTreeFolderName", s:orange, "", "bold")
         call <SID>X("NvimTreeExecFile", s:red, "", "bold")
         call <SID>X("NvimTreeOpenedFile", s:foreground, "", "")
-        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:window, "bold")
+        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:minimal_background, "bold")
 
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
