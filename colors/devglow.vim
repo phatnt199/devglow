@@ -11,18 +11,20 @@ let g:colors_name = "devglow"
 
 " Default GUI Colours
 let s:foreground = "EEE2DE"
+let s:dim_foreground = 'BBBBBB'
 let s:background = "080808"
 let s:minimal_background = "181818"
-let s:dim_forceground = 'BBBBBB'
 
 let s:comment = "797979"
 let s:red = "AF5F5F"
-let s:orange = "E87D3E"
+let s:orange = "D59572"
 let s:yellow = "E5B567"
+let s:dim_yellow = 'C09838'
 let s:green = "87AFAF"
 let s:blue = "6789CA"
-let s:wine = "B05279"
+let s:wine = "924653"
 let s:purple = "9E86C8"
+let s:pantone = "424242"
 
 let s:error = "EA5455"
 let s:warn = "FFA500"
@@ -272,8 +274,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("StatusLine", s:minimal_background, s:yellow, "reverse")
   call <SID>X("StatusLineNC", s:minimal_background, s:foreground, "reverse")
   call <SID>X("VertSplit", s:minimal_background, s:background, "")
-  call <SID>X("Visual", "", s:minimal_background, "")
-  call <SID>X("Directory", s:red, "", "")
+  call <SID>X("Visual", "", s:pantone, "")
+  call <SID>X("Directory", s:dim_yellow, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
   call <SID>X("MoreMsg", s:green, "", "")
   call <SID>X("Question", s:green, "", "")
@@ -302,16 +304,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("Conditional", s:red, "", "")
       call <SID>X("Repeat", s:red, "", "")
       call <SID>X("Structure", s:green, "", "")
-      call <SID>X("Function", s:orange, "", "bold")
-      call <SID>X("Constant", s:purple, "", "")
+      call <SID>X("Function", s:green, "", "bold")
+      call <SID>X("Constant", s:orange, "", "")
       call <SID>X("Keyword", s:red, "", "")
       call <SID>X("String", s:yellow, "", "")
       call <SID>X("Special", s:orange, "", "")
-      call <SID>X("PreProc", s:green, "", "")
+      call <SID>X("PreProc", s:blue, "", "")
       call <SID>X("Operator", s:purple, "", "")
       call <SID>X("Type", s:orange, "", "")
       call <SID>X("Define", s:green, "", "")
-      call <SID>X("Include", s:green, "", "")
+      call <SID>X("Include", s:red, "", "")
       call <SID>X("Tag", s:orange, "", "bold")
       call <SID>X("Underlined", s:orange, "", "underline")
 
@@ -395,7 +397,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("javaScriptLogicSymbols", s:foreground, "", "")
       call <SID>X("javaScriptBraces", s:foreground, "", "")
       call <SID>X("javaScriptParens", s:foreground, "", "")
-      call <SID>X("javaScriptFunction", s:green, "", "")
+      call <SID>X("javaScriptFunction", s:orange, "", "")
       call <SID>X("javaScriptComment", s:comment, "", "")
       call <SID>X("javaScriptLineComment", s:comment, "", "")
       call <SID>X("javaScriptDocComment", s:comment, "", "")
@@ -410,13 +412,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("javaScriptPrototype", s:blue, "", "")
       call <SID>X("javaScriptConditional", s:blue, "", "")
       call <SID>X("javaScriptBranch", s:blue, "", "")
-      call <SID>X("javaScriptIdentifier", s:green, "", "")
+      call <SID>X("javaScriptIdentifier", s:orange, "", "")
       call <SID>X("javaScriptRepeat", s:blue, "", "")
       call <SID>X("javaScriptStatement", s:blue, "", "")
       call <SID>X("javaScriptMessage", s:blue, "", "")
       call <SID>X("javaScriptReserved", s:blue, "", "")
       call <SID>X("javaScriptOperator", s:blue, "", "")
-      call <SID>X("javaScriptNull", s:purple, "", "")
+      call <SID>X("javaScriptNull", s:dim_foreground, "", "")
       call <SID>X("javaScriptBoolean", s:purple, "", "")
       call <SID>X("javaScriptLabel", s:blue, "", "")
       call <SID>X("javaScriptSpecial", s:blue, "", "")
@@ -451,7 +453,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("diffAdd", "", "4c4e39", "")
       call <SID>X("diffDelete", s:background, s:red, "")
       call <SID>X("diffChange", "", "2B5B77", "")
-      call <SID>X("diffText", s:dim_forceground, s:blue, "")
+      call <SID>X("diffText", s:dim_foreground, s:blue, "")
 
       " ShowMarks Highlighting
       call <SID>X("ShowMarksHLl", s:orange, s:background, "NONE")
@@ -608,12 +610,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeNormal", s:dim_forceground, s:background, "")
-        call <SID>X("NvimTreeRootFolder", s:wine, "", "")
-        call <SID>X("NvimTreeFolderName", s:orange, "", "bold")
+        call <SID>X("NvimTreeNormal", s:dim_foreground, s:background, "")
+        call <SID>X("NvimTreeRootFolder", s:red, "", "")
+        call <SID>X("NvimTreeFolderName", s:dim_yellow, "", "bold")
         call <SID>X("NvimTreeExecFile", s:red, "", "bold")
         call <SID>X("NvimTreeOpenedFile", s:foreground, "", "")
-        call <SID>X("NvimTreeWindowPicker", s:dim_forceground, s:minimal_background, "bold")
+        call <SID>X("NvimTreeWindowPicker", s:dim_foreground, s:minimal_background, "bold")
 
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
