@@ -10,10 +10,10 @@ endif
 let g:colors_name = "devglow"
 
 " Default GUI Colours
-let s:foreground = "EEE2DE"
-let s:dim_foreground = 'BBBBBB'
-let s:background = "080808"
-let s:minimal_background = "181818"
+let s:fg = "EEE2DE"
+let s:dim_fg = 'BBBBBB'
+let s:bg = "080808"
+let s:minimal_bg = "1D2021"
 
 let s:comment = "797979"
 let s:red = "AF5F5F"
@@ -26,11 +26,20 @@ let s:wine = "924653"
 let s:purple = "9E86C8"
 let s:pantone = "424242"
 
+let s:dark0 = "181818"
+let s:dark1 = "282828"
+let s:dark2 = "383838"
 let s:error = "EA5455"
 let s:warn = "FFA500"
 let s:info = "7DB9B6"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
+  if exists("g:devglow_minimal_bg")
+    let bg = s:minimal_bg
+  else
+    let bg = s:bg
+  endif
+
   " Returns an approximate grey index for the given grey level
   fun <SID>grey_number(x)
     if &t_Co == 88
@@ -264,16 +273,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     let g:devglow_italic_comments = 0
     call <SID>X("Comment", s:comment, "", "")
   endif
-
+  
   " Vim Highlighting
-  call <SID>X("NonText", s:minimal_background, "", "")
-  call <SID>X("SpecialKey", s:minimal_background, "", "")
-  call <SID>X("Search", s:background, s:yellow, "")
-  call <SID>X("TabLine", s:minimal_background, s:foreground, "reverse")
-  call <SID>X("TabLineFill", s:minimal_background, s:foreground, "reverse")
-  call <SID>X("StatusLine", s:minimal_background, s:yellow, "reverse")
-  call <SID>X("StatusLineNC", s:minimal_background, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:minimal_background, s:background, "")
+  call <SID>X("NonText", s:dark0, "", "")
+  call <SID>X("SpecialKey", s:dark0, "", "")
+  call <SID>X("Search", bg, s:yellow, "")
+  call <SID>X("TabLine", s:dark0, s:fg, "reverse")
+  call <SID>X("TabLineFill", s:dark0, s:fg, "reverse")
+  call <SID>X("StatusLine", s:dark0, s:yellow, "reverse")
+  call <SID>X("StatusLineNC", s:dark0, s:fg, "reverse")
+  call <SID>X("VertSplit", s:dark0, bg, "")
   call <SID>X("Visual", "", s:pantone, "")
   call <SID>X("Directory", s:dim_yellow, "", "")
   call <SID>X("ModeMsg", s:green, "", "")
@@ -281,25 +290,25 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Question", s:green, "", "")
   call <SID>X("WarningMsg", s:orange, "", "bold")
   call <SID>X("MatchParen", "", s:wine, "")
-  call <SID>X("Folded", s:comment, s:background, "")
-  call <SID>X("FoldColumn", "", s:background, "")
-  call <SID>X("Pmenu", "", s:minimal_background, "")
+  call <SID>X("Folded", s:comment, bg, "")
+  call <SID>X("FoldColumn", "", bg, "")
+  call <SID>X("Pmenu", "", s:dark0, "")
 
   if version >= 700
-    call <SID>X("CursorLine", "", s:minimal_background, "NONE")
+    call <SID>X("CursorLine", "", s:dark0, "NONE")
     call <SID>X("CursorLineNR", s:orange, "", "NONE")
-    call <SID>X("CursorColumn", "", s:minimal_background, "NONE")
-    call <SID>X("PMenu", "", s:minimal_background, "NONE")
-    call <SID>X("PMenuSel", s:foreground, s:minimal_background, "reverse")
+    call <SID>X("CursorColumn", "", s:dark0, "NONE")
+    call <SID>X("PMenu", "", s:dark0, "NONE")
+    call <SID>X("PMenuSel", s:fg, s:dark0, "reverse")
     end
 
     if version >= 703
-      call <SID>X("ColorColumn", "", s:minimal_background, "NONE")
+      call <SID>X("ColorColumn", "", s:dark0, "NONE")
       end
 
       " Standard Highlighting
       call <SID>X("Title", s:comment, "", "bold")
-      call <SID>X("Identifier", s:foreground, "", "")
+      call <SID>X("Identifier", s:fg, "", "")
       call <SID>X("Statement", s:red, "", "")
       call <SID>X("Conditional", s:red, "", "")
       call <SID>X("Repeat", s:red, "", "")
@@ -335,7 +344,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("phpRepeat", s:wine, "", "")
       call <SID>X("phpConditional", s:wine, "", "")
       call <SID>X("phpStatement", s:wine, "", "")
-      call <SID>X("phpMemberSelector", s:foreground, "", "")
+      call <SID>X("phpMemberSelector", s:fg, "", "")
 
       " Ruby Highlighting
       call <SID>X("rubySymbol", s:blue, "", "")
@@ -392,11 +401,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("pythonImportedObject", s:orange, "", "")
 
       " JavaScript Highlighting
-      call <SID>X("javaScriptEndColons", s:foreground, "", "")
-      call <SID>X("javaScriptOpSymbols", s:foreground, "", "")
-      call <SID>X("javaScriptLogicSymbols", s:foreground, "", "")
-      call <SID>X("javaScriptBraces", s:foreground, "", "")
-      call <SID>X("javaScriptParens", s:foreground, "", "")
+      call <SID>X("javaScriptEndColons", s:fg, "", "")
+      call <SID>X("javaScriptOpSymbols", s:fg, "", "")
+      call <SID>X("javaScriptLogicSymbols", s:fg, "", "")
+      call <SID>X("javaScriptBraces", s:fg, "", "")
+      call <SID>X("javaScriptParens", s:fg, "", "")
       call <SID>X("javaScriptFunction", s:orange, "", "")
       call <SID>X("javaScriptComment", s:comment, "", "")
       call <SID>X("javaScriptLineComment", s:comment, "", "")
@@ -418,7 +427,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("javaScriptMessage", s:blue, "", "")
       call <SID>X("javaScriptReserved", s:blue, "", "")
       call <SID>X("javaScriptOperator", s:blue, "", "")
-      call <SID>X("javaScriptNull", s:dim_foreground, "", "")
+      call <SID>X("javaScriptNull", s:dim_fg, "", "")
       call <SID>X("javaScriptBoolean", s:purple, "", "")
       call <SID>X("javaScriptLabel", s:blue, "", "")
       call <SID>X("javaScriptSpecial", s:blue, "", "")
@@ -451,15 +460,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
       " Diff Highlighting
       call <SID>X("diffAdd", "", "4c4e39", "")
-      call <SID>X("diffDelete", s:background, s:red, "")
+      call <SID>X("diffDelete", bg, s:red, "")
       call <SID>X("diffChange", "", "2B5B77", "")
-      call <SID>X("diffText", s:dim_foreground, s:blue, "")
+      call <SID>X("diffText", s:dim_fg, s:blue, "")
 
       " ShowMarks Highlighting
-      call <SID>X("ShowMarksHLl", s:orange, s:background, "NONE")
-      call <SID>X("ShowMarksHLo", s:wine, s:background, "NONE")
-      call <SID>X("ShowMarksHLu", s:yellow, s:background, "NONE")
-      call <SID>X("ShowMarksHLm", s:wine, s:background, "NONE")
+      call <SID>X("ShowMarksHLl", s:orange, bg, "NONE")
+      call <SID>X("ShowMarksHLo", s:wine, bg, "NONE")
+      call <SID>X("ShowMarksHLu", s:yellow, bg, "NONE")
+      call <SID>X("ShowMarksHLm", s:wine, bg, "NONE")
 
       " Lua Highlighting
       call <SID>X("luaStatement", s:wine, "", "")
@@ -515,8 +524,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("scalaKeywordModifier", s:wine, "", "")
       call <SID>X("scalaOperator", s:blue, "", "")
       call <SID>X("scalaPackage", s:wine, "", "")
-      call <SID>X("scalaFqn", s:foreground, "", "")
-      call <SID>X("scalaFqnSet", s:foreground, "", "")
+      call <SID>X("scalaFqn", s:fg, "", "")
+      call <SID>X("scalaFqnSet", s:fg, "", "")
       call <SID>X("scalaImport", s:wine, "", "")
       call <SID>X("scalaBoolean", s:orange, "", "")
       call <SID>X("scalaDef", s:wine, "", "")
@@ -526,9 +535,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("scalaObject", s:wine, "", "")
       call <SID>X("scalaTrait", s:wine, "", "")
       call <SID>X("scalaDefName", s:blue, "", "")
-      call <SID>X("scalaValName", s:foreground, "", "")
-      call <SID>X("scalaVarName", s:foreground, "", "")
-      call <SID>X("scalaClassName", s:foreground, "", "")
+      call <SID>X("scalaValName", s:fg, "", "")
+      call <SID>X("scalaVarName", s:fg, "", "")
+      call <SID>X("scalaClassName", s:fg, "", "")
       call <SID>X("scalaType", s:yellow, "", "")
       call <SID>X("scalaTypeSpecializer", s:yellow, "", "")
       call <SID>X("scalaAnnotation", s:orange, "", "")
@@ -536,7 +545,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
       call <SID>X("scalaDefSpecializer", s:yellow, "", "")
       call <SID>X("scalaClassSpecializer", s:yellow, "", "")
       call <SID>X("scalaBackTick", s:green, "", "")
-      call <SID>X("scalaRoot", s:foreground, "", "")
+      call <SID>X("scalaRoot", s:fg, "", "")
       call <SID>X("scalaMethodCall", s:blue, "", "")
       call <SID>X("scalaCaseType", s:yellow, "", "")
       call <SID>X("scalaLineComment", s:comment, "", "")
@@ -569,22 +578,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         let g:devglow_inherit_background = 0
       endif
 
-      " Settings dependent on g:devglow_blackout
-      call <SID>X("Normal", s:foreground, s:background, "")
-      call <SID>X("LineNr", s:comment, s:background, "")
+      call <SID>X("Normal", s:fg, bg, "")
+      call <SID>X("LineNr", s:comment, bg, "")
 
       if version >= 700
-        call <SID>X("SignColumn", "", s:background, "NONE")
+        call <SID>X("SignColumn", "", bg, "NONE")
         end
-        call <SID>X("Todo", s:red, s:background, "bold")
+        call <SID>X("Todo", s:red, bg, "bold")
 
         " Diffs
         " Plugin GitGutter uses highlight link to some of the groups below
-        call <SID>X("DiffAdded", s:green, s:background, "")
-        call <SID>X("DiffChange", s:yellow, s:background, "")
-        call <SID>X("DiffDelete", s:red, s:background, "")
-        call <SID>X("DiffLine", s:blue, s:background, italic)
-        call <SID>X("DiffSubname", s:foreground, s:background, "")
+        call <SID>X("DiffAdded", s:green, bg, "")
+        call <SID>X("DiffChange", s:yellow, bg, "")
+        call <SID>X("DiffDelete", s:red, bg, "")
+        call <SID>X("DiffLine", s:blue, bg, italic)
+        call <SID>X("DiffSubname", s:fg, bg, "")
         " Aliases
         " For plugins compatibility and some backcompatibility
         " cf. https://github.com/vim/vim-history/blob/c2257f84a000fd08d3ba80d6b1a5d1c0148a39ea/runtime/syntax/diff.vim#L13
@@ -600,8 +608,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         hi! link diffAdd DiffAdded
 
         " ALE (plugin)
-        call <SID>X("ALEWarningSign", s:orange, s:background, "bold")
-        call <SID>X("ALEErrorSign", s:red, s:background, "bold")
+        call <SID>X("ALEWarningSign", s:orange, bg, "bold")
+        call <SID>X("ALEErrorSign", s:red, bg, "bold")
 
         " Diagnostic 
         call <SID>X("DiagnosticError", s:error, "", "bold")
@@ -610,12 +618,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
         call <SID>X("DiagnosticHint", s:blue, "", "bold")
 
         " Nvim tree 
-        call <SID>X("NvimTreeNormal", s:dim_foreground, s:background, "")
+        call <SID>X("NvimTreeNormal", s:dim_fg, bg, "")
         call <SID>X("NvimTreeRootFolder", s:red, "", "")
         call <SID>X("NvimTreeFolderName", s:dim_yellow, "", "bold")
         call <SID>X("NvimTreeExecFile", s:red, "", "bold")
-        call <SID>X("NvimTreeOpenedFile", s:foreground, "", "")
-        call <SID>X("NvimTreeWindowPicker", s:dim_foreground, s:minimal_background, "bold")
+        call <SID>X("NvimTreeOpenedFile", s:fg, "", "")
+        call <SID>X("NvimTreeWindowPicker", s:dim_fg, s:dark0, "bold")
 
         hi! link NvimTreeFolderIcon Directory
         hi! link NvimTreeEmptyFolderName  NvimTreeFolderName
