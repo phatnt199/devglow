@@ -13,7 +13,8 @@ let g:colors_name = "devglow"
 let s:fg = "EEE2DE"
 let s:dim_fg = 'BBBBBB'
 let s:bg = "080808"
-let s:minimal_bg = "1D2021"
+let s:mbg0 = "111111"
+let s:mbg1 = "1D2021"
 
 let s:comment = "797979"
 let s:red = "AF5F5F"
@@ -33,11 +34,11 @@ let s:error = "EA5455"
 let s:warn = "FFA500"
 let s:info = "7DB9B6"
 
-let bg = exists("g:devglow_minimal_bg") ? s:minimal_bg : s:bg
+let bg = exists("g:devglow_minimal_bg") ? s:mbg1 : s:bg
+
 if exists("g:devglow_use_italics") && !g:devglow_use_italics
   let italic = ""
 else
-  " make the global variable available to command mode
   let g:devglow_use_italics = 1
   let italic = "italic"
 endif
@@ -632,7 +633,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("DiagnosticHint", s:blue, "", "bold")
 
   " Nvim tree 
-  call s:color("NvimTreeNormal", s:dim_fg, bg, "")
+  call s:color("NvimTreeNormal", s:dim_fg, s:mbg0, "")
   call s:color("NvimTreeRootFolder", s:red, "", "")
   call s:color("NvimTreeFolderName", s:dim_yellow, "", "bold")
   call s:color("NvimTreeExecFile", s:red, "", "bold")
@@ -652,5 +653,3 @@ delf <SID>rgb_colour
 delf <SID>rgb_level
 delf <SID>rgb_number
 delf <SID>grey_colour
-delf <SID>grey_level
-delf <SID>grey_number
