@@ -42,7 +42,7 @@ else
   let g:devglow_use_italics = 1
   let italic = "italic"
 endif
-  
+
 " Returns an approximate grey index for the given grey level
 fun <SID>grey_number(x)
   if &t_Co == 88
@@ -476,7 +476,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("diffAdd", "", "4c4e39", "")
   call s:color("diffDelete", bg, s:red, "")
   call s:color("diffChange", "", "2B5B77", "")
-  call s:color("diffText", s:dim_fg, s:blue, "")
+  call s:color("diffText", s:dim_fg, s:pantone, "")
 
   " ShowMarks Highlighting
   call s:color("ShowMarksHLl", s:orange, bg, "NONE")
@@ -608,6 +608,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("DiffDelete", s:red, bg, "")
   call s:color("DiffLine", s:blue, bg, italic)
   call s:color("DiffSubname", s:fg, bg, "")
+
   " Aliases
   " For plugins compatibility and some backcompatibility
   " cf. https://github.com/vim/vim-history/blob/c2257f84a000fd08d3ba80d6b1a5d1c0148a39ea/runtime/syntax/diff.vim#L13
@@ -626,13 +627,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("ALEWarningSign", s:orange, bg, "bold")
   call s:color("ALEErrorSign", s:red, bg, "bold")
 
-  " Diagnostic 
+  " Diagnostic
   call s:color("DiagnosticError", s:error, "", "bold")
   call s:color("DiagnosticWarn", s:warn, "", "bold")
   call s:color("DiagnosticInfo", s:info, "", "bold")
   call s:color("DiagnosticHint", s:blue, "", "bold")
 
-  " Nvim tree 
+  " Nvim tree
   call s:color("NvimTreeNormal", s:dim_fg, s:mbg0, "")
   call s:color("NvimTreeRootFolder", s:red, "", "")
   call s:color("NvimTreeFolderName", s:dim_yellow, "", "bold")
