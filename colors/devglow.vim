@@ -287,17 +287,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("FoldColumn", "", bg, "")
   call s:color("Pmenu", "", s:dark0, "")
 
-  if version >= 700
-    call s:color("CursorLine", "", s:dark0, "NONE")
-    call s:color("CursorLineNR", s:orange, "", "NONE")
-    call s:color("CursorColumn", "", s:dark0, "NONE")
-    call s:color("PMenu", "", s:dark0, "NONE")
-    call s:color("PMenuSel", s:fg, s:dark0, "reverse")
-  endif
-
-  if version >= 703
-    call s:color("ColorColumn", "", s:dark0, "NONE")
-  endif
+  call s:color("CursorLine", "", s:dark1, "")
+  call s:color("CursorLineNR", s:orange, "", "")
+  call s:color("CursorColumn", "", s:dark0, "")
+  call s:color("PMenuSel", s:fg, s:dark0, "reverse")
+  call s:color("ColorColumn", "", s:dark0, "")
 
   " Standard Highlighting
   call s:color("Title", s:comment, "", "bold")
