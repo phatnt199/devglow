@@ -12,6 +12,7 @@ let g:colors_name = "devglow"
 
 let s:fg = "EEE2DE"
 let s:dim_fg = 'BBBBBB'
+
 let s:bg = "080808"
 let s:mbg0 = "111111"
 let s:mbg1 = "1D2021"
@@ -275,7 +276,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("TabLineFill", s:dark0, s:fg, "reverse")
   call s:color("StatusLine", s:dark0, s:yellow, "reverse")
   call s:color("StatusLineNC", s:dark0, s:fg, "reverse")
-  call s:color("VertSplit", s:dark0, bg, "")
+  " call s:color("VertSplit", s:dark0, s:dark2, "")
   call s:color("Visual", "", s:pantone, "")
   call s:color("Directory", s:dim_yellow, "", "")
   call s:color("ModeMsg", s:green, "", "")
@@ -292,6 +293,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("CursorColumn", "", s:dark0, "")
   call s:color("PMenuSel", s:fg, s:dark0, "reverse")
   call s:color("ColorColumn", "", s:dark0, "")
+  call s:color("WinSeparator", s:dark0, "", "")
 
   " Standard Highlighting
   call s:color("Title", s:comment, "", "bold")
@@ -305,6 +307,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("Keyword", s:red, "", "")
   call s:color("String", s:yellow, "", "")
   call s:color("Special", s:orange, "", "")
+  call s:color("Delimiter", s:orange, "", "")
   call s:color("PreProc", s:blue, "", "")
   call s:color("Operator", s:purple, "", "")
   call s:color("Type", s:orange, "", "")
@@ -312,6 +315,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("Include", s:red, "", "")
   call s:color("Tag", s:orange, "", "bold")
   call s:color("Underlined", s:orange, "", "underline")
+  call s:color("NormalFloat", "", s:dark0, "")
 
   syntax match commonOperator "\(+\|=\|-\|*\|\^\|\/\||\)"
   hi! link commonOperator Operator
@@ -391,8 +395,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("javaScriptEndColons", s:fg, "", "")
   call s:color("javaScriptOpSymbols", s:fg, "", "")
   call s:color("javaScriptLogicSymbols", s:fg, "", "")
-  call s:color("javaScriptBraces", s:fg, "", "")
-  call s:color("javaScriptParens", s:fg, "", "")
+  " call s:color("javaScriptBraces", s:orange, "", "")
+  " call s:color("javaScriptParens", s:orange, "", "")
   call s:color("javaScriptFunction", s:green, "", "")
   call s:color("javaScriptComment", s:comment, "", "")
   call s:color("javaScriptLineComment", s:comment, "", "")
@@ -427,7 +431,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("typescriptLabel", s:blue, "", "")
   call s:color("typescriptFunction", s:green, "", "")
   call s:color("typescriptIdentifier", s:orange, "", "")
-  call s:color("typescriptBraces", s:fg, "", "")
+  " call s:color("typescriptBraces", s:orange, "", "")
   call s:color("typescriptEndColons", s:blue, "", "")
   call s:color("typescriptDOMObjects", s:orange, "", "")
   call s:color("typescriptAjaxMethods", s:orange, "", "")
@@ -603,9 +607,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("DiffLine", s:blue, bg, italic)
   call s:color("DiffSubname", s:fg, bg, "")
 
-  " Aliases
   " For plugins compatibility and some backcompatibility
-  " cf. https://github.com/vim/vim-history/blob/c2257f84a000fd08d3ba80d6b1a5d1c0148a39ea/runtime/syntax/diff.vim#L13
   hi! link diffAdded DiffAdded
   hi! link diffChange DiffChange
   hi! link diffDelete DiffDelete
@@ -617,9 +619,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   hi! link DiffAdd DiffAdded
   hi! link diffAdd DiffAdded
 
-  " ALE (plugin)
-  call s:color("ALEWarningSign", s:orange, bg, "bold")
-  call s:color("ALEErrorSign", s:red, bg, "bold")
 
   " Diagnostic
   call s:color("DiagnosticError", s:error, "", "bold")
@@ -627,7 +626,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("DiagnosticInfo", s:info, "", "bold")
   call s:color("DiagnosticHint", s:blue, "", "bold")
 
-  " Nvim tree
+  " Nvim
+  call s:color("NvimParenthesis", s:orange, "", "")
+
   call s:color("NvimTreeNormal", s:dim_fg, s:mbg0, "")
   call s:color("NvimTreeRootFolder", s:red, "", "")
   call s:color("NvimTreeFolderName", s:dim_yellow, "", "bold")
