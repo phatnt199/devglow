@@ -269,7 +269,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   endif
 
   " Vim Highlighting
-  call s:color("NonText", s:dark0, "", "")
+  call s:color("NonText", s:comment, "", "")
   call s:color("SpecialKey", s:dark0, "", "")
   call s:color("Search", bg, s:yellow, "")
   call s:color("TabLine", s:dark0, s:fg, "reverse")
@@ -619,6 +619,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   hi! link DiffAdd DiffAdded
   hi! link diffAdd DiffAdded
 
+  call s:color("TelescopeBorder", s:pantone, "", "")
+  call s:color("TelescopeTitle", s:red, "", "bold")
 
   " Diagnostic
   call s:color("DiagnosticError", s:error, "", "bold")
