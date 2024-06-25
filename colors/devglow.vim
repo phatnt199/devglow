@@ -316,6 +316,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:color("Tag", s:orange, "", "bold")
   call s:color("Underlined", s:orange, "", "underline")
   call s:color("NormalFloat", "", s:dark0, "")
+  call s:color("QuickFixLine", s:red, "", "bold")
 
   syntax match commonOperator "\(+\|=\|-\|*\|\^\|\/\||\)"
   hi! link commonOperator Operator
