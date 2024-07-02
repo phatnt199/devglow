@@ -622,6 +622,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   call s:color("TelescopeBorder", s:pantone, "", "")
   call s:color("TelescopeTitle", s:red, "", "bold")
+  call s:color("TelescopePromptTitle", s:fg, "", "bold")
+  call s:color("TelescopePreviewTitle", s:green, "", "bold")
+
 
   " Diagnostic
   call s:color("DiagnosticError", s:error, "", "bold")
