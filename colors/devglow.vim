@@ -10,30 +10,30 @@ endif
 " Colorscheme name
 let g:colors_name = "devglow"
 
-let s:fg = "EEE2DE"
-let s:dim_fg = 'BBBBBB'
+let s:fg = "#EEE2DE"
+let s:dim_fg = "#BBBBBB"
 
-let s:bg = "080808"
-let s:mbg0 = "111111"
-let s:mbg1 = "1D2021"
+let s:bg = "#080808"
+let s:mbg0 = "#111111"
+let s:mbg1 = "#1D2021"
 
-let s:comment = "797979"
-let s:red = "AF5F5F"
-let s:orange = "D59572"
-let s:yellow = "E5B567"
-let s:dim_yellow = 'AF875F'
-let s:green = "87AFAF"
-let s:blue = "7EAAC7"
-let s:wine = "924653"
-let s:purple = "9E86C8"
-let s:pantone = "424242"
+let s:comment = "#797979"
+let s:red = "#AF5F5F"
+let s:orange = "#D59572"
+let s:yellow = "#E5B567"
+let s:dim_yellow = '#AF875F'
+let s:green = "#87AFAF"
+let s:blue = "#7EAAC7"
+let s:wine = "#924653"
+let s:purple = "#9E86C8"
+let s:pantone = "#424242"
 
-let s:dark0 = "181818"
-let s:dark1 = "282828"
-let s:dark2 = "383838"
-let s:error = "EA5455"
-let s:warn = "FFA500"
-let s:info = "7DB9B6"
+let s:dark0 = "#181818"
+let s:dark1 = "#282828"
+let s:dark2 = "#383838"
+let s:error = "#EA5455"
+let s:warn = "#FFA500"
+let s:info = "#7DB9B6"
 
 let bg = exists("g:devglow_minimal_bg") ? s:mbg1 : s:bg
 
