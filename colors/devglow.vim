@@ -21,7 +21,7 @@ let s:comment = "#797979"
 let s:red = "#AF5F5F"
 let s:orange = "#D59572"
 let s:yellow = "#E5B567"
-let s:dim_yellow = '#AF875F'
+let s:dim_yellow = "#AF875F"
 let s:green = "#87AFAF"
 let s:blue = "#7EAAC7"
 let s:wine = "#924653"
@@ -244,14 +244,14 @@ fun s:color(group, fg, bg, attr)
     if a:fg == "NONE"
       exec "hi " . a:group . " guifg=NONE ctermfg=NONE"
     else
-      exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
+      exec "hi " . a:group . " guifg=" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
     endif
   endif
   if a:bg != ""
     if a:bg == "NONE"
       exec "hi " . a:group . " guibg=NONE ctermbg=NONE"
     else
-      exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
+      exec "hi " . a:group . " guibg=" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
     endif
   endif
   if a:attr != ""
