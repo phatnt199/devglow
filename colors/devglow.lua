@@ -5,8 +5,10 @@
 --  For a modern Neovim setup with 24-bit color support.
 -- =========================================================================
 
+-- Set background to dark
 vim.o.background = "dark"
 
+-- Reset existing highlights
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.cmd("syntax reset")
@@ -28,6 +30,7 @@ local c = {
 	blue = "#7EAAC7",
 	wine = "#924653",
 	purple = "#9E86C8",
+	pantone = "#424242",
 	dark0 = "#181818",
 	dark1 = "#282828",
 	dark2 = "#383838",
@@ -42,38 +45,38 @@ if vim.g.devglow_minimal_bg then
 	bg = c.mbg1
 end
 
--- Handle italic comments option
-local comment_attr = {}
-if vim.g.devglow_italic_comments then
-	comment_attr = { italic = true }
-end
-
 -- Function to set a highlight group
-local function set_hl(group, rfg, rbg, style)
-	vim.api.nvim_set_hl(0, group, { fg = rfg, bg = rbg, style = style })
+-- This now correctly handles a table of attributes
+local function set_hl(group, fg, rbg, attr)
+	attr = attr or {}
+	vim.api.nvim_set_hl(
+		0,
+		group,
+		{ fg = fg, bg = rbg, bold = attr.bold, italic = attr.italic, underline = attr.underline, reverse = attr.reverse }
+	)
 end
 
 -- Set the Normal and LineNr highlight groups
 set_hl("Normal", c.fg, bg, nil)
 set_hl("LineNr", c.comment, bg, nil)
 set_hl("SignColumn", nil, bg, nil)
-set_hl("Todo", c.red, bg, "bold")
+set_hl("Todo", c.red, bg, { bold = true })
 
 -- Vim Highlighting
-set_hl("Comment", c.comment, nil, comment_attr)
+set_hl("Comment", c.comment, nil, { italic = vim.g.devglow_italic_comments })
 set_hl("NonText", c.comment, nil, nil)
 set_hl("SpecialKey", c.dark0, nil, nil)
 set_hl("Search", bg, c.yellow, nil)
-set_hl("TabLine", c.dark0, c.fg, "reverse")
-set_hl("TabLineFill", c.dark0, c.fg, "reverse")
-set_hl("StatusLine", c.dark0, c.yellow, "reverse")
-set_hl("StatusLineNC", c.dark0, c.fg, "reverse")
-set_hl("Visual", nil, c.dark3, nil)
+set_hl("TabLine", c.dark0, c.fg, { reverse = true })
+set_hl("TabLineFill", c.dark0, c.fg, { reverse = true })
+set_hl("StatusLine", c.dark0, c.yellow, { reverse = true })
+set_hl("StatusLineNC", c.dark0, c.fg, { reverse = true })
+set_hl("Visual", nil, c.pantone, nil)
 set_hl("Directory", c.dim_yellow, nil, nil)
 set_hl("ModeMsg", c.green, nil, nil)
 set_hl("MoreMsg", c.green, nil, nil)
 set_hl("Question", c.green, nil, nil)
-set_hl("WarningMsg", c.orange, nil, "bold")
+set_hl("WarningMsg", c.orange, nil, { bold = true })
 set_hl("MatchParen", nil, c.wine, nil)
 set_hl("Folded", c.comment, bg, nil)
 set_hl("FoldColumn", nil, bg, nil)
@@ -81,19 +84,19 @@ set_hl("Pmenu", nil, c.dark0, nil)
 set_hl("CursorLine", nil, c.dark1, nil)
 set_hl("CursorLineNr", c.orange, nil, nil)
 set_hl("CursorColumn", nil, c.dark0, nil)
-set_hl("PMenuSel", c.fg, c.dark0, "reverse")
+set_hl("PMenuSel", c.fg, c.dark0, { reverse = true })
 set_hl("ColorColumn", nil, c.dark0, nil)
 set_hl("WinSeparator", c.dark0, nil, nil)
-set_hl("NormalFloat", nil, c.dark3, nil)
+set_hl("NormalFloat", nil, c.dark0, nil)
 
 -- Standard Highlighting
-set_hl("Title", c.comment, nil, "bold")
+set_hl("Title", c.comment, nil, { bold = true })
 set_hl("Identifier", c.fg, nil, nil)
 set_hl("Statement", c.red, nil, nil)
 set_hl("Conditional", c.red, nil, nil)
 set_hl("Repeat", c.red, nil, nil)
 set_hl("Structure", c.orange, nil, nil)
-set_hl("Function", c.green, nil, "bold")
+set_hl("Function", c.green, nil, { bold = true })
 set_hl("Constant", c.orange, nil, nil)
 set_hl("Keyword", c.red, nil, nil)
 set_hl("String", c.yellow, nil, nil)
@@ -104,9 +107,9 @@ set_hl("Operator", c.purple, nil, nil)
 set_hl("Type", c.orange, nil, nil)
 set_hl("Define", c.green, nil, nil)
 set_hl("Include", c.red, nil, nil)
-set_hl("Tag", c.orange, nil, "bold")
-set_hl("Underlined", c.orange, nil, "underline")
-set_hl("QuickFixLine", c.red, nil, "bold")
+set_hl("Tag", c.orange, nil, { bold = true })
+set_hl("Underlined", c.orange, nil, { underline = true })
+set_hl("QuickFixLine", c.red, nil, { bold = true })
 
 -- Link some highlight groups
 vim.cmd("hi! link diffAdded DiffAdded")
@@ -127,20 +130,20 @@ vim.cmd("hi! link NvimTreeOpenedFolderName NvimTreeFolderName")
 set_hl("DiffAdded", c.green, c.bg, nil)
 set_hl("DiffChange", c.yellow, c.bg, nil)
 set_hl("DiffDelete", c.red, c.bg, nil)
-set_hl("DiffLine", c.blue, c.bg, "italic")
+set_hl("DiffLine", c.blue, c.bg, { italic = true })
 set_hl("DiffSubname", c.fg, c.bg, nil)
 
 -- Telescope
-set_hl("TelescopeBorder", c.dark3, nil, nil)
-set_hl("TelescopeTitle", c.red, nil, "bold")
-set_hl("TelescopePromptTitle", c.fg, nil, "bold")
-set_hl("TelescopePreviewTitle", c.green, nil, "bold")
+set_hl("TelescopeBorder", c.pantone, nil, nil)
+set_hl("TelescopeTitle", c.red, nil, { bold = true })
+set_hl("TelescopePromptTitle", c.fg, nil, { bold = true })
+set_hl("TelescopePreviewTitle", c.green, nil, { bold = true })
 
 -- Diagnostics
-set_hl("DiagnosticError", c.error, nil, "bold")
-set_hl("DiagnosticWarn", c.warn, nil, "bold")
-set_hl("DiagnosticInfo", c.info, nil, "bold")
-set_hl("DiagnosticHint", c.blue, nil, "bold")
+set_hl("DiagnosticError", c.error, nil, { bold = true })
+set_hl("DiagnosticWarn", c.warn, nil, { bold = true })
+set_hl("DiagnosticInfo", c.info, nil, { bold = true })
+set_hl("DiagnosticHint", c.blue, nil, { bold = true })
 
 -- Nvim
 set_hl("NvimParenthesis", c.orange, nil, nil)
@@ -148,7 +151,11 @@ set_hl("NvimParenthesis", c.orange, nil, nil)
 -- NvimTree
 set_hl("NvimTreeNormal", c.dim_fg, c.mbg0, nil)
 set_hl("NvimTreeRootFolder", c.red, nil, nil)
-set_hl("NvimTreeFolderName", c.dim_yellow, nil, "bold")
-set_hl("NvimTreeExecFile", c.red, nil, "bold")
+set_hl("NvimTreeFolderName", c.dim_yellow, nil, { bold = true })
+set_hl("NvimTreeExecFile", c.red, nil, { bold = true })
 set_hl("NvimTreeOpenedFile", c.fg, nil, nil)
-set_hl("NvimTreeWindowPicker", c.dim_fg, c.dark0, "bold")
+set_hl("NvimTreeWindowPicker", c.dim_fg, c.dark0, { bold = true })
+
+-- NOTE: The original devglow.vim file contains extensive language-specific highlighting.
+-- These are not directly included here to keep the file concise, but you can
+-- convert them one by one using the `set_hl` function as needed.
