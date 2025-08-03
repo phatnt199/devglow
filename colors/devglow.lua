@@ -88,6 +88,7 @@ set_hl("PMenuSel", c.fg, c.dark0, { reverse = true })
 set_hl("ColorColumn", nil, c.dark0, nil)
 set_hl("WinSeparator", c.dark0, nil, nil)
 set_hl("NormalFloat", nil, c.dark0, nil)
+set_hl("FloatBorder", c.pantone, nil, nil)
 
 -- Standard Highlighting
 set_hl("Title", c.comment, nil, { bold = true })
