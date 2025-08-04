@@ -17,7 +17,7 @@ end
 -- Define colors
 local c = {
 	fg = "#EEE2DE",
-	dim_fg = "#BBBBBB",
+	dfg = "#BBBBBB",
 	bg = "#080808",
 	mbg0 = "#111111",
 	mbg1 = "#1D2021",
@@ -30,7 +30,6 @@ local c = {
 	blue = "#7EAAC7",
 	wine = "#924653",
 	purple = "#9E86C8",
-	pantone = "#424242",
 	dark0 = "#181818",
 	dark1 = "#282828",
 	dark2 = "#383838",
@@ -49,11 +48,14 @@ end
 -- This now correctly handles a table of attributes
 local function set_hl(group, fg, rbg, attr)
 	attr = attr or {}
-	vim.api.nvim_set_hl(
-		0,
-		group,
-		{ fg = fg, bg = rbg, bold = attr.bold, italic = attr.italic, underline = attr.underline, reverse = attr.reverse }
-	)
+	vim.api.nvim_set_hl(0, group, {
+		fg = fg,
+		bg = rbg,
+		bold = attr.bold,
+		italic = attr.italic,
+		underline = attr.underline,
+		reverse = attr.reverse,
+	})
 end
 
 -- Set the Normal and LineNr highlight groups
@@ -71,7 +73,7 @@ set_hl("TabLine", c.dark0, c.fg, { reverse = true })
 set_hl("TabLineFill", c.dark0, c.fg, { reverse = true })
 set_hl("StatusLine", c.dark0, c.yellow, { reverse = true })
 set_hl("StatusLineNC", c.dark0, c.fg, { reverse = true })
-set_hl("Visual", nil, c.pantone, nil)
+set_hl("Visual", nil, c.dark2, nil)
 set_hl("Directory", c.dim_yellow, nil, nil)
 set_hl("ModeMsg", c.green, nil, nil)
 set_hl("MoreMsg", c.green, nil, nil)
@@ -88,7 +90,7 @@ set_hl("PMenuSel", c.fg, c.dark0, { reverse = true })
 set_hl("ColorColumn", nil, c.dark0, nil)
 set_hl("WinSeparator", c.dark0, nil, nil)
 set_hl("NormalFloat", nil, c.dark0, nil)
-set_hl("FloatBorder", c.pantone, nil, nil)
+set_hl("FloatBorder", c.dark2, nil, nil)
 
 -- Standard Highlighting
 set_hl("Title", c.comment, nil, { bold = true })
@@ -135,7 +137,7 @@ set_hl("DiffLine", c.blue, c.bg, { italic = true })
 set_hl("DiffSubname", c.fg, c.bg, nil)
 
 -- Telescope
-set_hl("TelescopeBorder", c.pantone, nil, nil)
+set_hl("TelescopeBorder", c.dark2, nil, nil)
 set_hl("TelescopeTitle", c.red, nil, { bold = true })
 set_hl("TelescopePromptTitle", c.fg, nil, { bold = true })
 set_hl("TelescopePreviewTitle", c.green, nil, { bold = true })
@@ -150,13 +152,9 @@ set_hl("DiagnosticHint", c.blue, nil, { bold = true })
 set_hl("NvimParenthesis", c.orange, nil, nil)
 
 -- NvimTree
-set_hl("NvimTreeNormal", c.dim_fg, c.mbg0, nil)
+set_hl("NvimTreeNormal", c.dfg, c.mbg0, nil)
 set_hl("NvimTreeRootFolder", c.red, nil, nil)
 set_hl("NvimTreeFolderName", c.dim_yellow, nil, { bold = true })
 set_hl("NvimTreeExecFile", c.red, nil, { bold = true })
 set_hl("NvimTreeOpenedFile", c.fg, nil, nil)
-set_hl("NvimTreeWindowPicker", c.dim_fg, c.dark0, { bold = true })
-
--- NOTE: The original devglow.vim file contains extensive language-specific highlighting.
--- These are not directly included here to keep the file concise, but you can
--- convert them one by one using the `set_hl` function as needed.
+set_hl("NvimTreeWindowPicker", c.dfg, c.dark0, { bold = true })
