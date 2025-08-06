@@ -158,3 +158,7 @@ set_hl("NvimTreeFolderName", c.dim_yellow, nil, { bold = true })
 set_hl("NvimTreeExecFile", c.red, nil, { bold = true })
 set_hl("NvimTreeOpenedFile", c.fg, nil, nil)
 set_hl("NvimTreeWindowPicker", c.dfg, c.dark0, { bold = true })
+
+-- Blink CMP
+set_hl("BlinkCmpMenuBorder", c.dark2, nil, nil)
+set_hl("BlinkCmpDocBorder", c.dark2, nil, nil)
