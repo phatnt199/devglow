@@ -93,9 +93,8 @@ set_hl("NormalFloat", nil, c.dark0, nil)
 set_hl("FloatBorder", c.dark2, nil, nil)
 
 -- Standard Highlighting
-set_hl("@property", c.fg, nil, nil)
 set_hl("Title", c.comment, nil, { bold = true })
-set_hl("Identifier", c.red, nil, nil)
+set_hl("Identifier", c.fg, nil, nil)
 set_hl("Statement", c.red, nil, nil)
 set_hl("Conditional", c.red, nil, nil)
 set_hl("Repeat", c.red, nil, nil)
