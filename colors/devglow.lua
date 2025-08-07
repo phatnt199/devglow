@@ -17,10 +17,7 @@ end
 -- Define colors
 local c = {
 	fg = "#EEE2DE",
-	dfg = "#BBBBBB",
 	bg = "#080808",
-	mbg0 = "#111111",
-	mbg1 = "#1D2021",
 	comment = "#797979",
 	red = "#AF5F5F",
 	orange = "#D59572",
@@ -33,23 +30,18 @@ local c = {
 	dark0 = "#181818",
 	dark1 = "#282828",
 	dark2 = "#383838",
+	dark3 = "#BBBBBB",
 	error = "#EA5455",
 	warn = "#FFA500",
 	info = "#7DB9B6",
 }
 
--- Handle background option
-local bg = c.bg
-if vim.g.devglow_minimal_bg then
-	bg = c.mbg1
-end
-
 -- Function to set a highlight group
 -- This now correctly handles a table of attributes
-local function set_hl(group, fg, rbg, attr)
+local function set_hl(group, rfg, rbg, attr)
 	attr = attr or {}
 	vim.api.nvim_set_hl(0, group, {
-		fg = fg,
+		fg = rfg,
 		bg = rbg,
 		bold = attr.bold,
 		italic = attr.italic,
@@ -59,16 +51,16 @@ local function set_hl(group, fg, rbg, attr)
 end
 
 -- Set the Normal and LineNr highlight groups
-set_hl("Normal", c.fg, bg, nil)
-set_hl("LineNr", c.comment, bg, nil)
-set_hl("SignColumn", nil, bg, nil)
-set_hl("Todo", c.red, bg, { bold = true })
+set_hl("Normal", c.fg, c.bg, nil)
+set_hl("LineNr", c.comment, c.bg, nil)
+set_hl("SignColumn", nil, c.bg, nil)
+set_hl("Todo", c.red, c.bg, { bold = true })
 
 -- Vim Highlighting
 set_hl("Comment", c.comment, nil, { italic = vim.g.devglow_italic_comments })
 set_hl("NonText", c.comment, nil, nil)
 set_hl("SpecialKey", c.dark0, nil, nil)
-set_hl("Search", bg, c.yellow, nil)
+set_hl("Search", c.bg, c.yellow, nil)
 set_hl("TabLine", c.dark0, c.fg, { reverse = true })
 set_hl("TabLineFill", c.dark0, c.fg, { reverse = true })
 set_hl("StatusLine", c.dark0, c.yellow, { reverse = true })
@@ -80,8 +72,8 @@ set_hl("MoreMsg", c.green, nil, nil)
 set_hl("Question", c.green, nil, nil)
 set_hl("WarningMsg", c.orange, nil, { bold = true })
 set_hl("MatchParen", nil, c.wine, nil)
-set_hl("Folded", c.comment, bg, nil)
-set_hl("FoldColumn", nil, bg, nil)
+set_hl("Folded", c.comment, c.bg, nil)
+set_hl("FoldColumn", nil, c.bg, nil)
 set_hl("Pmenu", nil, c.dark0, nil)
 set_hl("CursorLine", nil, c.dark1, nil)
 set_hl("CursorLineNr", c.orange, nil, nil)
@@ -94,21 +86,21 @@ set_hl("FloatBorder", c.dark2, nil, nil)
 
 -- Standard Highlighting
 set_hl("Title", c.comment, nil, { bold = true })
-set_hl("Identifier", c.fg, nil, nil)
+-- set_hl("Identifier", c.fg, nil, nil)
 set_hl("Statement", c.red, nil, nil)
 set_hl("Conditional", c.red, nil, nil)
 set_hl("Repeat", c.red, nil, nil)
 set_hl("Structure", c.orange, nil, nil)
 set_hl("Function", c.green, nil, { bold = true })
-set_hl("Constant", c.orange, nil, nil)
+set_hl("Constant", c.orange, nil, { bold = true })
 set_hl("Keyword", c.red, nil, nil)
 set_hl("String", c.yellow, nil, nil)
 set_hl("Special", c.orange, nil, nil)
 set_hl("Delimiter", c.orange, nil, nil)
 set_hl("PreProc", c.blue, nil, nil)
 set_hl("Operator", c.purple, nil, nil)
-set_hl("Type", c.orange, nil, nil)
-set_hl("Define", c.green, nil, nil)
+set_hl("Type", c.dim_yellow, nil, nil)
+set_hl("Define", c.dim_yellow, nil, nil)
 set_hl("Include", c.red, nil, nil)
 set_hl("Tag", c.orange, nil, { bold = true })
 set_hl("Underlined", c.orange, nil, { underline = true })
@@ -152,12 +144,12 @@ set_hl("DiagnosticHint", c.blue, nil, { bold = true })
 set_hl("NvimParenthesis", c.orange, nil, nil)
 
 -- NvimTree
-set_hl("NvimTreeNormal", c.dfg, c.mbg0, nil)
+set_hl("NvimTreeNormal", c.dark3, c.dark0, nil)
 set_hl("NvimTreeRootFolder", c.red, nil, nil)
 set_hl("NvimTreeFolderName", c.dim_yellow, nil, { bold = true })
 set_hl("NvimTreeExecFile", c.red, nil, { bold = true })
 set_hl("NvimTreeOpenedFile", c.fg, nil, nil)
-set_hl("NvimTreeWindowPicker", c.dfg, c.dark0, { bold = true })
+set_hl("NvimTreeWindowPicker", c.dark3, c.dark0, { bold = true })
 
 -- Blink CMP
 set_hl("BlinkCmpMenuBorder", c.dark2, nil, nil)
@@ -171,44 +163,6 @@ set_hl("cType", c.wine, nil, {})
 set_hl("cStorageClass", c.orange, nil, {})
 set_hl("cConditional", c.wine, nil, {})
 set_hl("cRepeat", c.wine, nil, {})
-
--- PHP Highlighting
-set_hl("phpVarSelector", c.wine, nil, {})
-set_hl("phpKeyword", c.wine, nil, {})
-set_hl("phpRepeat", c.wine, nil, {})
-set_hl("phpConditional", c.wine, nil, {})
-set_hl("phpStatement", c.wine, nil, {})
-set_hl("phpMemberSelector", c.fg, nil, {})
-
--- Ruby Highlighting
-set_hl("rubySymbol", c.blue, nil, {})
-set_hl("rubyConstant", c.green, nil, {})
-set_hl("rubyAccess", c.yellow, nil, {})
-set_hl("rubyAttribute", c.blue, nil, {})
-set_hl("rubyInclude", c.blue, nil, {})
-set_hl("rubyLocalVariableOrMethod", c.orange, nil, {})
-set_hl("rubyCurlyBlock", c.orange, nil, {})
-set_hl("rubyStringDelimiter", c.yellow, nil, {})
-set_hl("rubyInterpolationDelimiter", c.orange, nil, {})
-set_hl("rubyConditional", c.wine, nil, {})
-set_hl("rubyRepeat", c.wine, nil, {})
-set_hl("rubyControl", c.wine, nil, {})
-set_hl("rubyException", c.wine, nil, {})
-
--- Crystal Highlighting
-set_hl("crystalSymbol", c.green, nil, {})
-set_hl("crystalConstant", c.yellow, nil, {})
-set_hl("crystalAccess", c.yellow, nil, {})
-set_hl("crystalAttribute", c.blue, nil, {})
-set_hl("crystalInclude", c.blue, nil, {})
-set_hl("crystalLocalVariableOrMethod", c.orange, nil, {})
-set_hl("crystalCurlyBlock", c.orange, nil, {})
-set_hl("crystalStringDelimiter", c.green, nil, {})
-set_hl("crystalInterpolationDelimiter", c.orange, nil, {})
-set_hl("crystalConditional", c.wine, nil, {})
-set_hl("crystalRepeat", c.wine, nil, {})
-set_hl("crystalControl", c.wine, nil, {})
-set_hl("crystalException", c.wine, nil, {})
 
 -- Python Highlighting
 set_hl("pythonInclude", c.green, nil, { italic = true })
@@ -259,7 +213,7 @@ set_hl("javaScriptStatement", c.blue, nil, {})
 set_hl("javaScriptMessage", c.blue, nil, {})
 set_hl("javaScriptReserved", c.blue, nil, {})
 set_hl("javaScriptOperator", c.blue, nil, {})
-set_hl("javaScriptNull", c.dfg, nil, {})
+set_hl("javaScriptNull", c.dark3, nil, {})
 set_hl("javaScriptBoolean", c.purple, nil, {})
 set_hl("javaScriptLabel", c.blue, nil, {})
 set_hl("javaScriptSpecial", c.blue, nil, {})
@@ -269,6 +223,7 @@ set_hl("javaScriptError", c.red, nil, {})
 
 -- Typescript Highlighting
 set_hl("typescriptReserved", c.blue, nil, {})
+set_hl("typescriptVariable", c.dim_yellow, nil, {})
 set_hl("typescriptLabel", c.blue, nil, {})
 set_hl("typescriptFunction", c.green, nil, {})
 set_hl("typescriptIdentifier", c.orange, nil, {})
@@ -284,132 +239,6 @@ set_hl("typescriptGlobalObjects", c.purple, nil, {})
 set_hl("typescriptParens", c.fg, nil, {})
 set_hl("typescriptOpSymbols", c.fg, nil, {})
 set_hl("typescriptHtmlElemProperties", c.fg, nil, {})
-set_hl("typescriptNull", c.dfg, nil, {})
+set_hl("typescriptNull", c.dark3, nil, {})
+set_hl("typescriptProp", c.green, nil, {})
 set_hl("typescriptInterpolationDelimiter", c.orange, nil, {})
-
--- LaTeX
-set_hl("texStatement", c.blue, nil, {})
-set_hl("texMath", c.wine, nil, {})
-set_hl("texMathMacher", c.yellow, nil, {})
-set_hl("texRefLabel", c.wine, nil, {})
-set_hl("texRefZone", c.blue, nil, {})
-set_hl("texComment", c.comment, nil, {})
-set_hl("texDelimiter", c.purple, nil, {})
-set_hl("texMathZoneX", c.purple, nil, {})
-
--- CoffeeScript Highlighting
-set_hl("coffeeRepeat", c.wine, nil, {})
-set_hl("coffeeConditional", c.wine, nil, {})
-set_hl("coffeeKeyword", c.wine, nil, {})
-set_hl("coffeeObject", c.yellow, nil, {})
-
--- HTML Highlighting
-set_hl("htmlTag", c.blue, nil, {})
-set_hl("htmlEndTag", c.blue, nil, {})
-set_hl("htmlTagName", c.wine, nil, { bold = true })
-set_hl("htmlArg", c.green, nil, { italic = true })
-set_hl("htmlScriptTag", c.wine, nil, {})
-
--- Diff Highlighting
-set_hl("diffAdd", nil, "#4c4e39", {})
-set_hl("diffDelete", c.bg, c.red, {})
-set_hl("diffChange", nil, "#2B5B77", {})
-set_hl("diffText", c.dfg, c.pantone, {})
-
--- ShowMarks Highlighting
-set_hl("ShowMarksHLl", c.orange, c.bg, {})
-set_hl("ShowMarksHLo", c.wine, c.bg, {})
-set_hl("ShowMarksHLu", c.yellow, c.bg, {})
-set_hl("ShowMarksHLm", c.wine, c.bg, {})
-
--- Lua Highlighting
-set_hl("luaStatement", c.wine, nil, {})
-set_hl("luaRepeat", c.wine, nil, {})
-set_hl("luaCondStart", c.wine, nil, {})
-set_hl("luaCondElseif", c.wine, nil, {})
-set_hl("luaCond", c.wine, nil, {})
-set_hl("luaCondEnd", c.wine, nil, {})
-
--- Cucumber Highlighting
-set_hl("cucumberGiven", c.blue, nil, {})
-set_hl("cucumberGivenAnd", c.blue, nil, {})
-
--- Go Highlighting
-set_hl("goDirective", c.wine, nil, {})
-set_hl("goDeclaration", c.wine, nil, {})
-set_hl("goStatement", c.wine, nil, {})
-set_hl("goConditional", c.wine, nil, {})
-set_hl("goConstants", c.orange, nil, {})
-set_hl("goTodo", c.red, nil, {})
-set_hl("goDeclType", c.blue, nil, {})
-set_hl("goBuiltins", c.wine, nil, {})
-set_hl("goRepeat", c.wine, nil, {})
-set_hl("goLabel", c.wine, nil, {})
-
--- Clojure Highlighting
-set_hl("clojureConstant", c.orange, nil, {})
-set_hl("clojureBoolean", c.orange, nil, {})
-set_hl("clojureCharacter", c.orange, nil, {})
-set_hl("clojureKeyword", c.green, nil, {})
-set_hl("clojureNumber", c.orange, nil, {})
-set_hl("clojureString", c.green, nil, {})
-set_hl("clojureRegexp", c.green, nil, {})
-set_hl("clojureParen", c.wine, nil, {})
-set_hl("clojureVariable", c.yellow, nil, {})
-set_hl("clojureCond", c.blue, nil, {})
-set_hl("clojureDefine", c.wine, nil, {})
-set_hl("clojureException", c.red, nil, {})
-set_hl("clojureFunc", c.blue, nil, {})
-set_hl("clojureMacro", c.blue, nil, {})
-set_hl("clojureRepeat", c.blue, nil, {})
-set_hl("clojureSpecial", c.wine, nil, {})
-set_hl("clojureQuote", c.blue, nil, {})
-set_hl("clojureUnquote", c.blue, nil, {})
-set_hl("clojureMeta", c.blue, nil, {})
-set_hl("clojureDeref", c.blue, nil, {})
-set_hl("clojureAnonArg", c.blue, nil, {})
-set_hl("clojureDispatch", c.blue, nil, {})
-
--- Scala Highlighting
-set_hl("scalaKeyword", c.wine, nil, {})
-set_hl("scalaKeywordModifier", c.wine, nil, {})
-set_hl("scalaOperator", c.blue, nil, {})
-set_hl("scalaPackage", c.wine, nil, {})
-set_hl("scalaFqn", c.fg, nil, {})
-set_hl("scalaFqnSet", c.fg, nil, {})
-set_hl("scalaImport", c.wine, nil, {})
-set_hl("scalaBoolean", c.orange, nil, {})
-set_hl("scalaDef", c.wine, nil, {})
-set_hl("scalaVal", c.wine, nil, {})
-set_hl("scalaVar", c.wine, nil, {})
-set_hl("scalaClass", c.wine, nil, {})
-set_hl("scalaObject", c.wine, nil, {})
-set_hl("scalaTrait", c.wine, nil, {})
-set_hl("scalaDefName", c.blue, nil, {})
-set_hl("scalaValName", c.fg, nil, {})
-set_hl("scalaVarName", c.fg, nil, {})
-set_hl("scalaClassName", c.fg, nil, {})
-set_hl("scalaType", c.yellow, nil, {})
-set_hl("scalaTypeSpecializer", c.yellow, nil, {})
-set_hl("scalaAnnotation", c.orange, nil, {})
-set_hl("scalaNumber", c.orange, nil, {})
-set_hl("scalaDefSpecializer", c.yellow, nil, {})
-set_hl("scalaClassSpecializer", c.yellow, nil, {})
-set_hl("scalaBackTick", c.green, nil, {})
-set_hl("scalaRoot", c.fg, nil, {})
-set_hl("scalaMethodCall", c.blue, nil, {})
-set_hl("scalaCaseType", c.yellow, nil, {})
-set_hl("scalaLineComment", c.comment, nil, {})
-set_hl("scalaComment", c.comment, nil, {})
-set_hl("scalaDocComment", c.comment, nil, {})
-set_hl("scalaDocTags", c.comment, nil, {})
-set_hl("scalaEmptyString", c.green, nil, {})
-set_hl("scalaMultiLineString", c.green, nil, {})
-set_hl("scalaUnicode", c.orange, nil, {})
-set_hl("scalaString", c.green, nil, {})
-set_hl("scalaStringEscape", c.green, nil, {})
-set_hl("scalaSymbol", c.orange, nil, {})
-set_hl("scalaChar", c.orange, nil, {})
-set_hl("scalaXml", c.green, nil, {})
-set_hl("scalaConstructorSpecializer", c.yellow, nil, {})
-set_hl("scalaBackTick", c.blue, nil, {})
