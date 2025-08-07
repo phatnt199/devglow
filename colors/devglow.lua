@@ -1,55 +1,42 @@
--- =========================================================================
---  devglow.lua
---
---  A Lua version of the devglow.vim colorscheme.
---  For a modern Neovim setup with 24-bit color support.
--- =========================================================================
+-----------------------------------------------------------------------------
+-- DEVGLOW
+-- Lua version of the devglow.vim colorscheme.
+-----------------------------------------------------------------------------
 
--- Set background to dark
 vim.o.background = "dark"
-
--- Reset existing highlights
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.cmd("syntax reset")
 end
 
--- Define colors
-local c = {
-	fg = "#EEE2DE",
-	dfg = "#BBBBBB",
-	bg = "#080808",
-	mbg0 = "#111111",
-	mbg1 = "#1D2021",
-	comment = "#797979",
-	red = "#AF5F5F",
-	orange = "#D59572",
-	yellow = "#E5B567",
-	dim_yellow = "#AF875F",
-	green = "#87AFAF",
-	blue = "#7EAAC7",
-	wine = "#924653",
-	purple = "#9E86C8",
-	dark0 = "#181818",
-	dark1 = "#282828",
-	dark2 = "#383838",
-	error = "#EA5455",
-	warn = "#FFA500",
-	info = "#7DB9B6",
+-----------------------------------------------------------------------------
+local Colors = {
+	FOREGROUND = "#EEE2DE",
+	BACKGROUND = "#080808",
+	COMMENT = "#797979",
+	RED = "#AF5F5F",
+	YELLOW_0 = "#AF875F",
+	YELLOW_1 = "#D59572",
+	YELLOW_2 = "#E5B567",
+	GREEN = "#87AFAF",
+	BLUE = "#7EAAC7",
+	WINE = "#924653",
+	PURPLE = "#9E86C8",
+	DARK_0 = "#111111",
+	DARK_1 = "#181818",
+	DARK_2 = "#282828",
+	DARK_3 = "#383838",
+	DARK_4 = "#BBBBBB",
+	ERORR = "#EA5455",
+	WARN = "#FFA500",
+	INFO = "#7DB9B6",
 }
 
--- Handle background option
-local bg = c.bg
-if vim.g.devglow_minimal_bg then
-	bg = c.mbg1
-end
-
--- Function to set a highlight group
--- This now correctly handles a table of attributes
-local function set_hl(group, fg, rbg, attr)
+-----------------------------------------------------------------------------
+local function set_hl(group, rfg, rbg, attr)
 	attr = attr or {}
 	vim.api.nvim_set_hl(0, group, {
-		fg = fg,
+		fg = rfg,
 		bg = rbg,
 		bold = attr.bold,
 		italic = attr.italic,
@@ -58,62 +45,94 @@ local function set_hl(group, fg, rbg, attr)
 	})
 end
 
+-----------------------------------------------------------------------------
 -- Set the Normal and LineNr highlight groups
-set_hl("Normal", c.fg, bg, nil)
-set_hl("LineNr", c.comment, bg, nil)
-set_hl("SignColumn", nil, bg, nil)
-set_hl("Todo", c.red, bg, { bold = true })
+set_hl("Normal", Colors.FOREGROUND, Colors.BACKGROUND, nil)
+set_hl("LineNr", Colors.COMMENT, Colors.BACKGROUND, nil)
+set_hl("SignColumn", nil, Colors.BACKGROUND, nil)
+set_hl("Todo", Colors.RED, Colors.BACKGROUND, { bold = true })
 
 -- Vim Highlighting
-set_hl("Comment", c.comment, nil, { italic = vim.g.devglow_italic_comments })
-set_hl("NonText", c.comment, nil, nil)
-set_hl("SpecialKey", c.dark0, nil, nil)
-set_hl("Search", bg, c.yellow, nil)
-set_hl("TabLine", c.dark0, c.fg, { reverse = true })
-set_hl("TabLineFill", c.dark0, c.fg, { reverse = true })
-set_hl("StatusLine", c.dark0, c.yellow, { reverse = true })
-set_hl("StatusLineNC", c.dark0, c.fg, { reverse = true })
-set_hl("Visual", nil, c.dark2, nil)
-set_hl("Directory", c.dim_yellow, nil, nil)
-set_hl("ModeMsg", c.green, nil, nil)
-set_hl("MoreMsg", c.green, nil, nil)
-set_hl("Question", c.green, nil, nil)
-set_hl("WarningMsg", c.orange, nil, { bold = true })
-set_hl("MatchParen", nil, c.wine, nil)
-set_hl("Folded", c.comment, bg, nil)
-set_hl("FoldColumn", nil, bg, nil)
-set_hl("Pmenu", nil, c.dark0, nil)
-set_hl("CursorLine", nil, c.dark1, nil)
-set_hl("CursorLineNr", c.orange, nil, nil)
-set_hl("CursorColumn", nil, c.dark0, nil)
-set_hl("PMenuSel", c.fg, c.dark0, { reverse = true })
-set_hl("ColorColumn", nil, c.dark0, nil)
-set_hl("WinSeparator", c.dark0, nil, nil)
-set_hl("NormalFloat", nil, c.dark0, nil)
-set_hl("FloatBorder", c.dark2, nil, nil)
+set_hl("Comment", Colors.COMMENT, nil, {})
+set_hl("NonText", Colors.COMMENT, nil, nil)
+set_hl("SpecialKey", Colors.DARK_1, nil, nil)
+set_hl("Search", Colors.BACKGROUND, Colors.YELLOW_2, nil)
+set_hl("TabLine", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
+set_hl("TabLineFill", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
+set_hl("StatusLine", Colors.DARK_1, Colors.YELLOW_2, { reverse = true })
+set_hl("StatusLineNC", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
+set_hl("Visual", nil, Colors.DARK_3, nil)
+set_hl("Directory", Colors.YELLOW_0, nil, nil)
+set_hl("ModeMsg", Colors.GREEN, nil, nil)
+set_hl("MoreMsg", Colors.GREEN, nil, nil)
+set_hl("Question", Colors.GREEN, nil, nil)
+set_hl("WarningMsg", Colors.YELLOW_1, nil, { bold = true })
+set_hl("MatchParen", nil, Colors.WINE, nil)
+set_hl("Folded", Colors.COMMENT, Colors.BACKGROUND, nil)
+set_hl("FoldColumn", nil, Colors.BACKGROUND, nil)
+set_hl("Pmenu", nil, Colors.DARK_1, nil)
+set_hl("CursorLine", nil, Colors.DARK_2, nil)
+set_hl("CursorLineNr", Colors.YELLOW_1, nil, nil)
+set_hl("CursorColumn", nil, Colors.DARK_1, nil)
+set_hl("PMenuSel", Colors.FOREGROUND, Colors.DARK_1, { reverse = true })
+set_hl("ColorColumn", nil, Colors.DARK_1, nil)
+set_hl("WinSeparator", Colors.DARK_1, nil, nil)
+set_hl("NormalFloat", nil, Colors.DARK_1, nil)
+set_hl("FloatBorder", Colors.DARK_3, nil, nil)
 
 -- Standard Highlighting
-set_hl("Title", c.comment, nil, { bold = true })
-set_hl("Identifier", c.fg, nil, nil)
-set_hl("Statement", c.red, nil, nil)
-set_hl("Conditional", c.red, nil, nil)
-set_hl("Repeat", c.red, nil, nil)
-set_hl("Structure", c.orange, nil, nil)
-set_hl("Function", c.green, nil, { bold = true })
-set_hl("Constant", c.orange, nil, nil)
-set_hl("Keyword", c.red, nil, nil)
-set_hl("String", c.yellow, nil, nil)
-set_hl("Special", c.orange, nil, nil)
-set_hl("Delimiter", c.orange, nil, nil)
-set_hl("PreProc", c.blue, nil, nil)
-set_hl("Operator", c.purple, nil, nil)
-set_hl("Type", c.orange, nil, nil)
-set_hl("Define", c.green, nil, nil)
-set_hl("Include", c.red, nil, nil)
-set_hl("Tag", c.orange, nil, { bold = true })
-set_hl("Underlined", c.orange, nil, { underline = true })
-set_hl("QuickFixLine", c.red, nil, { bold = true })
+set_hl("Title", Colors.COMMENT, nil, { bold = true })
+set_hl("Identifier", Colors.FOREGROUND, nil, nil)
+set_hl("Statement", Colors.RED, nil, nil)
+set_hl("Conditional", Colors.RED, nil, nil)
+set_hl("Repeat", Colors.RED, nil, nil)
+set_hl("Structure", Colors.YELLOW_1, nil, nil)
+set_hl("Function", Colors.GREEN, nil, { bold = true })
+set_hl("Constant", Colors.YELLOW_1, nil, nil)
+set_hl("Keyword", Colors.RED, nil, nil)
+set_hl("String", Colors.YELLOW_2, nil, nil)
+set_hl("Special", Colors.YELLOW_1, nil, nil)
+set_hl("Delimiter", Colors.YELLOW_1, nil, nil)
+set_hl("PreProc", Colors.BLUE, nil, nil)
+set_hl("Operator", Colors.PURPLE, nil, nil)
+set_hl("Type", Colors.YELLOW_1, nil, nil)
+set_hl("Define", Colors.GREEN, nil, nil)
+set_hl("Include", Colors.RED, nil, nil)
+set_hl("Tag", Colors.YELLOW_1, nil, { bold = true })
+set_hl("Underlined", Colors.YELLOW_1, nil, { underline = true })
+set_hl("QuickFixLine", Colors.RED, nil, { bold = true })
 
+-- Diffs
+set_hl("DiffAdded", Colors.GREEN, Colors.BACKGROUND, nil)
+set_hl("DiffChange", Colors.YELLOW_2, Colors.BACKGROUND, nil)
+set_hl("DiffDelete", Colors.RED, Colors.BACKGROUND, nil)
+set_hl("DiffLine", Colors.BLUE, Colors.BACKGROUND, { italic = true })
+set_hl("DiffSubname", Colors.FOREGROUND, Colors.BACKGROUND, nil)
+
+-- Telescope
+set_hl("TelescopeBorder", Colors.DARK_3, nil, nil)
+set_hl("TelescopeTitle", Colors.RED, nil, { bold = true })
+set_hl("TelescopePromptTitle", Colors.FOREGROUND, nil, { bold = true })
+set_hl("TelescopePreviewTitle", Colors.GREEN, nil, { bold = true })
+
+-- Diagnostics
+set_hl("DiagnosticError", Colors.ERORR, nil, { bold = true })
+set_hl("DiagnosticWarn", Colors.WARN, nil, { bold = true })
+set_hl("DiagnosticInfo", Colors.INFO, nil, { bold = true })
+set_hl("DiagnosticHint", Colors.BLUE, nil, { bold = true })
+
+-- Nvim
+set_hl("NvimParenthesis", Colors.YELLOW_1, nil, nil)
+
+-- NvimTree
+set_hl("NvimTreeNormal", Colors.DARK_4, Colors.DARK_0, nil)
+set_hl("NvimTreeRootFolder", Colors.RED, nil, nil)
+set_hl("NvimTreeFolderName", Colors.YELLOW_0, nil, { bold = true })
+set_hl("NvimTreeExecFile", Colors.RED, nil, { bold = true })
+set_hl("NvimTreeOpenedFile", Colors.FOREGROUND, nil, nil)
+set_hl("NvimTreeWindowPicker", Colors.DARK_4, Colors.DARK_1, { bold = true })
+
+-----------------------------------------------------------------------------
 -- Link some highlight groups
 vim.cmd("hi! link diffAdded DiffAdded")
 vim.cmd("hi! link diffChange DiffChange")
@@ -128,33 +147,3 @@ vim.cmd("hi! link diffAdd DiffAdded")
 vim.cmd("hi! link NvimTreeFolderIcon Directory")
 vim.cmd("hi! link NvimTreeEmptyFolderName NvimTreeFolderName")
 vim.cmd("hi! link NvimTreeOpenedFolderName NvimTreeFolderName")
-
--- Diffs
-set_hl("DiffAdded", c.green, c.bg, nil)
-set_hl("DiffChange", c.yellow, c.bg, nil)
-set_hl("DiffDelete", c.red, c.bg, nil)
-set_hl("DiffLine", c.blue, c.bg, { italic = true })
-set_hl("DiffSubname", c.fg, c.bg, nil)
-
--- Telescope
-set_hl("TelescopeBorder", c.dark2, nil, nil)
-set_hl("TelescopeTitle", c.red, nil, { bold = true })
-set_hl("TelescopePromptTitle", c.fg, nil, { bold = true })
-set_hl("TelescopePreviewTitle", c.green, nil, { bold = true })
-
--- Diagnostics
-set_hl("DiagnosticError", c.error, nil, { bold = true })
-set_hl("DiagnosticWarn", c.warn, nil, { bold = true })
-set_hl("DiagnosticInfo", c.info, nil, { bold = true })
-set_hl("DiagnosticHint", c.blue, nil, { bold = true })
-
--- Nvim
-set_hl("NvimParenthesis", c.orange, nil, nil)
-
--- NvimTree
-set_hl("NvimTreeNormal", c.dfg, c.mbg0, nil)
-set_hl("NvimTreeRootFolder", c.red, nil, nil)
-set_hl("NvimTreeFolderName", c.dim_yellow, nil, { bold = true })
-set_hl("NvimTreeExecFile", c.red, nil, { bold = true })
-set_hl("NvimTreeOpenedFile", c.fg, nil, nil)
-set_hl("NvimTreeWindowPicker", c.dfg, c.dark0, { bold = true })
