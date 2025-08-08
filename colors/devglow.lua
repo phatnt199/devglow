@@ -109,6 +109,16 @@ set_hl("DiffDelete", Colors.RED, Colors.BACKGROUND, nil)
 set_hl("DiffLine", Colors.BLUE, Colors.BACKGROUND, { italic = true })
 set_hl("DiffSubname", Colors.FOREGROUND, Colors.BACKGROUND, nil)
 
+vim.cmd("hi! link diffAdded DiffAdded")
+vim.cmd("hi! link DiffAdd DiffAdded")
+vim.cmd("hi! link diffAdd DiffAdded")
+vim.cmd("hi! link diffChange DiffChange")
+vim.cmd("hi! link diffDelete DiffDelete")
+vim.cmd("hi! link diffLine DiffLine")
+vim.cmd("hi! link diffSubname DiffSubname")
+vim.cmd("hi! link DiffRemoved DiffDelete")
+vim.cmd("hi! link diffRemoved DiffDelete")
+
 -- Telescope
 set_hl("TelescopeBorder", Colors.DARK_3, nil, nil)
 set_hl("TelescopeTitle", Colors.RED, nil, { bold = true })
@@ -132,18 +142,10 @@ set_hl("NvimTreeExecFile", Colors.RED, nil, { bold = true })
 set_hl("NvimTreeOpenedFile", Colors.FOREGROUND, nil, nil)
 set_hl("NvimTreeWindowPicker", Colors.DARK_4, Colors.DARK_1, { bold = true })
 
------------------------------------------------------------------------------
--- Link some highlight groups
-vim.cmd("hi! link diffAdded DiffAdded")
-vim.cmd("hi! link diffChange DiffChange")
-vim.cmd("hi! link diffDelete DiffDelete")
-vim.cmd("hi! link diffLine DiffLine")
-vim.cmd("hi! link diffSubname DiffSubname")
-vim.cmd("hi! link DiffRemoved DiffDelete")
-vim.cmd("hi! link diffRemoved DiffDelete")
-vim.cmd("hi! link GitGutterChangeLineDefault DiffDelete")
-vim.cmd("hi! link DiffAdd DiffAdded")
-vim.cmd("hi! link diffAdd DiffAdded")
 vim.cmd("hi! link NvimTreeFolderIcon Directory")
 vim.cmd("hi! link NvimTreeEmptyFolderName NvimTreeFolderName")
 vim.cmd("hi! link NvimTreeOpenedFolderName NvimTreeFolderName")
+
+-- BlinkCmp
+set_hl("BlinkCmpMenuBorder", Colors.DARK_3, nil, nil)
+vim.cmd("hi! link BlinkCmpDocBorder BlinkCmpMenuBorder")
