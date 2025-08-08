@@ -45,69 +45,100 @@ local function set_hl(group, rfg, rbg, attr)
 	})
 end
 
+local highlights = {
+	-- Set the Normal and LineNr highlight groups
+	{ scope = "Normal", fg = Colors.FOREGROUND, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "LineNr", fg = Colors.COMMENT, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "SignColumn", fg = nil, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "Todo", fg = Colors.RED, bg = Colors.BACKGROUND, styles = { bold = true } },
+
+	-- Vim Highlighting
+	{ scope = "Comment", fg = Colors.COMMENT, bg = nil, styles = {} },
+	{ scope = "NonText", fg = Colors.COMMENT, bg = nil, styles = nil },
+	{ scope = "SpecialKey", fg = Colors.DARK_1, bg = nil, styles = nil },
+	{ scope = "Search", fg = Colors.BACKGROUND, bg = Colors.YELLOW_2, styles = nil },
+	{ scope = "TabLine", fg = Colors.DARK_1, bg = Colors.FOREGROUND, styles = { reverse = true } },
+	{ scope = "TabLineFill", fg = Colors.DARK_1, bg = Colors.FOREGROUND, styles = { reverse = true } },
+	{ scope = "StatusLine", fg = Colors.DARK_1, bg = Colors.YELLOW_2, styles = { reverse = true } },
+	{ scope = "StatusLineNC", fg = Colors.DARK_1, bg = Colors.FOREGROUND, styles = { reverse = true } },
+	{ scope = "Visual", fg = nil, bg = Colors.DARK_3, styles = nil },
+	{ scope = "Directory", fg = Colors.YELLOW_0, bg = nil, styles = nil },
+	{ scope = "ModeMsg", fg = Colors.GREEN, bg = nil, styles = nil },
+	{ scope = "MoreMsg", fg = Colors.GREEN, bg = nil, styles = nil },
+	{ scope = "Question", fg = Colors.GREEN, bg = nil, styles = nil },
+	{ scope = "WarningMsg", fg = Colors.YELLOW_1, bg = nil, styles = { bold = true } },
+	{ scope = "MatchParen", fg = nil, bg = Colors.WINE, styles = nil },
+	{ scope = "Folded", fg = Colors.COMMENT, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "FoldColumn", fg = nil, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "Pmenu", fg = nil, bg = Colors.DARK_1, styles = nil },
+	{ scope = "CursorLine", fg = nil, bg = Colors.DARK_2, styles = nil },
+	{ scope = "CursorLineNr", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "CursorColumn", fg = nil, bg = Colors.DARK_1, styles = nil },
+	{ scope = "PMenuSel", fg = Colors.FOREGROUND, bg = Colors.DARK_1, styles = { reverse = true } },
+	{ scope = "ColorColumn", fg = nil, bg = Colors.DARK_1, styles = nil },
+	{ scope = "WinSeparator", fg = Colors.DARK_1, bg = nil, styles = nil },
+	{ scope = "NormalFloat", fg = nil, bg = Colors.DARK_1, styles = nil },
+	{ scope = "FloatBorder", fg = Colors.DARK_3, bg = nil, styles = nil },
+
+	-- Standard Highlighting
+	{ scope = "Title", fg = Colors.COMMENT, bg = nil, styles = { bold = true } },
+	{ scope = "Identifier", fg = Colors.FOREGROUND, bg = nil, styles = nil },
+	{ scope = "Statement", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "Conditional", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "Repeat", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "Structure", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "Function", fg = Colors.GREEN, bg = nil, styles = { bold = true } },
+	{ scope = "Constant", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "Keyword", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "String", fg = Colors.YELLOW_2, bg = nil, styles = nil },
+	{ scope = "Special", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "Delimiter", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "PreProc", fg = Colors.BLUE, bg = nil, styles = nil },
+	{ scope = "Operator", fg = Colors.PURPLE, bg = nil, styles = nil },
+	{ scope = "Type", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "Define", fg = Colors.GREEN, bg = nil, styles = nil },
+	{ scope = "Include", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "Tag", fg = Colors.YELLOW_1, bg = nil, styles = { bold = true } },
+	{ scope = "Underlined", fg = Colors.YELLOW_1, bg = nil, styles = { underline = true } },
+	{ scope = "QuickFixLine", fg = Colors.RED, bg = nil, styles = { bold = true } },
+
+	-- Diffs
+	{ scope = "DiffAdded", fg = Colors.GREEN, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "DiffChange", fg = Colors.YELLOW_2, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "DiffDelete", fg = Colors.RED, bg = Colors.BACKGROUND, styles = nil },
+	{ scope = "DiffLine", fg = Colors.BLUE, bg = Colors.BACKGROUND, styles = { italic = true } },
+	{ scope = "DiffSubname", fg = Colors.FOREGROUND, bg = Colors.BACKGROUND, styles = nil },
+
+	-- Telescope
+	{ scope = "TelescopeBorder", fg = Colors.DARK_3, bg = nil, styles = nil },
+	{ scope = "TelescopeTitle", fg = Colors.RED, bg = nil, styles = { bold = true } },
+	{ scope = "TelescopePromptTitle", fg = Colors.FOREGROUND, bg = nil, styles = { bold = true } },
+	{ scope = "TelescopePreviewTitle", fg = Colors.GREEN, bg = nil, styles = { bold = true } },
+
+	-- Diagnostics
+	{ scope = "DiagnosticError", fg = Colors.ERORR, bg = nil, styles = { bold = true } },
+	{ scope = "DiagnosticWarn", fg = Colors.WARN, bg = nil, styles = { bold = true } },
+	{ scope = "DiagnosticInfo", fg = Colors.INFO, bg = nil, styles = { bold = true } },
+	{ scope = "DiagnosticHint", fg = Colors.BLUE, bg = nil, styles = { bold = true } },
+
+	-- NvimTree
+	{ scope = "NvimParenthesis", fg = Colors.YELLOW_1, bg = nil, styles = nil },
+	{ scope = "NvimTreeNormal", fg = Colors.DARK_4, bg = Colors.DARK_0, styles = nil },
+	{ scope = "NvimTreeRootFolder", fg = Colors.RED, bg = nil, styles = nil },
+	{ scope = "NvimTreeFolderName", fg = Colors.YELLOW_0, bg = nil, styles = { bold = true } },
+	{ scope = "NvimTreeExecFile", fg = Colors.RED, bg = nil, styles = { bold = true } },
+	{ scope = "NvimTreeOpenedFile", fg = Colors.FOREGROUND, bg = nil, styles = nil },
+	{ scope = "NvimTreeWindowPicker", fg = Colors.DARK_4, bg = Colors.DARK_1, styles = { bold = true } },
+
+	-- BlinkCmp
+	{ scope = "BlinkCmpMenuBorder", fg = Colors.DARK_3, bg = nil, styles = nil },
+}
+
 -----------------------------------------------------------------------------
--- Set the Normal and LineNr highlight groups
-set_hl("Normal", Colors.FOREGROUND, Colors.BACKGROUND, nil)
-set_hl("LineNr", Colors.COMMENT, Colors.BACKGROUND, nil)
-set_hl("SignColumn", nil, Colors.BACKGROUND, nil)
-set_hl("Todo", Colors.RED, Colors.BACKGROUND, { bold = true })
-
--- Vim Highlighting
-set_hl("Comment", Colors.COMMENT, nil, {})
-set_hl("NonText", Colors.COMMENT, nil, nil)
-set_hl("SpecialKey", Colors.DARK_1, nil, nil)
-set_hl("Search", Colors.BACKGROUND, Colors.YELLOW_2, nil)
-set_hl("TabLine", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
-set_hl("TabLineFill", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
-set_hl("StatusLine", Colors.DARK_1, Colors.YELLOW_2, { reverse = true })
-set_hl("StatusLineNC", Colors.DARK_1, Colors.FOREGROUND, { reverse = true })
-set_hl("Visual", nil, Colors.DARK_3, nil)
-set_hl("Directory", Colors.YELLOW_0, nil, nil)
-set_hl("ModeMsg", Colors.GREEN, nil, nil)
-set_hl("MoreMsg", Colors.GREEN, nil, nil)
-set_hl("Question", Colors.GREEN, nil, nil)
-set_hl("WarningMsg", Colors.YELLOW_1, nil, { bold = true })
-set_hl("MatchParen", nil, Colors.WINE, nil)
-set_hl("Folded", Colors.COMMENT, Colors.BACKGROUND, nil)
-set_hl("FoldColumn", nil, Colors.BACKGROUND, nil)
-set_hl("Pmenu", nil, Colors.DARK_1, nil)
-set_hl("CursorLine", nil, Colors.DARK_2, nil)
-set_hl("CursorLineNr", Colors.YELLOW_1, nil, nil)
-set_hl("CursorColumn", nil, Colors.DARK_1, nil)
-set_hl("PMenuSel", Colors.FOREGROUND, Colors.DARK_1, { reverse = true })
-set_hl("ColorColumn", nil, Colors.DARK_1, nil)
-set_hl("WinSeparator", Colors.DARK_1, nil, nil)
-set_hl("NormalFloat", nil, Colors.DARK_1, nil)
-set_hl("FloatBorder", Colors.DARK_3, nil, nil)
-
--- Standard Highlighting
-set_hl("Title", Colors.COMMENT, nil, { bold = true })
-set_hl("Identifier", Colors.FOREGROUND, nil, nil)
-set_hl("Statement", Colors.RED, nil, nil)
-set_hl("Conditional", Colors.RED, nil, nil)
-set_hl("Repeat", Colors.RED, nil, nil)
-set_hl("Structure", Colors.YELLOW_1, nil, nil)
-set_hl("Function", Colors.GREEN, nil, { bold = true })
-set_hl("Constant", Colors.YELLOW_1, nil, nil)
-set_hl("Keyword", Colors.RED, nil, nil)
-set_hl("String", Colors.YELLOW_2, nil, nil)
-set_hl("Special", Colors.YELLOW_1, nil, nil)
-set_hl("Delimiter", Colors.YELLOW_1, nil, nil)
-set_hl("PreProc", Colors.BLUE, nil, nil)
-set_hl("Operator", Colors.PURPLE, nil, nil)
-set_hl("Type", Colors.YELLOW_1, nil, nil)
-set_hl("Define", Colors.GREEN, nil, nil)
-set_hl("Include", Colors.RED, nil, nil)
-set_hl("Tag", Colors.YELLOW_1, nil, { bold = true })
-set_hl("Underlined", Colors.YELLOW_1, nil, { underline = true })
-set_hl("QuickFixLine", Colors.RED, nil, { bold = true })
-
--- Diffs
-set_hl("DiffAdded", Colors.GREEN, Colors.BACKGROUND, nil)
-set_hl("DiffChange", Colors.YELLOW_2, Colors.BACKGROUND, nil)
-set_hl("DiffDelete", Colors.RED, Colors.BACKGROUND, nil)
-set_hl("DiffLine", Colors.BLUE, Colors.BACKGROUND, { italic = true })
-set_hl("DiffSubname", Colors.FOREGROUND, Colors.BACKGROUND, nil)
+for index in ipairs(highlights) do
+	local h = highlights[index]
+	set_hl(h.scope, h.fg, h.bg, h.styles)
+end
 
 vim.cmd("hi! link diffAdded DiffAdded")
 vim.cmd("hi! link DiffAdd DiffAdded")
@@ -119,33 +150,8 @@ vim.cmd("hi! link diffSubname DiffSubname")
 vim.cmd("hi! link DiffRemoved DiffDelete")
 vim.cmd("hi! link diffRemoved DiffDelete")
 
--- Telescope
-set_hl("TelescopeBorder", Colors.DARK_3, nil, nil)
-set_hl("TelescopeTitle", Colors.RED, nil, { bold = true })
-set_hl("TelescopePromptTitle", Colors.FOREGROUND, nil, { bold = true })
-set_hl("TelescopePreviewTitle", Colors.GREEN, nil, { bold = true })
-
--- Diagnostics
-set_hl("DiagnosticError", Colors.ERORR, nil, { bold = true })
-set_hl("DiagnosticWarn", Colors.WARN, nil, { bold = true })
-set_hl("DiagnosticInfo", Colors.INFO, nil, { bold = true })
-set_hl("DiagnosticHint", Colors.BLUE, nil, { bold = true })
-
--- Nvim
-set_hl("NvimParenthesis", Colors.YELLOW_1, nil, nil)
-
--- NvimTree
-set_hl("NvimTreeNormal", Colors.DARK_4, Colors.DARK_0, nil)
-set_hl("NvimTreeRootFolder", Colors.RED, nil, nil)
-set_hl("NvimTreeFolderName", Colors.YELLOW_0, nil, { bold = true })
-set_hl("NvimTreeExecFile", Colors.RED, nil, { bold = true })
-set_hl("NvimTreeOpenedFile", Colors.FOREGROUND, nil, nil)
-set_hl("NvimTreeWindowPicker", Colors.DARK_4, Colors.DARK_1, { bold = true })
-
 vim.cmd("hi! link NvimTreeFolderIcon Directory")
 vim.cmd("hi! link NvimTreeEmptyFolderName NvimTreeFolderName")
 vim.cmd("hi! link NvimTreeOpenedFolderName NvimTreeFolderName")
 
--- BlinkCmp
-set_hl("BlinkCmpMenuBorder", Colors.DARK_3, nil, nil)
 vim.cmd("hi! link BlinkCmpDocBorder BlinkCmpMenuBorder")
