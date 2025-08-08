@@ -77,7 +77,7 @@ local highlights = {
 	{ scope = "PMenuSel", fg = Colors.FOREGROUND, bg = Colors.DARK_1, styles = { reverse = true } },
 	{ scope = "ColorColumn", fg = nil, bg = Colors.DARK_1, styles = nil },
 	{ scope = "WinSeparator", fg = Colors.DARK_1, bg = nil, styles = nil },
-	{ scope = "NormalFloat", fg = nil, bg = Colors.DARK_1, styles = nil },
+	{ scope = "NormalFloat", fg = nil, bg = Colors.DARK_2, styles = nil },
 	{ scope = "FloatBorder", fg = Colors.DARK_3, bg = nil, styles = nil },
 
 	-- Standard Highlighting
