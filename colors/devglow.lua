@@ -180,7 +180,7 @@ local highlights = {
 	{ scope = "BlinkCmpMenuBorder", fg = Colors.DARK_3, bg = nil, styles = nil },
 
 	-- TypeScript/Generic Type Parameters
-	{ scope = "TypeParameter", fg = Colors.GREEN, bg = nil, styles = nil },
+	{ scope = "TypeParameter", fg = Colors.GREEN, bg = nil, styles = { italic = true } },
 }
 
 -----------------------------------------------------------------------------
