@@ -1,0 +1,23 @@
+{
+  "name": "devglow",
+  "type": "custom",
+  "Background": "#080808",
+  "Foreground": "#E6E6E6",
+  "LightBlue": "#7EAAC7",
+  "AccentBlue": "#7590AF",
+  "AccentPurple": "#D68C8C",
+  "AccentCyan": "#7DB9B6",
+  "AccentGreen": "#87AFAF",
+  "AccentYellow": "#E5B567",
+  "AccentRed": "#AF5F5F",
+  "Comment": "#797979",
+  "Gray": "#383838",
+  "DiffAdded": "#0E1A14",
+  "DiffRemoved": "#1A0D0D",
+  "GradientColors": [
+    "#EBC17A",
+    "#7DB9B6",
+    "#7EAAC7",
+    "#924653"
+  ]
+}

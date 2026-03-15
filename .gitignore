@@ -1,0 +1,22 @@
+# Neovim
+*.swp
+*.swo
+*~
+tags
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Claude Code
+.claude/
+
+# Misc
+*.bak
+*.orig
+*.log

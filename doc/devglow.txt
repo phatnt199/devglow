@@ -1,0 +1,177 @@
+*devglow.txt*    A professional dark colorscheme for Neovim
+
+Author:   Phat Nguyen <tanphat199@gmail.com>
+License:  MIT
+Homepage: https://github.com/tanphat199/devglow
+
+==============================================================================
+CONTENTS                                                    *devglow-contents*
+
+  1. Introduction ......................................... |devglow-intro|
+  2. Requirements ......................................... |devglow-requirements|
+  3. Installation ......................................... |devglow-installation|
+  4. Usage ................................................ |devglow-usage|
+  5. Palettes ............................................. |devglow-palettes|
+  6. API .................................................. |devglow-api|
+  7. Color Semantics ...................................... |devglow-semantics|
+  8. Plugin Support ....................................... |devglow-plugins|
+  9. Adding a Palette ..................................... |devglow-custom|
+  10. Changelog ........................................... |devglow-changelog|
+
+==============================================================================
+1. INTRODUCTION                                                *devglow-intro*
+
+devglow is a professional dark colorscheme for Neovim, inspired by the
+vim-afterglow theme (https://github.com/danilo-augusto/vim-afterglow). It features two palettes (sage and ember),
+full Treesitter and LSP semantic token support, and a consistent design
+system that extends beyond Neovim to terminals, shells, and editors.
+
+Two palettes. Same soul. One for the quiet night. One for the fire.
+
+==============================================================================
+2. REQUIREMENTS                                         *devglow-requirements*
+
+- Neovim >= 0.10
+- A terminal with true color support
+- A Nerd Font (recommended)
+
+==============================================================================
+3. INSTALLATION                                         *devglow-installation*
+
+With lazy.nvim: >lua
+  {
+    "tanphat199/devglow",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("devglow")
+    end,
+  }
+<
+
+With packer.nvim: >lua
+  use {
+    "tanphat199/devglow",
+    config = function()
+      vim.cmd.colorscheme("devglow")
+    end,
+  }
+<
+
+Manual: >sh
+  git clone https://github.com/tanphat199/devglow.git \
+    ~/.local/share/nvim/site/pack/plugins/start/devglow
+<
+
+==============================================================================
+4. USAGE                                                       *devglow-usage*
+
+Select a colorscheme variant: >vim
+  :colorscheme devglow          " sage (default)
+  :colorscheme devglow-sage     " explicit sage
+  :colorscheme devglow-ember    " ember
+<
+
+Or in Lua: >lua
+  vim.cmd.colorscheme("devglow")
+  vim.cmd.colorscheme("devglow-ember")
+<
+
+==============================================================================
+5. PALETTES                                                 *devglow-palettes*
+
+                                                               *devglow-sage*
+Sage ~
+
+Muted, grey-tinted, calm. Built for the long session. Colors aged like
+leather and old paper. Background: #080808, Foreground: #E6E6E6.
+
+                                                              *devglow-ember*
+Ember ~
+
+Warm terracotta, gold, burnt wine. Earth colors forged in fire.
+Background: #141311, Foreground: #F5F0EB.
+
+Both palettes share 17 color keys:
+  FOREGROUND, BACKGROUND,
+  RED, GREEN, BLUE, ORANGE, YELLOW, PINK, GOLD, TEAL, SKY, WINE,
+  DARK_00, DARK_01, DARK_02, DARK_03, DARK_04
+
+==============================================================================
+6. API                                                           *devglow-api*
+
+                                                     *devglow.palette.load()*
+Load a palette by name: >lua
+  local palette = require("devglow.palette").load("sage")
+  local palette = require("devglow.palette").load("ember")
+<
+
+Use palette colors in your own highlights: >lua
+  local sage = require("devglow.palette").load("sage")
+  vim.api.nvim_set_hl(0, "MyGroup", { fg = sage.TEAL, bg = sage.DARK_01 })
+<
+
+==============================================================================
+7. COLOR SEMANTICS                                          *devglow-semantics*
+
+  Color       Role ~
+  RED         Keywords, errors, control flow
+  GREEN       Functions, success, staged changes
+  BLUE        Preprocessor, diagnostics info
+  ORANGE      Types, constants, directories, warnings
+  YELLOW      Strings, search highlights, numbers
+  PINK        Operators, substitution
+  GOLD        Primary accent, cursor, completion match
+  TEAL        Secondary accent, terminal cyan
+  SKY         Info hints, terminal blue
+  WINE        Magenta, special control flow
+  DARK_00-04  UI shades from darkest to comments
+
+==============================================================================
+8. PLUGIN SUPPORT                                            *devglow-plugins*
+
+Built-in support for:
+  - Telescope (borders and titles)
+  - NvimTree (full highlight support)
+  - BlinkCmp (menu and doc borders)
+  - Lualine (dedicated theme)
+
+Lualine setup: >lua
+  require("lualine").setup({
+    options = { theme = "devglow" },
+  })
+<
+
+Beyond Neovim, devglow ships themes for:
+  - Alacritty (TOML)
+  - Gemini Code (JSON)
+  - OpenCode (JSON)
+  - Superfile (TOML)
+  - Zsh (prompt theme)
+
+==============================================================================
+9. ADDING A PALETTE                                           *devglow-custom*
+
+1. Create `lua/devglow/palettes/yourname.lua` returning a table with all
+   17 color keys. See `sage.lua` for reference.
+
+2. Create `colors/devglow-yourname.lua`: >lua
+   vim.cmd("hi clear")
+   if vim.g.colors_name then
+     vim.cmd("syntax reset")
+   end
+   vim.o.background = "dark"
+   vim.g.colors_name = "devglow-yourname"
+   local palette = require("devglow.palette").load("yourname")
+   require("devglow.highlights")(palette)
+<
+
+3. Use it: `:colorscheme devglow-yourname`
+
+==============================================================================
+10. CHANGELOG                                              *devglow-changelog*
+
+See CHANGELOG.md in the repository root.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
