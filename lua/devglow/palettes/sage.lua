@@ -1,7 +1,4 @@
--- Sage is the herb of wisdom and patience.
--- Muted, grey-tinted, calm — it doesn't demand attention.
--- Built for the long session, the 2am refactor,
--- the "I've been staring at this for 4 hours and my eyes don't hurt" feeling.
+-- Muted, grey-tinted, calm.
 -- A dark room with just enough candlelight to read by.
 -- Colors aged like leather and old paper. Restrained. Quiet.
 -- One for the quiet night.

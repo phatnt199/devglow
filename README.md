@@ -2,69 +2,57 @@
 
 A professional dark colorscheme for Neovim — and beyond.
 
-Two palettes. One philosophy: colors that stay quiet while you think.
+Five palettes. One philosophy: colors that stay quiet while you think.
 
----
-
-## The Story
-
-**devglow** was born from the [Afterglow](https://github.com/danilo-augusto/vim-afterglow) theme for Sublime Text, then rewritten from scratch for modern Neovim. It has since grown into a full design system spanning terminal, shell, editors, and file managers.
-
-It ships with two palettes:
-
-### Sage — *one for the quiet night*
-
-Muted, grey-tinted, calm. Built for the long session, the 2am refactor, the "I've been staring at this for 4 hours and my eyes don't hurt" feeling. A dark room with just enough candlelight to read by. Colors aged like leather and old paper. Restrained. Quiet.
-
-### Ember — *one for the fire*
-
-What's left after the fire — not the flame itself, but the glowing coals underneath. Terracotta, warm gold, burnt wine. The background isn't pure black, it's charcoal. The foreground isn't pure white, it's cream. Everything has a temperature. It glows from within, like its name.
+> Dark mode only. No light mode — by design.
 
 ---
 
 ## Palettes
 
-### Sage
+**devglow** was born from [vim-afterglow](https://github.com/danilo-augusto/vim-afterglow), then rewritten from scratch for modern Neovim. It has since grown into a full design system spanning terminal, shell, editors, and file managers.
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Foreground | ![#E6E6E6](https://placehold.co/16x16/E6E6E6/E6E6E6) | `#E6E6E6` |
-| Background | ![#080808](https://placehold.co/16x16/080808/080808) | `#080808` |
-| Red | ![#AF5F5F](https://placehold.co/16x16/AF5F5F/AF5F5F) | `#AF5F5F` |
-| Green | ![#87AFAF](https://placehold.co/16x16/87AFAF/87AFAF) | `#87AFAF` |
-| Blue | ![#7590AF](https://placehold.co/16x16/7590AF/7590AF) | `#7590AF` |
-| Orange | ![#D59572](https://placehold.co/16x16/D59572/D59572) | `#D59572` |
-| Yellow | ![#E5B567](https://placehold.co/16x16/E5B567/E5B567) | `#E5B567` |
-| Pink | ![#D68C8C](https://placehold.co/16x16/D68C8C/D68C8C) | `#D68C8C` |
-| Gold | ![#EBC17A](https://placehold.co/16x16/EBC17A/EBC17A) | `#EBC17A` |
-| Teal | ![#7DB9B6](https://placehold.co/16x16/7DB9B6/7DB9B6) | `#7DB9B6` |
-| Sky | ![#7EAAC7](https://placehold.co/16x16/7EAAC7/7EAAC7) | `#7EAAC7` |
-| Wine | ![#924653](https://placehold.co/16x16/924653/924653) | `#924653` |
+Every palette shares the same 17-key structure (12 colors + 5 shades), the same highlight engine, and the same semantic mapping. Only the mood changes.
 
-### Ember
+### Sage — *one for the quiet night*
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Foreground | ![#F5F0EB](https://placehold.co/16x16/F5F0EB/F5F0EB) | `#F5F0EB` |
-| Background | ![#141311](https://placehold.co/16x16/141311/141311) | `#141311` |
-| Red | ![#D06060](https://placehold.co/16x16/D06060/D06060) | `#D06060` |
-| Green | ![#6AADAD](https://placehold.co/16x16/6AADAD/6AADAD) | `#6AADAD` |
-| Blue | ![#5A9D9D](https://placehold.co/16x16/5A9D9D/5A9D9D) | `#5A9D9D` |
-| Orange | ![#D4785E](https://placehold.co/16x16/D4785E/D4785E) | `#D4785E` |
-| Yellow | ![#E0BA6A](https://placehold.co/16x16/E0BA6A/E0BA6A) | `#E0BA6A` |
-| Pink | ![#E08B72](https://placehold.co/16x16/E08B72/E08B72) | `#E08B72` |
-| Gold | ![#EACA80](https://placehold.co/16x16/EACA80/EACA80) | `#EACA80` |
-| Teal | ![#7BBDBD](https://placehold.co/16x16/7BBDBD/7BBDBD) | `#7BBDBD` |
-| Sky | ![#6AADAD](https://placehold.co/16x16/6AADAD/6AADAD) | `#6AADAD` |
-| Wine | ![#B45A42](https://placehold.co/16x16/B45A42/B45A42) | `#B45A42` |
+> Muted, grey-tinted, calm. A dark room with just enough candlelight to read by. Colors aged like leather and old paper.
 
----
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/E6E6E6/E6E6E6) | ![](https://placehold.co/16x16/080808/080808) | ![](https://placehold.co/16x16/AF5F5F/AF5F5F) | ![](https://placehold.co/16x16/87AFAF/87AFAF) | ![](https://placehold.co/16x16/7590AF/7590AF) | ![](https://placehold.co/16x16/D59572/D59572) | ![](https://placehold.co/16x16/E5B567/E5B567) | ![](https://placehold.co/16x16/D68C8C/D68C8C) | ![](https://placehold.co/16x16/EBC17A/EBC17A) | ![](https://placehold.co/16x16/7DB9B6/7DB9B6) | ![](https://placehold.co/16x16/7EAAC7/7EAAC7) | ![](https://placehold.co/16x16/924653/924653) |
 
-## Requirements
+### Ember — *one for the fire*
 
-- Neovim >= 0.10
-- A terminal with true color support (most modern terminals)
-- A [Nerd Font](https://www.nerdfonts.com/) (recommended, for icon support in integrations)
+> Not the flame itself, but the glowing coals underneath. Terracotta, warm gold, burnt wine. It glows from within.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/F5F0EB/F5F0EB) | ![](https://placehold.co/16x16/141311/141311) | ![](https://placehold.co/16x16/D06060/D06060) | ![](https://placehold.co/16x16/6AADAD/6AADAD) | ![](https://placehold.co/16x16/5A9D9D/5A9D9D) | ![](https://placehold.co/16x16/D4785E/D4785E) | ![](https://placehold.co/16x16/E0BA6A/E0BA6A) | ![](https://placehold.co/16x16/E08B72/E08B72) | ![](https://placehold.co/16x16/EACA80/EACA80) | ![](https://placehold.co/16x16/7BBDBD/7BBDBD) | ![](https://placehold.co/16x16/6AADAD/6AADAD) | ![](https://placehold.co/16x16/B45A42/B45A42) |
+
+### Blush — *one for the tender night*
+
+> Rose gold on velvet black, coral on cream. Soft, warm, never loud — like a whisper in pink.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/E8DDD5/E8DDD5) | ![](https://placehold.co/16x16/0C0A0A/0C0A0A) | ![](https://placehold.co/16x16/C47070/C47070) | ![](https://placehold.co/16x16/8BA89A/8BA89A) | ![](https://placehold.co/16x16/7E8BA8/7E8BA8) | ![](https://placehold.co/16x16/C4917A/C4917A) | ![](https://placehold.co/16x16/D4B483/D4B483) | ![](https://placehold.co/16x16/D4889A/D4889A) | ![](https://placehold.co/16x16/CCA88A/CCA88A) | ![](https://placehold.co/16x16/8AA09A/8AA09A) | ![](https://placehold.co/16x16/9AAABF/9AAABF) | ![](https://placehold.co/16x16/944E63/944E63) |
+
+### Amber — *one for the golden hour*
+
+> Honey, parchment, warm sienna — fossilized sunlight. Like the sun through old glass.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/EDE5D8/EDE5D8) | ![](https://placehold.co/16x16/0D0B08/0D0B08) | ![](https://placehold.co/16x16/B86B5A/B86B5A) | ![](https://placehold.co/16x16/8A9A78/8A9A78) | ![](https://placehold.co/16x16/7A8B98/7A8B98) | ![](https://placehold.co/16x16/C48A5A/C48A5A) | ![](https://placehold.co/16x16/D4A855/D4A855) | ![](https://placehold.co/16x16/C4897A/C4897A) | ![](https://placehold.co/16x16/DEAD6A/DEAD6A) | ![](https://placehold.co/16x16/7A9A88/7A9A88) | ![](https://placehold.co/16x16/8A9EB0/8A9EB0) | ![](https://placehold.co/16x16/8A5040/8A5040) |
+
+### Dusk — *one for the fading light*
+
+> Crimson bleeding into plum, sunset fading into indigo. Every color carries the weight of the day behind it.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/E5E0EA/E5E0EA) | ![](https://placehold.co/16x16/0A090D/0A090D) | ![](https://placehold.co/16x16/CC6070/CC6070) | ![](https://placehold.co/16x16/7AA8A0/7AA8A0) | ![](https://placehold.co/16x16/7080A8/7080A8) | ![](https://placehold.co/16x16/C88060/C88060) | ![](https://placehold.co/16x16/D4A870/D4A870) | ![](https://placehold.co/16x16/C878A0/C878A0) | ![](https://placehold.co/16x16/D0A878/D0A878) | ![](https://placehold.co/16x16/709898/709898) | ![](https://placehold.co/16x16/8090B8/8090B8) | ![](https://placehold.co/16x16/8A4068/8A4068) |
 
 ---
 
@@ -96,8 +84,6 @@ use {
 
 ### Manual
 
-Clone the repository into your Neovim runtime path:
-
 ```sh
 git clone https://github.com/phatnt199/devglow.git \
   ~/.local/share/nvim/site/pack/plugins/start/devglow
@@ -108,30 +94,19 @@ git clone https://github.com/phatnt199/devglow.git \
 ## Usage
 
 ```vim
-" Sage (default)
-:colorscheme devglow
-:colorscheme devglow-sage
-
-" Ember
-:colorscheme devglow-ember
-```
-
-Or in your Lua config:
-
-```lua
-vim.cmd.colorscheme("devglow")       -- sage (default)
-vim.cmd.colorscheme("devglow-ember") -- ember
+:colorscheme devglow          " sage (default)
+:colorscheme devglow-sage     " explicit sage
+:colorscheme devglow-ember    " warm terracotta
+:colorscheme devglow-blush    " soft rose
+:colorscheme devglow-amber    " golden hour
+:colorscheme devglow-dusk     " twilight crimson
 ```
 
 ### Accessing the palette programmatically
 
 ```lua
--- Load a specific palette
 local sage = require("devglow.palette").load("sage")
-local ember = require("devglow.palette").load("ember")
-
--- Use in your own highlights
-vim.api.nvim_set_hl(0, "MyCustomGroup", { fg = sage.TEAL, bg = sage.DARK_01 })
+vim.api.nvim_set_hl(0, "MyGroup", { fg = sage.TEAL, bg = sage.DARK_01 })
 ```
 
 ---
@@ -140,21 +115,15 @@ vim.api.nvim_set_hl(0, "MyCustomGroup", { fg = sage.TEAL, bg = sage.DARK_01 })
 
 ### Neovim Highlights
 
-devglow provides highlight definitions for:
-
-**Editor UI** — Normal, NormalFloat, CursorLine, Visual, Search, Pmenu, StatusLine, WinBar, TabLine, FloatBorder, FloatTitle, and more.
-
-**Syntax** — Full coverage of Vim's built-in syntax groups (Comment, String, Function, Keyword, Type, Operator, etc.) with custom semantic groups for access modifiers, special keywords (`this`/`self`/`super`), and type parameters.
-
-**Treesitter** — All current canonical captures (`@variable`, `@function`, `@keyword.conditional`, `@markup.*`, `@diff.*`, etc.). No deprecated capture names.
-
-**LSP Semantic Tokens** — `@lsp.type.*` for all standard token types, `@lsp.mod.deprecated` (strikethrough), and `@lsp.typemod.*` for combined modifiers.
-
-**Diagnostics** — Error, Warn, Info, Hint, Ok with matching underline variants (undercurl with `sp` color), plus `DiagnosticDeprecated` (strikethrough) and `DiagnosticUnnecessary` (dimmed).
-
-**LSP UI** — LspReferenceText/Read/Write, LspInlayHint, LspCodeLens, LspSignatureActiveParameter.
-
-**Terminal** — 16 terminal colors (`vim.g.terminal_color_0` through `_15`).
+| Category | Coverage |
+|----------|----------|
+| **Editor UI** | Normal, NormalFloat, CursorLine, Visual, Search, Pmenu, StatusLine, WinBar, TabLine, FloatBorder, FloatTitle |
+| **Syntax** | All built-in groups + custom semantic groups (access modifiers, `this`/`self`/`super`, type parameters) |
+| **Treesitter** | All current canonical captures — no deprecated names |
+| **LSP Semantic Tokens** | `@lsp.type.*`, `@lsp.mod.deprecated` (strikethrough), `@lsp.typemod.*` |
+| **Diagnostics** | Error, Warn, Info, Hint, Ok + underline variants (undercurl), Deprecated (strikethrough), Unnecessary (dimmed) |
+| **LSP UI** | LspReferenceText/Read/Write, LspInlayHint, LspCodeLens, LspSignatureActiveParameter |
+| **Terminal** | 16 terminal colors |
 
 ### Plugin Support
 
@@ -163,21 +132,9 @@ devglow provides highlight definitions for:
 | [Telescope](https://github.com/nvim-telescope/telescope.nvim) | Borders and titles |
 | [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) | Full highlight support |
 | [BlinkCmp](https://github.com/Saghen/blink.cmp) | Menu and doc borders |
-| [Lualine](https://github.com/nvim-lualine/lualine.nvim) | Dedicated theme |
-
-#### Lualine
-
-```lua
-require("lualine").setup({
-  options = {
-    theme = "devglow",
-  },
-})
-```
+| [Lualine](https://github.com/nvim-lualine/lualine.nvim) | Dedicated theme (`theme = "devglow"`) |
 
 ### Beyond Neovim
-
-devglow is a design system, not just a Vim colorscheme. It ships with theme files for:
 
 | Tool | File | Format |
 |------|------|--------|
@@ -189,48 +146,15 @@ devglow is a design system, not just a Vim colorscheme. It ships with theme file
 
 ---
 
-## Project Structure
-
-```
-devglow/
-  colors/
-    devglow.lua              # :colorscheme devglow (loads sage)
-    devglow-sage.lua         # :colorscheme devglow-sage
-    devglow-ember.lua        # :colorscheme devglow-ember
-  lua/
-    devglow/
-      palette.lua            # Palette loader
-      highlights.lua         # Shared highlight definitions
-      palettes/
-        sage.lua             # Sage palette
-        ember.lua            # Ember palette
-    lualine/
-      themes/
-        devglow.lua          # Lualine statusline theme
-    gemini/
-      devglow.json           # Gemini editor theme
-    opencode/
-      devglow.json           # OpenCode editor theme
-    superfile/
-      themes/
-        devglow.toml         # Superfile file manager theme
-    zsh/
-      devglow.zsh-theme      # Zsh prompt theme
-```
-
----
-
 ## Design Principles
 
 1. **Quiet colors** — No high saturation. Every color earns its place by being distinct without being loud.
 2. **Semantic consistency** — Red is always keywords/errors. Green is always functions/success. Orange is always types/constants. Across every tool.
-3. **Dark-first** — Pure dark backgrounds (`#080808` / `#141311`) optimized for long sessions in low light.
-4. **Warm neutrals** — Grey shades lean warm, never cold blue-grey. Comments and UI chrome feel like part of the palette, not an afterthought.
-5. **Minimal but complete** — 12 colors + 5 shades. Small enough to memorize, large enough to cover every semantic role.
+3. **Dark-first** — Near-black backgrounds optimized for long sessions in low light.
+4. **Warm neutrals** — Grey shades lean warm, never cold blue-grey.
+5. **Minimal but complete** — 12 colors + 5 shades per palette. Small enough to memorize, large enough to cover every semantic role.
 
----
-
-## Color Semantics
+### Color Semantics
 
 | Color | Role |
 |-------|------|
@@ -248,58 +172,57 @@ devglow/
 
 ---
 
+## Project Structure
+
+```
+devglow/
+  colors/
+    devglow.lua              # default (loads sage)
+    devglow-sage.lua
+    devglow-ember.lua
+    devglow-blush.lua
+    devglow-amber.lua
+    devglow-dusk.lua
+  lua/devglow/
+    palette.lua              # palette loader
+    highlights.lua           # shared highlight engine
+    palettes/
+      sage.lua
+      ember.lua
+      blush.lua
+      amber.lua
+      dusk.lua
+  lua/lualine/themes/
+    devglow.lua              # lualine statusline theme
+  lua/gemini/                # gemini editor theme
+  lua/opencode/              # opencode editor theme
+  lua/superfile/themes/      # superfile file manager theme
+  lua/zsh/                   # zsh prompt theme
+  doc/
+    devglow.txt              # :help devglow
+```
+
+---
+
 ## Adding a New Palette
 
-1. Create `lua/devglow/palettes/yourname.lua`:
-
-```lua
--- Your story here.
-
-return {
-  FOREGROUND = "#......",
-  BACKGROUND = "#......",
-
-  RED = "#......",
-  GREEN = "#......",
-  BLUE = "#......",
-  ORANGE = "#......",
-  YELLOW = "#......",
-  PINK = "#......",
-  GOLD = "#......",
-  TEAL = "#......",
-  SKY = "#......",
-  WINE = "#......",
-
-  DARK_00 = "#......",
-  DARK_01 = "#......",
-  DARK_02 = "#......",
-  DARK_03 = "#......",
-  DARK_04 = "#......",
-}
-```
-
-2. Create `colors/devglow-yourname.lua`:
-
-```lua
-vim.cmd("hi clear")
-if vim.g.colors_name then
-  vim.cmd("syntax reset")
-end
-
-vim.o.background = "dark"
-vim.g.colors_name = "devglow-yourname"
-
-local palette = require("devglow.palette").load("yourname")
-require("devglow.highlights")(palette)
-```
-
+1. Create `lua/devglow/palettes/yourname.lua` — return a table with all 17 keys (see any existing palette for reference)
+2. Create `colors/devglow-yourname.lua` — load your palette and apply highlights
 3. Use it: `:colorscheme devglow-yourname`
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+---
+
+## Requirements
+
+- Neovim >= 0.10
+- True color terminal
+- [Nerd Font](https://www.nerdfonts.com/) (recommended)
 
 ---
 
 ## Support
-
-If devglow helps you code through the quiet nights or by the fire, consider buying me a coffee.
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-tanphat199-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/tanphat199)
 
@@ -307,18 +230,14 @@ If devglow helps you code through the quiet nights or by the fire, consider buyi
 
 ## Inspired By
 
-[Afterglow](https://github.com/danilo-augusto/vim-afterglow) — the original Sublime Text theme that started it all. devglow began as a Vim port of Afterglow, then evolved into its own design system with new palettes, modern Neovim APIs, and multi-tool support.
-
----
+[vim-afterglow](https://github.com/danilo-augusto/vim-afterglow) — the Vim theme that started it all.
 
 ## License
 
 [MIT](LICENSE)
 
----
-
 ## Author
 
 **Phat Nguyen** ([@phatnt199](https://github.com/phatnt199))
 
-*Two palettes. Same soul. One for the quiet night. One for the fire.*
+*Five palettes. Same soul. Pick the one that matches your mood.*

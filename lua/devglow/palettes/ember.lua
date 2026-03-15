@@ -1,10 +1,6 @@
--- Ember is what's left after the fire —
--- not the flame itself, but the glowing coals underneath.
--- Terracotta, warm gold, burnt wine. Earth colors, clay colors,
--- the colors of something that was forged.
--- The background isn't pure black, it's charcoal.
--- The foreground isn't pure white, it's cream.
--- Everything has a temperature. It glows from within, like its name.
+-- Not the flame itself, but the glowing coals underneath.
+-- Terracotta, warm gold, burnt wine.
+-- It glows from within, like its name.
 -- One for the fire.
 
 return {
