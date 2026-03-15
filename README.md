@@ -74,7 +74,7 @@ What's left after the fire — not the flame itself, but the glowing coals under
 
 ```lua
 {
-  "tanphat199/devglow",
+  "phatnt199/devglow",
   lazy = false,
   priority = 1000,
   config = function()
@@ -87,7 +87,7 @@ What's left after the fire — not the flame itself, but the glowing coals under
 
 ```lua
 use {
-  "tanphat199/devglow",
+  "phatnt199/devglow",
   config = function()
     vim.cmd.colorscheme("devglow")
   end,
@@ -99,7 +99,7 @@ use {
 Clone the repository into your Neovim runtime path:
 
 ```sh
-git clone https://github.com/tanphat199/devglow.git \
+git clone https://github.com/phatnt199/devglow.git \
   ~/.local/share/nvim/site/pack/plugins/start/devglow
 ```
 
@@ -181,7 +181,7 @@ devglow is a design system, not just a Vim colorscheme. It ships with theme file
 
 | Tool | File | Format |
 |------|------|--------|
-| [Alacritty](https://alacritty.org/) | See [dotfiles](https://github.com/tanphat199/dotfiles) | TOML |
+| [Alacritty](https://alacritty.org/) | See [dotfiles](https://github.com/phatnt199/dotfiles) | TOML |
 | [Gemini Code](https://github.com/google-gemini/gemini-cli) | `lua/gemini/devglow.json` | JSON |
 | [OpenCode](https://github.com/opencode-ai/opencode) | `lua/opencode/devglow.json` | JSON |
 | [Superfile](https://github.com/yorukot/superfile) | `lua/superfile/themes/devglow.toml` | TOML |
@@ -319,6 +319,6 @@ If devglow helps you code through the quiet nights or by the fire, consider buyi
 
 ## Author
 
-**Phat Nguyen** ([@tanphat199](https://github.com/tanphat199))
+**Phat Nguyen** ([@phatnt199](https://github.com/phatnt199))
 
 *Two palettes. Same soul. One for the quiet night. One for the fire.*

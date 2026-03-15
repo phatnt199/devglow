@@ -2,7 +2,7 @@
 
 Author:   Phat Nguyen <tanphat199@gmail.com>
 License:  MIT
-Homepage: https://github.com/tanphat199/devglow
+Homepage: https://github.com/phatnt199/devglow
 
 ==============================================================================
 CONTENTS                                                    *devglow-contents*
@@ -40,7 +40,7 @@ Two palettes. Same soul. One for the quiet night. One for the fire.
 
 With lazy.nvim: >lua
   {
-    "tanphat199/devglow",
+    "phatnt199/devglow",
     lazy = false,
     priority = 1000,
     config = function()
@@ -51,7 +51,7 @@ With lazy.nvim: >lua
 
 With packer.nvim: >lua
   use {
-    "tanphat199/devglow",
+    "phatnt199/devglow",
     config = function()
       vim.cmd.colorscheme("devglow")
     end,
@@ -59,7 +59,7 @@ With packer.nvim: >lua
 <
 
 Manual: >sh
-  git clone https://github.com/tanphat199/devglow.git \
+  git clone https://github.com/phatnt199/devglow.git \
     ~/.local/share/nvim/site/pack/plugins/start/devglow
 <
 
