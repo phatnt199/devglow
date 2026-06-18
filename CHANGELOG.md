@@ -5,6 +5,11 @@ All notable changes to devglow will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Vesper palette** — an homage to [Rauno Freiberg's Vesper](https://github.com/raunofreiberg/vesper): peppermint mint (`#99FFE4`) and burnt orange (`#FFC799`) accents over muted gray on a near-black `#101010` canvas. Functions/types/numbers render orange, strings mint, operators gray — Vesper's signature restraint, mapped onto devglow's shared highlight engine.
+
 ## [3.0.0] - 2025-03-15
 
 ### Added

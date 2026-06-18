@@ -22,11 +22,12 @@ CONTENTS                                                    *devglow-contents*
 1. INTRODUCTION                                                *devglow-intro*
 
 devglow is a professional dark colorscheme for Neovim, inspired by the
-vim-afterglow theme (https://github.com/danilo-augusto/vim-afterglow). It features two palettes (sage and ember),
-full Treesitter and LSP semantic token support, and a consistent design
-system that extends beyond Neovim to terminals, shells, and editors.
+vim-afterglow theme (https://github.com/danilo-augusto/vim-afterglow). It
+features six palettes (sage, ember, blush, amber, dusk, vesper), full
+Treesitter and LSP semantic token support, and a consistent design system
+that extends beyond Neovim to terminals, shells, and editors.
 
-Two palettes. Same soul. One for the quiet night. One for the fire.
+Six palettes. Same soul. Pick the one that matches your mood.
 
 ==============================================================================
 2. REQUIREMENTS                                         *devglow-requirements*
@@ -70,6 +71,10 @@ Select a colorscheme variant: >vim
   :colorscheme devglow          " sage (default)
   :colorscheme devglow-sage     " explicit sage
   :colorscheme devglow-ember    " ember
+  :colorscheme devglow-blush    " blush
+  :colorscheme devglow-amber    " amber
+  :colorscheme devglow-dusk     " dusk
+  :colorscheme devglow-vesper   " vesper
 <
 
 Or in Lua: >lua
@@ -92,7 +97,33 @@ Ember ~
 Warm terracotta, gold, burnt wine. Earth colors forged in fire.
 Background: #141311, Foreground: #F5F0EB.
 
-Both palettes share 17 color keys:
+                                                              *devglow-blush*
+Blush ~
+
+Rose gold on velvet black, coral on cream. Soft, warm, never loud.
+Background: #0C0A0A, Foreground: #E8DDD5.
+
+                                                              *devglow-amber*
+Amber ~
+
+Honey, parchment, warm sienna — fossilized sunlight.
+Background: #0D0B08, Foreground: #EDE5D8.
+
+                                                               *devglow-dusk*
+Dusk ~
+
+Crimson bleeding into plum, sunset fading into indigo.
+Background: #0A090D, Foreground: #E5E0EA.
+
+                                                             *devglow-vesper*
+Vesper ~
+
+Peppermint and burnt orange on near-black. An homage to Rauno Freiberg's
+Vesper: two accents (#FFC799 orange, #99FFE4 mint) over muted gray, color
+held back until a function, string, or error needs it.
+Background: #101010, Foreground: #FFFFFF.
+
+All palettes share 17 color keys:
   FOREGROUND, BACKGROUND,
   RED, GREEN, BLUE, ORANGE, YELLOW, PINK, GOLD, TEAL, SKY, WINE,
   DARK_00, DARK_01, DARK_02, DARK_03, DARK_04

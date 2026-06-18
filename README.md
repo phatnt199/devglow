@@ -2,7 +2,7 @@
 
 A professional dark colorscheme for Neovim — and beyond.
 
-Five palettes. One philosophy: colors that stay quiet while you think.
+Six palettes. One philosophy: colors that stay quiet while you think.
 
 > Dark mode only. No light mode — by design.
 
@@ -54,6 +54,14 @@ Every palette shares the same 17-key structure (12 colors + 5 shades), the same 
 |-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
 | | ![](https://placehold.co/16x16/E5E0EA/E5E0EA) | ![](https://placehold.co/16x16/0A090D/0A090D) | ![](https://placehold.co/16x16/CC6070/CC6070) | ![](https://placehold.co/16x16/7AA8A0/7AA8A0) | ![](https://placehold.co/16x16/7080A8/7080A8) | ![](https://placehold.co/16x16/C88060/C88060) | ![](https://placehold.co/16x16/D4A870/D4A870) | ![](https://placehold.co/16x16/C878A0/C878A0) | ![](https://placehold.co/16x16/D0A878/D0A878) | ![](https://placehold.co/16x16/709898/709898) | ![](https://placehold.co/16x16/8090B8/8090B8) | ![](https://placehold.co/16x16/8A4068/8A4068) |
 
+### Vesper — *one for the evening star*
+
+> Peppermint and burnt orange on near-black. Color held back until a function, a string, or an error truly needs it. An homage to [Rauno Freiberg's Vesper](https://github.com/raunofreiberg/vesper), in devglow's voice.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/FFFFFF/FFFFFF) | ![](https://placehold.co/16x16/101010/101010) | ![](https://placehold.co/16x16/FF8080/FF8080) | ![](https://placehold.co/16x16/FFC799/FFC799) | ![](https://placehold.co/16x16/65737E/65737E) | ![](https://placehold.co/16x16/FFC799/FFC799) | ![](https://placehold.co/16x16/99FFE4/99FFE4) | ![](https://placehold.co/16x16/A0A0A0/A0A0A0) | ![](https://placehold.co/16x16/FFCFA8/FFCFA8) | ![](https://placehold.co/16x16/7FD8C0/7FD8C0) | ![](https://placehold.co/16x16/82929E/82929E) | ![](https://placehold.co/16x16/A65D6E/A65D6E) |
+
 ---
 
 ## Installation
@@ -100,6 +108,7 @@ git clone https://github.com/phatnt199/devglow.git \
 :colorscheme devglow-blush    " soft rose
 :colorscheme devglow-amber    " golden hour
 :colorscheme devglow-dusk     " twilight crimson
+:colorscheme devglow-vesper   " peppermint & orange (Vesper homage)
 ```
 
 ### Accessing the palette programmatically
@@ -183,6 +192,7 @@ devglow/
     devglow-blush.lua
     devglow-amber.lua
     devglow-dusk.lua
+    devglow-vesper.lua
   lua/devglow/
     palette.lua              # palette loader
     highlights.lua           # shared highlight engine
@@ -192,6 +202,7 @@ devglow/
       blush.lua
       amber.lua
       dusk.lua
+      vesper.lua
   lua/lualine/themes/
     devglow.lua              # lualine statusline theme
   lua/gemini/                # gemini editor theme
@@ -240,4 +251,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 **Phat Nguyen** ([@phatnt199](https://github.com/phatnt199))
 
-*Five palettes. Same soul. Pick the one that matches your mood.*
+*Six palettes. Same soul. Pick the one that matches your mood.*
