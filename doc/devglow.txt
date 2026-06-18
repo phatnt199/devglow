@@ -23,11 +23,12 @@ CONTENTS                                                    *devglow-contents*
 
 devglow is a professional dark colorscheme for Neovim, inspired by the
 vim-afterglow theme (https://github.com/danilo-augusto/vim-afterglow). It
-features six palettes (sage, ember, blush, amber, dusk, vesper), full
-Treesitter and LSP semantic token support, and a consistent design system
-that extends beyond Neovim to terminals, shells, and editors.
+features twelve palettes (sage, ember, blush, amber, dusk, vesper, moss,
+tide, mocha, plum, ash, nocturne), full Treesitter and LSP semantic token
+support, and a consistent design system that extends beyond Neovim to
+terminals, shells, and editors.
 
-Six palettes. Same soul. Pick the one that matches your mood.
+Twelve palettes. Same soul. Pick the one that matches your mood.
 
 ==============================================================================
 2. REQUIREMENTS                                         *devglow-requirements*
@@ -75,6 +76,12 @@ Select a colorscheme variant: >vim
   :colorscheme devglow-amber    " amber
   :colorscheme devglow-dusk     " dusk
   :colorscheme devglow-vesper   " vesper
+  :colorscheme devglow-moss     " moss
+  :colorscheme devglow-tide     " tide
+  :colorscheme devglow-mocha    " mocha
+  :colorscheme devglow-plum     " plum
+  :colorscheme devglow-ash      " ash
+  :colorscheme devglow-nocturne " nocturne
 <
 
 Or in Lua: >lua
@@ -122,6 +129,45 @@ Peppermint and burnt orange on near-black. An homage to Rauno Freiberg's
 Vesper: two accents (#FFC799 orange, #99FFE4 mint) over muted gray, color
 held back until a function, string, or error needs it.
 Background: #101010, Foreground: #FFFFFF.
+
+                                                               *devglow-moss*
+Moss ~
+
+Damp forest floor — pine, lichen, wet bark, amber through the canopy.
+A true green, earthier than sage.
+Background: #0A0C08, Foreground: #DDE3D2.
+
+                                                               *devglow-tide*
+Tide ~
+
+Sea-glass and fog over deep water, weathered driftwood. A deliberately
+cool palette — seafoam, slate-blue, coral.
+Background: #07090B, Foreground: #D5DEE0.
+
+                                                              *devglow-mocha*
+Mocha ~
+
+Espresso, steamed milk, caramel, cocoa. Cozy, warm, brown-dominant.
+Background: #0E0A07, Foreground: #E8DCCB.
+
+                                                               *devglow-plum*
+Plum ~
+
+Aubergine, mauve, ripe plum, soft lavender. Violet and orchid dominant.
+Background: #0B080D, Foreground: #E4DCE8.
+
+                                                                *devglow-ash*
+Ash ~
+
+Near-monochrome — graphite, smoke, bone-white, one whisper of warmth.
+Background: #0B0B0A, Foreground: #DADAD6.
+
+                                                           *devglow-nocturne*
+Nocturne ~
+
+Deep indigo midnight, ink blue, moonlit silver. A deliberately cool,
+blue-dominant night.
+Background: #08090F, Foreground: #DCE0EC.
 
 All palettes share 17 color keys:
   FOREGROUND, BACKGROUND,

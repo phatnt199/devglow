@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>devglow — palettes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg:   #09090a;
+    --page-bg2:  #0e0e11;
+    --page-fg:   #cbc8c1;
+    --page-dim:  #6f6d67;
+    --page-fade: #44423e;
+    --page-line: rgba(255,255,255,.07);
+    --page-glow: #e0b06a;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-fg);
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(120% 80% at 50% -10%, rgba(224,176,106,.05), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  header.masthead { padding: 88px 0 36px; border-bottom: 1px solid var(--page-line); }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--page-glow);
+    margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -.015em;
+    margin: 0 0 20px;
+    color: #efece4;
+  }
+  h1 em { font-style: italic; color: var(--page-glow); }
+
+  .lede {
+    max-width: 62ch;
+    font-size: 15.5px;
+    color: var(--page-dim);
+    margin: 0 0 28px;
+    line-height: 1.7;
+  }
+  .lede strong { color: var(--page-fg); font-weight: 500; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--page-dim); margin-bottom: 30px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+
+  /* segmented filter */
+  .filter { display: inline-flex; border: 1px solid var(--page-line); border-radius: 999px; padding: 4px; gap: 2px; }
+  .filter button {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--page-dim); background: none; border: none; cursor: pointer;
+    padding: 8px 18px; border-radius: 999px; transition: color .15s ease, background .15s ease;
+  }
+  .filter button:hover { color: var(--page-fg); }
+  .filter button[aria-pressed="true"] { background: var(--page-glow); color: #16130d; font-weight: 500; }
+  .filter button:focus-visible { outline: 2px solid var(--page-glow); outline-offset: 2px; }
+
+  /* section heading */
+  .section-head { padding: 56px 0 4px; display: flex; align-items: baseline; gap: 16px; }
+  .section-head .num { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--page-fade); }
+  .section-head h2 { font-family: var(--serif); font-weight: 500; font-size: 26px; color: #efece4; margin: 0; }
+  .section-head .count { font-size: 12px; letter-spacing: .14em; color: var(--page-fade); text-transform: uppercase; }
+  .section-sub { color: var(--page-dim); font-size: 13px; margin: 8px 0 0; max-width: 70ch; line-height: 1.65; }
+  body[data-view="shipped"] .section.proposed,
+  body[data-view="proposed"] .section.shipped { display: none; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 28px 0 8px;
+  }
+  @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    position: relative;
+    border: 1px solid var(--page-line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--page-bg2);
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  .card:nth-child(1){animation-delay:.02s} .card:nth-child(2){animation-delay:.07s}
+  .card:nth-child(3){animation-delay:.12s} .card:nth-child(4){animation-delay:.17s}
+  .card:nth-child(5){animation-delay:.22s} .card:nth-child(6){animation-delay:.27s}
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -40%; left: 50%; transform: translateX(-50%);
+    width: 130%; height: 70%;
+    background: radial-gradient(50% 60% at 50% 50%, var(--glow), transparent 70%);
+    opacity: .12;
+    pointer-events: none;
+  }
+
+  .card-head {
+    position: relative;
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid var(--page-line);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .card-name { font-family: var(--serif); font-size: 27px; font-weight: 500; color: #f0ede5; line-height: 1; }
+  .card-tag { font-family: var(--serif); font-style: italic; font-size: 14.5px; color: var(--page-dim); margin-top: 8px; }
+  .card-meta { text-align: right; flex-shrink: 0; }
+  .card-index { font-size: 12px; letter-spacing: .2em; color: var(--page-fade); }
+  .pill {
+    display: inline-block; margin-top: 8px; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px; border: 1px solid var(--page-line); color: var(--page-dim);
+  }
+  .pill.cool { color: #8fb6d8; border-color: rgba(143,182,216,.3); }
+  .pill.live { color: #9ec79a; border-color: rgba(158,199,154,.3); }
+
+  .card-blurb { padding: 16px 24px 0; font-size: 13px; color: var(--page-dim); line-height: 1.65; }
+
+  .editor {
+    margin: 18px 18px 4px;
+    border-radius: 9px;
+    overflow: hidden;
+    background: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    font-size: 12.5px;
+    line-height: 1.62;
+  }
+  .editor-bar {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 13px;
+    background: var(--d01);
+    border-bottom: 1px solid rgba(255,255,255,.04);
+  }
+  .editor-bar i { width: 9px; height: 9px; border-radius: 50%; opacity: .8; }
+  .editor-cmd { margin-left: 8px; font-size: 11px; color: var(--d04); }
+
+  pre.code { margin: 0; padding: 12px 4px 16px; overflow-x: auto; }
+  .ln { display: block; padding: 0 16px 0 0; white-space: pre; }
+  .ln .gutter { display: inline-block; width: 34px; text-align: right; margin-right: 16px; color: var(--d04); user-select: none; }
+  .ln.cursor { background: var(--d02); }
+  .ln.cursor .gutter { color: var(--orange); }
+
+  .t-comment { color: var(--d04); font-style: italic; }
+  .t-kw      { color: var(--red); }
+  .t-fn      { color: var(--green); font-weight: 700; }
+  .t-str     { color: var(--yellow); }
+  .t-num     { color: var(--orange); }
+  .t-type    { color: var(--orange); }
+  .t-punc    { color: var(--orange); }
+  .t-op      { color: var(--pink); }
+  .t-var     { color: var(--fg); }
+  .t-field   { color: var(--fg); }
+  .t-txt     { color: var(--fg); }
+
+  .swatches { padding: 16px 24px 24px; }
+  .sw-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 8px; }
+  .sw {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    text-align: left;
+    font-family: var(--mono);
+  }
+  .sw .chip {
+    height: 30px; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,.08);
+    transition: transform .12s ease;
+  }
+  .sw:hover .chip, .sw:focus-visible .chip { transform: translateY(-2px); }
+  .sw:focus-visible { outline: none; }
+  .sw:focus-visible .chip { outline: 2px solid var(--page-glow); outline-offset: 2px; }
+  .sw .lbl { display: block; font-size: 9.5px; letter-spacing: .04em; color: var(--page-fade); margin-top: 5px; }
+  .sw .hex { display: block; font-size: 9.5px; color: var(--page-dim); }
+
+  .shades { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); margin-top: 4px; }
+  .shades div { flex: 1; }
+
+  .sw-meta { display: flex; justify-content: space-between; font-size: 10px; color: var(--page-fade); margin: 14px 0 6px; letter-spacing: .08em; text-transform: uppercase; }
+
+  #toast {
+    position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: #1a1a1d; color: var(--page-fg); border: 1px solid var(--page-line);
+    padding: 9px 18px; border-radius: 999px; font-size: 12.5px;
+    opacity: 0; transition: all .22s ease; pointer-events: none; z-index: 50;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  footer { border-top: 1px solid var(--page-line); margin-top: 72px; padding: 40px 0 80px; color: var(--page-fade); font-size: 12.5px; }
+  footer .note { color: var(--page-dim); max-width: 66ch; line-height: 1.7; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body data-view="all">
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">devglow · palettes</p>
+    <h1>Twelve moods,<br>each <em>one for the&nbsp;___</em></h1>
+    <p class="lede">
+      Every devglow palette, shipped and proposed, rendered as live code in the theme's
+      <strong>actual</strong> semantic mapping. Functions glow green, strings warm yellow,
+      keywords red, types and numbers orange, operators in pink — exactly what Neovim paints
+      when you run <strong>:colorscheme devglow-&lt;name&gt;</strong>.
+    </p>
+    <div class="legend">
+      <span><i style="background:#AF5F5F"></i>keyword&nbsp;·&nbsp;error</span>
+      <span><i style="background:#87AFAF"></i>function</span>
+      <span><i style="background:#D59572"></i>type&nbsp;·&nbsp;number&nbsp;·&nbsp;delimiter</span>
+      <span><i style="background:#E5B567"></i>string</span>
+      <span><i style="background:#D68C8C"></i>operator</span>
+      <span><i style="background:#797979"></i>comment</span>
+    </div>
+    <div class="filter" role="group" aria-label="Filter palettes">
+      <button data-view="all" aria-pressed="true">All</button>
+      <button data-view="shipped" aria-pressed="false">Shipped</button>
+      <button data-view="proposed" aria-pressed="false">Proposed</button>
+    </div>
+  </header>
+
+  <section class="section shipped">
+    <div class="section-head">
+      <span class="num">I.</span>
+      <h2>Shipped</h2>
+      <span class="count">six · in the plugin today</span>
+    </div>
+    <p class="section-sub">The colorschemes you can run right now. Values read straight from <code>lua/devglow/palettes/*.lua</code>.</p>
+    <div class="grid" id="grid-shipped"></div>
+  </section>
+
+  <section class="section proposed">
+    <div class="section-head">
+      <span class="num">II.</span>
+      <h2>Proposed</h2>
+      <span class="count">six · candidates</span>
+    </div>
+    <p class="section-sub">New moods filling color territory the shipped six don't cover. Each has a complete, ready-to-build 17-key palette behind it.</p>
+    <div class="grid" id="grid-proposed"></div>
+  </section>
+
+  <footer>
+    <p class="note">
+      Click any swatch to copy its hex. Every palette shares the same 17-key structure
+      (12 colors + 5 shades) and the same highlight engine — only the mood changes.
+      The two palettes tagged <strong style="color:#8fb6d8">cool</strong> deliberately break
+      devglow's "warm neutrals" principle for a genuinely cold feel.
+    </p>
+  </footer>
+
+</div>
+<div id="toast">copied</div>
+
+<script>
+// ---- shipped: read from lua/devglow/palettes/*.lua ----
+const SHIPPED = [
+  { name:"Sage", tag:"one for the quiet night", idx:"01",
+    blurb:"Muted, grey-tinted, calm. A dark room with just enough candlelight to read by. Colors aged like leather and old paper.",
+    c:{ FOREGROUND:"#E6E6E6", BACKGROUND:"#080808", RED:"#AF5F5F", GREEN:"#87AFAF", BLUE:"#7590AF",
+        ORANGE:"#D59572", YELLOW:"#E5B567", PINK:"#D68C8C", GOLD:"#EBC17A", TEAL:"#7DB9B6", SKY:"#7EAAC7", WINE:"#924653",
+        DARK_00:"#111111", DARK_01:"#181818", DARK_02:"#282828", DARK_03:"#383838", DARK_04:"#797979" } },
+
+  { name:"Ember", tag:"one for the fire", idx:"02",
+    blurb:"Not the flame itself, but the glowing coals underneath. Terracotta, warm gold, burnt wine. It glows from within.",
+    c:{ FOREGROUND:"#F5F0EB", BACKGROUND:"#141311", RED:"#D06060", GREEN:"#6AADAD", BLUE:"#5A9D9D",
+        ORANGE:"#D4785E", YELLOW:"#E0BA6A", PINK:"#E08B72", GOLD:"#EACA80", TEAL:"#7BBDBD", SKY:"#6AADAD", WINE:"#B45A42",
+        DARK_00:"#0D0D0B", DARK_01:"#1A1917", DARK_02:"#2E2C28", DARK_03:"#3A3835", DARK_04:"#78716C" } },
+
+  { name:"Blush", tag:"one for the tender night", idx:"03",
+    blurb:"Rose gold on velvet black, coral on cream. Soft, warm, never loud — like a whisper in pink.",
+    c:{ FOREGROUND:"#E8DDD5", BACKGROUND:"#0C0A0A", RED:"#C47070", GREEN:"#8BA89A", BLUE:"#7E8BA8",
+        ORANGE:"#C4917A", YELLOW:"#D4B483", PINK:"#D4889A", GOLD:"#CCA88A", TEAL:"#8AA09A", SKY:"#9AAABF", WINE:"#944E63",
+        DARK_00:"#100E0E", DARK_01:"#1A1717", DARK_02:"#2A2626", DARK_03:"#3A3535", DARK_04:"#7A7070" } },
+
+  { name:"Amber", tag:"one for the golden hour", idx:"04",
+    blurb:"Honey, parchment, warm sienna — fossilized sunlight. Not flashy, just warm, like the sun through old glass.",
+    c:{ FOREGROUND:"#EDE5D8", BACKGROUND:"#0D0B08", RED:"#B86B5A", GREEN:"#8A9A78", BLUE:"#7A8B98",
+        ORANGE:"#C48A5A", YELLOW:"#D4A855", PINK:"#C4897A", GOLD:"#DEAD6A", TEAL:"#7A9A88", SKY:"#8A9EB0", WINE:"#8A5040",
+        DARK_00:"#0F0D0A", DARK_01:"#1A1814", DARK_02:"#2A2820", DARK_03:"#3A3830", DARK_04:"#7A7468" } },
+
+  { name:"Dusk", tag:"one for the fading light", idx:"05",
+    blurb:"Crimson bleeding into plum, sunset fading into indigo. Every color carries the weight of the day behind it.",
+    c:{ FOREGROUND:"#E5E0EA", BACKGROUND:"#0A090D", RED:"#CC6070", GREEN:"#7AA8A0", BLUE:"#7080A8",
+        ORANGE:"#C88060", YELLOW:"#D4A870", PINK:"#C878A0", GOLD:"#D0A878", TEAL:"#709898", SKY:"#8090B8", WINE:"#8A4068",
+        DARK_00:"#0E0D10", DARK_01:"#181620", DARK_02:"#282530", DARK_03:"#383540", DARK_04:"#787080" } },
+
+  { name:"Vesper", tag:"one for the evening star", idx:"06",
+    blurb:"Peppermint and burnt orange on near-black. Color held back until a function, a string, or an error truly needs it. An homage to Rauno Freiberg's Vesper.",
+    c:{ FOREGROUND:"#FFFFFF", BACKGROUND:"#101010", RED:"#FF8080", GREEN:"#FFC799", BLUE:"#65737E",
+        ORANGE:"#FFC799", YELLOW:"#99FFE4", PINK:"#A0A0A0", GOLD:"#FFCFA8", TEAL:"#7FD8C0", SKY:"#82929E", WINE:"#A65D6E",
+        DARK_00:"#161616", DARK_01:"#1C1C1C", DARK_02:"#232323", DARK_03:"#343434", DARK_04:"#5C5C5C" } },
+];
+
+// ---- proposed: candidate palettes ----
+const PROPOSED = [
+  { name:"Moss", tag:"one for the deep wood", idx:"01",
+    blurb:"Damp forest floor — pine, lichen, wet bark, with amber breaking through the canopy. A true green, earthier than sage.",
+    c:{ FOREGROUND:"#DDE3D2", BACKGROUND:"#0A0C08", RED:"#C16B5A", GREEN:"#8FB07A", BLUE:"#6E8A82",
+        ORANGE:"#C8945E", YELLOW:"#C2B070", PINK:"#B98A86", GOLD:"#D2B878", TEAL:"#7AA890", SKY:"#88A0A0", WINE:"#6E5040",
+        DARK_00:"#0C0E0A", DARK_01:"#161A12", DARK_02:"#242A1E", DARK_03:"#343A2C", DARK_04:"#6A7060" } },
+
+  { name:"Tide", tag:"one for the still water", idx:"02", cool:true,
+    blurb:"Sea-glass and fog over deep water, weathered driftwood. A deliberately cool palette — seafoam, slate-blue, coral.",
+    c:{ FOREGROUND:"#D5DEE0", BACKGROUND:"#07090B", RED:"#C0707A", GREEN:"#7FB0A6", BLUE:"#6F92B0",
+        ORANGE:"#C28E6E", YELLOW:"#C4B58C", PINK:"#B189A0", GOLD:"#D0BC88", TEAL:"#6FB0AE", SKY:"#88A8C2", WINE:"#5E6E80",
+        DARK_00:"#090C0E", DARK_01:"#121820", DARK_02:"#1E2630", DARK_03:"#2E3742", DARK_04:"#66727C" } },
+
+  { name:"Mocha", tag:"one for the late café", idx:"03",
+    blurb:"Espresso, steamed milk, caramel, cocoa. Cozy, warm, brown-dominant — the comfort theme.",
+    c:{ FOREGROUND:"#E8DCCB", BACKGROUND:"#0E0A07", RED:"#BC6A55", GREEN:"#9CA876", BLUE:"#7E8794",
+        ORANGE:"#CE9560", YELLOW:"#D4B173", PINK:"#C99488", GOLD:"#DDB87A", TEAL:"#8AA896", SKY:"#9398A6", WINE:"#7A4838",
+        DARK_00:"#100C09", DARK_01:"#1C1611", DARK_02:"#2C231B", DARK_03:"#3C3228", DARK_04:"#786A5C" } },
+
+  { name:"Plum", tag:"one for the violet hour", idx:"04",
+    blurb:"Aubergine, mauve, ripe plum, soft lavender. Violet and orchid dominant — rare and elegant in dark themes.",
+    c:{ FOREGROUND:"#E4DCE8", BACKGROUND:"#0B080D", RED:"#C46A86", GREEN:"#88AC98", BLUE:"#8088C0",
+        ORANGE:"#C68C72", YELLOW:"#CBB078", PINK:"#C285B8", GOLD:"#D2AC84", TEAL:"#80AAB0", SKY:"#9A92C8", WINE:"#8A4A78",
+        DARK_00:"#0D0A10", DARK_01:"#181420", DARK_02:"#272030", DARK_03:"#373040", DARK_04:"#756C80" } },
+
+  { name:"Ash", tag:"one for the blank page", idx:"05",
+    blurb:"Near-monochrome. Graphite, smoke, bone-white, with one faint whisper of warmth. Color reserved for almost nothing.",
+    c:{ FOREGROUND:"#DADAD6", BACKGROUND:"#0B0B0A", RED:"#B08078", GREEN:"#9AA396", BLUE:"#8C96A0",
+        ORANGE:"#BFA088", YELLOW:"#C0BCA0", PINK:"#AE9AA0", GOLD:"#C8BC9E", TEAL:"#94A6A2", SKY:"#98A2AC", WINE:"#6E6066",
+        DARK_00:"#0D0D0C", DARK_01:"#181817", DARK_02:"#262625", DARK_03:"#363635", DARK_04:"#6E6E6A" } },
+
+  { name:"Nocturne", tag:"one for the midnight watch", idx:"06", cool:true,
+    blurb:"Deep indigo midnight, ink blue, moonlit silver, distant starlight. Cool and blue-dominant night.",
+    c:{ FOREGROUND:"#DCE0EC", BACKGROUND:"#08090F", RED:"#C66B74", GREEN:"#7FA8A0", BLUE:"#7E92C4",
+        ORANGE:"#C68E6E", YELLOW:"#CBBE82", PINK:"#B084B8", GOLD:"#D0B884", TEAL:"#74A6B4", SKY:"#8EA4D0", WINE:"#5A4E84",
+        DARK_00:"#0A0B12", DARK_01:"#14161F", DARK_02:"#20232E", DARK_03:"#30343F", DARK_04:"#6A6E80" } },
+];
+
+// ---- one code sample, tokenized once; mapped to each palette's roles ----
+const CODE = [
+  [["comment","-- forge a palette from the evening light"]],
+  [],
+  [["kw","local"],["txt"," "],["var","M"],["txt"," "],["op","="],["txt"," "],["punc","{}"]],
+  [],
+  [["kw","local"],["txt"," "],["kw","function"],["txt"," "],["fn","blend"],["punc","("],["var","base"],["punc",","],["txt"," "],["var","glow"],["punc",","],["txt"," "],["var","amount"],["punc",")"]],
+  [["txt","  "],["kw","local"],["txt"," "],["var","mix"],["txt"," "],["op","="],["txt"," "],["var","base"],["txt"," "],["op","*"],["txt"," "],["punc","("],["num","1"],["txt"," "],["op","-"],["txt"," "],["var","amount"],["punc",")"],["txt"," "],["op","+"],["txt"," "],["var","glow"],["txt"," "],["op","*"],["txt"," "],["var","amount"]],
+  [["txt","  "],["kw","return"],["txt"," "],["type","math"],["punc","."],["fn","floor"],["punc","("],["var","mix"],["txt"," "],["op","+"],["txt"," "],["num","0.5"],["punc",")"]],
+  [["kw","end"]],
+  [],
+  [["kw","function"],["txt"," "],["type","M"],["punc","."],["fn","load"],["punc","("],["var","name"],["punc",")"]],
+  [["txt","  "],["kw","local"],["txt"," "],["var","palette"],["txt"," "],["op","="],["txt"," "],["fn","require"],["punc","("],["str","\"devglow.palettes.\""],["txt"," "],["op",".."],["txt"," "],["var","name"],["punc",")"]],
+  [["txt","  "],["kw","if"],["txt"," "],["var","palette"],["txt"," "],["op","=="],["txt"," "],["kw","nil"],["txt"," "],["kw","then"]],
+  [["txt","    "],["fn","error"],["punc","("],["str","\"unknown palette: \""],["txt"," "],["op",".."],["txt"," "],["var","name"],["punc",")"]],
+  [["txt","  "],["kw","end"]],
+  [["txt","  "],["kw","return"],["txt"," "],["fn","setmetatable"],["punc","("],["var","palette"],["punc",","],["txt"," "],["punc","{"],["txt"," "],["field","__index"],["txt"," "],["op","="],["txt"," "],["type","M"],["txt"," "],["punc","}"],["punc",")"]],
+  [["kw","end"]],
+  [],
+  [["kw","return"],["txt"," "],["type","M"]],
+];
+
+const CURSOR_LINE = 7;
+const NAMED = ["RED","GREEN","BLUE","ORANGE","YELLOW","PINK","GOLD","TEAL","SKY","WINE"];
+
+function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function renderCode(){
+  let out = "";
+  CODE.forEach((line, i) => {
+    const n = i + 1;
+    const cls = n === CURSOR_LINE ? "ln cursor" : "ln";
+    let inner = `<span class="gutter">${n}</span>`;
+    for (const tok of line) {
+      const type = tok[0], text = tok[1] || "";
+      inner += text ? `<span class="t-${type}">${esc(text)}</span>` : "";
+    }
+    out += `<span class="${cls}">${inner}\n</span>`;
+  });
+  return out;
+}
+
+function cardHTML(p, status){
+  const c = p.c;
+  const vars = `--bg:${c.BACKGROUND};--fg:${c.FOREGROUND};--red:${c.RED};--green:${c.GREEN};`
+    + `--orange:${c.ORANGE};--yellow:${c.YELLOW};--pink:${c.PINK};--blue:${c.BLUE};`
+    + `--d01:${c.DARK_01};--d02:${c.DARK_02};--d04:${c.DARK_04};--glow:${c.GOLD};`;
+
+  const swatches = NAMED.map(k => `
+    <button class="sw" data-hex="${c[k]}" title="${c[k]}">
+      <span class="chip" style="background:${c[k]}"></span>
+      <span class="lbl">${k}</span>
+      <span class="hex">${c[k]}</span>
+    </button>`).join("");
+
+  const shades = ["DARK_00","DARK_01","DARK_02","DARK_03","DARK_04"]
+    .map(k => `<div style="background:${c[k]}" title="${k} ${c[k]}"></div>`).join("");
+
+  const pill = status === "shipped"
+    ? `<span class="pill live">shipped</span>`
+    : (p.cool ? `<span class="pill cool">cool</span>` : `<span class="pill">candidate</span>`);
+
+  const lname = p.name.toLowerCase();
+
+  return `
+  <article class="card" style="${vars}">
+    <div class="card-head">
+      <div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-tag">${p.tag}</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-index">${p.idx}</div>
+        ${pill}
+      </div>
+    </div>
+    <p class="card-blurb">${p.blurb}</p>
+
+    <div class="editor">
+      <div class="editor-bar">
+        <i style="background:${c.RED}"></i>
+        <i style="background:${c.YELLOW}"></i>
+        <i style="background:${c.GREEN}"></i>
+        <span class="editor-cmd">:colorscheme devglow-${lname}</span>
+      </div>
+      <pre class="code">${renderCode()}</pre>
+    </div>
+
+    <div class="swatches">
+      <div class="sw-meta"><span>12 colors</span><span>bg ${c.BACKGROUND} · fg ${c.FOREGROUND}</span></div>
+      <div class="sw-row">${swatches}</div>
+      <div class="sw-meta"><span>5 shades</span><span>darkest → comments</span></div>
+      <div class="shades">${shades}</div>
+    </div>
+  </article>`;
+}
+
+document.getElementById("grid-shipped").innerHTML  = SHIPPED.map(p => cardHTML(p, "shipped")).join("");
+document.getElementById("grid-proposed").innerHTML = PROPOSED.map(p => cardHTML(p, "proposed")).join("");
+
+// filter toggle
+const buttons = document.querySelectorAll(".filter button");
+buttons.forEach(btn => btn.addEventListener("click", () => {
+  buttons.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+  document.body.dataset.view = btn.dataset.view;
+}));
+
+// copy-to-clipboard on swatch click
+const toast = document.getElementById("toast");
+let toastTimer;
+document.querySelector(".wrap").addEventListener("click", e => {
+  const btn = e.target.closest(".sw");
+  if (!btn) return;
+  const hex = btn.dataset.hex;
+  navigator.clipboard?.writeText(hex).then(() => {
+    toast.textContent = "copied " + hex;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 1300);
+  });
+});
+</script>
+</body>
+</html>

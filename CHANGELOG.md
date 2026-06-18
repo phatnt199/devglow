@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - **Vesper palette** — an homage to [Rauno Freiberg's Vesper](https://github.com/raunofreiberg/vesper): peppermint mint (`#99FFE4`) and burnt orange (`#FFC799`) accents over muted gray on a near-black `#101010` canvas. Functions/types/numbers render orange, strings mint, operators gray — Vesper's signature restraint, mapped onto devglow's shared highlight engine.
+- **Six new palettes** — doubling the set from six to twelve:
+  - **Moss** — *one for the deep wood.* A true forest green, earthier than sage.
+  - **Tide** — *one for the still water.* A deliberately cool seafoam-and-slate palette.
+  - **Mocha** — *one for the late café.* Cozy, warm, brown-dominant coffee tones.
+  - **Plum** — *one for the violet hour.* Aubergine, mauve, and orchid — violet-dominant.
+  - **Ash** — *one for the blank page.* Near-monochrome, with one whisper of warmth.
+  - **Nocturne** — *one for the midnight watch.* A deliberately cool, indigo-blue night.
 
 ## [3.0.0] - 2025-03-15
 

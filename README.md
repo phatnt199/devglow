@@ -2,7 +2,7 @@
 
 A professional dark colorscheme for Neovim — and beyond.
 
-Six palettes. One philosophy: colors that stay quiet while you think.
+Twelve palettes. One philosophy: colors that stay quiet while you think.
 
 > Dark mode only. No light mode — by design.
 
@@ -62,6 +62,54 @@ Every palette shares the same 17-key structure (12 colors + 5 shades), the same 
 |-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
 | | ![](https://placehold.co/16x16/FFFFFF/FFFFFF) | ![](https://placehold.co/16x16/101010/101010) | ![](https://placehold.co/16x16/FF8080/FF8080) | ![](https://placehold.co/16x16/FFC799/FFC799) | ![](https://placehold.co/16x16/65737E/65737E) | ![](https://placehold.co/16x16/FFC799/FFC799) | ![](https://placehold.co/16x16/99FFE4/99FFE4) | ![](https://placehold.co/16x16/A0A0A0/A0A0A0) | ![](https://placehold.co/16x16/FFCFA8/FFCFA8) | ![](https://placehold.co/16x16/7FD8C0/7FD8C0) | ![](https://placehold.co/16x16/82929E/82929E) | ![](https://placehold.co/16x16/A65D6E/A65D6E) |
 
+### Moss — *one for the deep wood*
+
+> Damp forest floor — pine, lichen, wet bark, with amber breaking through the canopy. A true green, earthier than sage.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/DDE3D2/DDE3D2) | ![](https://placehold.co/16x16/0A0C08/0A0C08) | ![](https://placehold.co/16x16/C16B5A/C16B5A) | ![](https://placehold.co/16x16/8FB07A/8FB07A) | ![](https://placehold.co/16x16/6E8A82/6E8A82) | ![](https://placehold.co/16x16/C8945E/C8945E) | ![](https://placehold.co/16x16/C2B070/C2B070) | ![](https://placehold.co/16x16/B98A86/B98A86) | ![](https://placehold.co/16x16/D2B878/D2B878) | ![](https://placehold.co/16x16/7AA890/7AA890) | ![](https://placehold.co/16x16/88A0A0/88A0A0) | ![](https://placehold.co/16x16/6E5040/6E5040) |
+
+### Tide — *one for the still water*
+
+> Sea-glass and fog over deep water, weathered driftwood. A deliberately cool palette — seafoam, slate-blue, coral.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/D5DEE0/D5DEE0) | ![](https://placehold.co/16x16/07090B/07090B) | ![](https://placehold.co/16x16/C0707A/C0707A) | ![](https://placehold.co/16x16/7FB0A6/7FB0A6) | ![](https://placehold.co/16x16/6F92B0/6F92B0) | ![](https://placehold.co/16x16/C28E6E/C28E6E) | ![](https://placehold.co/16x16/C4B58C/C4B58C) | ![](https://placehold.co/16x16/B189A0/B189A0) | ![](https://placehold.co/16x16/D0BC88/D0BC88) | ![](https://placehold.co/16x16/6FB0AE/6FB0AE) | ![](https://placehold.co/16x16/88A8C2/88A8C2) | ![](https://placehold.co/16x16/5E6E80/5E6E80) |
+
+### Mocha — *one for the late café*
+
+> Espresso, steamed milk, caramel, cocoa. Cozy, warm, brown-dominant — the comfort theme.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/E8DCCB/E8DCCB) | ![](https://placehold.co/16x16/0E0A07/0E0A07) | ![](https://placehold.co/16x16/BC6A55/BC6A55) | ![](https://placehold.co/16x16/9CA876/9CA876) | ![](https://placehold.co/16x16/7E8794/7E8794) | ![](https://placehold.co/16x16/CE9560/CE9560) | ![](https://placehold.co/16x16/D4B173/D4B173) | ![](https://placehold.co/16x16/C99488/C99488) | ![](https://placehold.co/16x16/DDB87A/DDB87A) | ![](https://placehold.co/16x16/8AA896/8AA896) | ![](https://placehold.co/16x16/9398A6/9398A6) | ![](https://placehold.co/16x16/7A4838/7A4838) |
+
+### Plum — *one for the violet hour*
+
+> Aubergine, mauve, ripe plum, soft lavender. Violet and orchid dominant — rare and elegant in dark themes.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/E4DCE8/E4DCE8) | ![](https://placehold.co/16x16/0B080D/0B080D) | ![](https://placehold.co/16x16/C46A86/C46A86) | ![](https://placehold.co/16x16/88AC98/88AC98) | ![](https://placehold.co/16x16/8088C0/8088C0) | ![](https://placehold.co/16x16/C68C72/C68C72) | ![](https://placehold.co/16x16/CBB078/CBB078) | ![](https://placehold.co/16x16/C285B8/C285B8) | ![](https://placehold.co/16x16/D2AC84/D2AC84) | ![](https://placehold.co/16x16/80AAB0/80AAB0) | ![](https://placehold.co/16x16/9A92C8/9A92C8) | ![](https://placehold.co/16x16/8A4A78/8A4A78) |
+
+### Ash — *one for the blank page*
+
+> Near-monochrome. Graphite, smoke, bone-white, with one faint whisper of warmth. Color reserved for almost nothing.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/DADAD6/DADAD6) | ![](https://placehold.co/16x16/0B0B0A/0B0B0A) | ![](https://placehold.co/16x16/B08078/B08078) | ![](https://placehold.co/16x16/9AA396/9AA396) | ![](https://placehold.co/16x16/8C96A0/8C96A0) | ![](https://placehold.co/16x16/BFA088/BFA088) | ![](https://placehold.co/16x16/C0BCA0/C0BCA0) | ![](https://placehold.co/16x16/AE9AA0/AE9AA0) | ![](https://placehold.co/16x16/C8BC9E/C8BC9E) | ![](https://placehold.co/16x16/94A6A2/94A6A2) | ![](https://placehold.co/16x16/98A2AC/98A2AC) | ![](https://placehold.co/16x16/6E6066/6E6066) |
+
+### Nocturne — *one for the midnight watch*
+
+> Deep indigo midnight, ink blue, moonlit silver, distant starlight. A deliberately cool, blue-dominant night.
+
+| | Fg | Bg | Red | Green | Blue | Orange | Yellow | Pink | Gold | Teal | Sky | Wine |
+|-|----|----|-----|-------|------|--------|--------|------|------|------|-----|------|
+| | ![](https://placehold.co/16x16/DCE0EC/DCE0EC) | ![](https://placehold.co/16x16/08090F/08090F) | ![](https://placehold.co/16x16/C66B74/C66B74) | ![](https://placehold.co/16x16/7FA8A0/7FA8A0) | ![](https://placehold.co/16x16/7E92C4/7E92C4) | ![](https://placehold.co/16x16/C68E6E/C68E6E) | ![](https://placehold.co/16x16/CBBE82/CBBE82) | ![](https://placehold.co/16x16/B084B8/B084B8) | ![](https://placehold.co/16x16/D0B884/D0B884) | ![](https://placehold.co/16x16/74A6B4/74A6B4) | ![](https://placehold.co/16x16/8EA4D0/8EA4D0) | ![](https://placehold.co/16x16/5A4E84/5A4E84) |
+
 ---
 
 ## Installation
@@ -109,6 +157,12 @@ git clone https://github.com/phatnt199/devglow.git \
 :colorscheme devglow-amber    " golden hour
 :colorscheme devglow-dusk     " twilight crimson
 :colorscheme devglow-vesper   " peppermint & orange (Vesper homage)
+:colorscheme devglow-moss     " deep forest green
+:colorscheme devglow-tide     " cool sea-glass
+:colorscheme devglow-mocha    " coffee & caramel
+:colorscheme devglow-plum     " violet hour
+:colorscheme devglow-ash      " near-monochrome
+:colorscheme devglow-nocturne " midnight indigo
 ```
 
 ### Accessing the palette programmatically
@@ -193,6 +247,12 @@ devglow/
     devglow-amber.lua
     devglow-dusk.lua
     devglow-vesper.lua
+    devglow-moss.lua
+    devglow-tide.lua
+    devglow-mocha.lua
+    devglow-plum.lua
+    devglow-ash.lua
+    devglow-nocturne.lua
   lua/devglow/
     palette.lua              # palette loader
     highlights.lua           # shared highlight engine
@@ -203,6 +263,12 @@ devglow/
       amber.lua
       dusk.lua
       vesper.lua
+      moss.lua
+      tide.lua
+      mocha.lua
+      plum.lua
+      ash.lua
+      nocturne.lua
   lua/lualine/themes/
     devglow.lua              # lualine statusline theme
   lua/gemini/                # gemini editor theme
@@ -251,4 +317,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 **Phat Nguyen** ([@phatnt199](https://github.com/phatnt199))
 
-*Six palettes. Same soul. Pick the one that matches your mood.*
+*Twelve palettes. Same soul. Pick the one that matches your mood.*
