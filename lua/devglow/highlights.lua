@@ -214,7 +214,7 @@ local function apply(C)
   -- BlinkCmp
   hl("BlinkCmpMenu", { fg = C.FOREGROUND, bg = C.DARK_02 })
   hl("BlinkCmpMenuBorder", { fg = C.DARK_03, bg = C.DARK_02 })
-  hl("BlinkCmpMenuSelection", { fg = C.GOLD, bg = C.DARK_02, bold = true })
+  hl("BlinkCmpMenuSelection", { fg = C.ORANGE, bold = true })
   hl("BlinkCmpScrollBarThumb", { bg = C.DARK_04 })
   hl("BlinkCmpScrollBarGutter", { bg = C.DARK_02 })
 
