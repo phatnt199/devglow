@@ -212,8 +212,34 @@ local function apply(C)
   link("NvimTreeOpenedFolderName", "NvimTreeFolderName")
 
   -- BlinkCmp
-  hl("BlinkCmpMenuBorder", { fg = C.DARK_03 })
-  link("BlinkCmpDocBorder", "BlinkCmpMenuBorder")
+  -- Menu: lift the background to DARK_02 (clearly above the editor bg) and use a
+  -- bright DARK_04 border so the popup reads as a distinct surface.
+  hl("BlinkCmpMenu", { fg = C.FOREGROUND, bg = C.DARK_02 })
+  hl("BlinkCmpMenuBorder", { fg = C.DARK_04 })
+  hl("BlinkCmpMenuSelection", { fg = C.FOREGROUND, bg = C.DARK_03, bold = true })
+  hl("BlinkCmpScrollBarThumb", { bg = C.DARK_04 })
+  hl("BlinkCmpScrollBarGutter", { bg = C.DARK_02 })
+
+  -- Labels
+  hl("BlinkCmpLabel", { fg = C.FOREGROUND })
+  hl("BlinkCmpLabelMatch", { fg = C.YELLOW, bold = true })
+  hl("BlinkCmpLabelDeprecated", { fg = C.DARK_04, strikethrough = true })
+  hl("BlinkCmpLabelDetail", { fg = C.DARK_04 })
+  hl("BlinkCmpLabelDescription", { fg = C.DARK_04 })
+  hl("BlinkCmpKind", { fg = C.SKY })
+  hl("BlinkCmpSource", { fg = C.DARK_04 })
+  hl("BlinkCmpGhostText", { fg = C.DARK_04, italic = true })
+
+  -- Documentation window
+  hl("BlinkCmpDoc", { fg = C.FOREGROUND, bg = C.DARK_02 })
+  hl("BlinkCmpDocBorder", { fg = C.DARK_04 })
+  hl("BlinkCmpDocSeparator", { fg = C.DARK_04 })
+  hl("BlinkCmpDocCursorLine", { bg = C.DARK_03 })
+
+  -- Signature help
+  hl("BlinkCmpSignatureHelp", { fg = C.FOREGROUND, bg = C.DARK_02 })
+  hl("BlinkCmpSignatureHelpBorder", { fg = C.DARK_04 })
+  hl("BlinkCmpSignatureHelpActiveParameter", { fg = C.YELLOW, bold = true })
 
   ---------------------------------------------------------------------------
   -- TREESITTER
