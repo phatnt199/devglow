@@ -215,8 +215,15 @@ local function apply(C)
   -- Menu: lift the background to DARK_02 (clearly above the editor bg) and use a
   -- bright DARK_04 border so the popup reads as a distinct surface.
   hl("BlinkCmpMenu", { fg = C.FOREGROUND, bg = C.DARK_02 })
-  hl("BlinkCmpMenuBorder", { fg = C.DARK_04 })
-  hl("BlinkCmpMenuSelection", { fg = C.FOREGROUND, bg = C.DARK_03, bold = true })
+  hl("BlinkCmpMenuBorder", { fg = C.DARK_03, bg = C.DARK_02 })
+  -- Warm gold-tinted selection bar. blink paints labels with their own fg, so a
+  -- foreground colour here wouldn't reach the label text; tinting the row bg does.
+  local function blend(top, bottom, alpha)
+    local function byte(hex, i) return tonumber(hex:sub(i, i + 1), 16) end
+    local function mix(i) return math.floor(byte(top, i) * alpha + byte(bottom, i) * (1 - alpha) + 0.5) end
+    return string.format("#%02x%02x%02x", mix(2), mix(4), mix(6))
+  end
+  hl("BlinkCmpMenuSelection", { fg = C.GOLD, bg = blend(C.GOLD, C.DARK_01, 0.22), bold = true })
   hl("BlinkCmpScrollBarThumb", { bg = C.DARK_04 })
   hl("BlinkCmpScrollBarGutter", { bg = C.DARK_02 })
 
@@ -232,13 +239,13 @@ local function apply(C)
 
   -- Documentation window
   hl("BlinkCmpDoc", { fg = C.FOREGROUND, bg = C.DARK_02 })
-  hl("BlinkCmpDocBorder", { fg = C.DARK_04 })
+  hl("BlinkCmpDocBorder", { fg = C.DARK_03, bg = C.DARK_02 })
   hl("BlinkCmpDocSeparator", { fg = C.DARK_04 })
   hl("BlinkCmpDocCursorLine", { bg = C.DARK_03 })
 
   -- Signature help
   hl("BlinkCmpSignatureHelp", { fg = C.FOREGROUND, bg = C.DARK_02 })
-  hl("BlinkCmpSignatureHelpBorder", { fg = C.DARK_04 })
+  hl("BlinkCmpSignatureHelpBorder", { fg = C.DARK_03, bg = C.DARK_02 })
   hl("BlinkCmpSignatureHelpActiveParameter", { fg = C.YELLOW, bold = true })
 
   ---------------------------------------------------------------------------
